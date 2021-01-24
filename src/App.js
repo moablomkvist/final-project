@@ -1,11 +1,11 @@
 import React from 'react'
-import { AllPatterns } from './components/AllPatterns'
+
+import { RowCounter } from './components/RowCounter'
 
 export const App = () => {
   return (
     <div>
-      <AllPatterns/>
-      Find me in src/app.js!
+      <RowCounter />
     </div>
   )
 }

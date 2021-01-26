@@ -1,93 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Header = styled.header`
-  display: flex;
-  justify-content: center;
-  padding: 15px;
-  position: sticky;
-  top: 0;
-  background: #cba892;
-
-  @media (min-width: 768px) {
-    padding: 20px 0;
-  }
-`
-
-const NavigationContainer = styled.nav`
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 18px;
-  font-family: 'Fraunces';
-
-  @media (min-width: 768px) {
-    width: 60%;
-    font-size: 54px;
-  }
-`
-
-const NavigationLink = styled.a`
-  margin: 10px;
-  text-decoration: none;
-  color: black;
-
-  &:hover {
-    border: 1px dashed black;
-  }
-`
-
-const LetterSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  background: #a4a99b;
-  font-family: 'Fraunces';
-
-  @media (min-width: 768px) {
-    align-items: center;
-  }
-`
-
-const SectionHeading = styled.h2`
-  margin: 15px;
-  font-size: 48px;
-
-  @media (min-width: 768px) {
-    margin: 25px;
-    font-size: 58px;
-  }
-`
-
-const WordCardContainer = styled.article`
-  margin: 10px;
-  padding: 10px 0;
-  width: 90%;
-  border: 4px dashed #cba892;
-
-  @media (min-width: 768px) {
-    margin: 20px;
-    width: 50%;
-  }
-`
-
-const WordHeading = styled.h3`
-  margin: 10px;
-  font-size: 24px;
-
-  @media (min-width: 768px) {
-    font-size: 32px;
-  }
-`
-
-const WordExplanation = styled.p`
-  margin: 10px;
-  font-size: 18px;
-  line-height: 150%;
-
-  @media (min-width: 768px) {
-    font-size: 24px;
-  }
-`
-
 export const Glossary = () => {
   return (
   <>
@@ -220,3 +133,90 @@ export const Glossary = () => {
     </>
   )
 }
+
+const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  background: #cba892;
+
+  @media (min-width: 768px) {
+    padding: 20px 0;
+  }
+`
+
+const NavigationContainer = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 18px;
+  font-family: 'Fraunces', serif;
+
+  @media (min-width: 768px) {
+    width: 60%;
+    font-size: 54px;
+  }
+`
+
+const NavigationLink = styled.a`
+  margin: 10px;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    border: 1px dashed black;
+  }
+`
+
+const LetterSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  background: #a4a99b;
+  font-family: 'Fraunces';
+
+  @media (min-width: 768px) {
+    align-items: center;
+  }
+`
+
+const SectionHeading = styled.h2`
+  margin: 15px;
+  font-size: 48px;
+
+  @media (min-width: 768px) {
+    margin: 25px;
+    font-size: 58px;
+  }
+`
+
+const WordCardContainer = styled.article`
+  margin: 10px;
+  padding: 10px 0;
+  width: 90%;
+  border: 4px dashed #cba892;
+
+  @media (min-width: 768px) {
+    margin: 20px;
+    width: 50%;
+  }
+`
+
+const WordHeading = styled.h3`
+  margin: 10px;
+  font-size: 24px;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
+`
+
+const WordExplanation = styled.p`
+  margin: 10px;
+  font-size: 18px;
+  line-height: 150%;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+`

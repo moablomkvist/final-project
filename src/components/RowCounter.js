@@ -1,43 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const CounterContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: #a4a99b;
-  //background-color: #83AF9B;
-`
-
-const CounterButton = styled.button`
-  width: 25%;
-  margin: 10px;
-  padding: 2%;
-  background: #cba892;
-  //background-color: #83AF9B;
-  border: solid 2px;
-  font-size: 20px;
-  font-family: 'Fraunces', serif;
-  cursor: pointer;
-
-  &:hover {
-    border: dashed 2px;
-  }
-`
-
-const CounterText = styled.p`
-  font-family: 'Fraunces', serif;
-  font-size: 20px;
-  font-weight: 700;
-
-  &.progressionText {
-    font-size: 18px;
-    font-weight: 400;
-  }
-`
-
 export const RowCounter = () => {
   const [clickCount, setClickCount] = useState(0);
 
@@ -48,6 +11,7 @@ export const RowCounter = () => {
 
   return (
     <CounterContainer>
+      <CounterHeading>Start counting rows</CounterHeading>
       <CounterButton onClick={() => onClicked(1)}>+ 1</CounterButton>
       <CounterButton onClick={() => onClicked(-1)}>- 1</CounterButton>
       <CounterText>KNITTED ROWS: {clickCount}</CounterText>
@@ -55,3 +19,46 @@ export const RowCounter = () => {
     </CounterContainer>
   )
 }
+
+const CounterContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  background: #a4a99b;
+  //background-color: #83AF9B;
+  font-family: 'Fraunces', serif;
+`
+
+const CounterHeading = styled.h1`
+  font-size: 40px;
+  font-weight: 400;
+`
+
+const CounterButton = styled.button`
+  width: 25%;
+  margin: 10px;
+  padding: 2%;
+  background: #cba892;
+  //background-color: #83AF9B;
+  border: solid 2px;
+  font-size: 20px;
+
+  cursor: pointer;
+
+  &:hover {
+    border: dashed 2px;
+  }
+`
+
+const CounterText = styled.p`
+  font-size: 20px;
+  font-weight: 700;
+
+  &.progressionText {
+    font-size: 18px;
+    font-weight: 400;
+  }
+`

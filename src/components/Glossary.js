@@ -32,7 +32,7 @@ const NavigationLink = styled.a`
   color: black;
 
   &:hover {
-    border: 1px solid black;
+    border: 1px dashed black;
   }
 `
 
@@ -61,7 +61,7 @@ const WordCardContainer = styled.article`
   margin: 10px;
   padding: 10px 0;
   width: 90%;
-  border: 4px solid #cba892;
+  border: 4px dashed #cba892;
 
   @media (min-width: 768px) {
     margin: 20px;

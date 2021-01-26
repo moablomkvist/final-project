@@ -165,7 +165,7 @@ const NavigationLink = styled.a`
   color: black;
 
   &:hover {
-    border: 1px dashed black;
+    color: white;
   }
 `
 

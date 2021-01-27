@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { Nav } from './components/Nav'
 import { StartPage } from './components/StartPage'
-import { AllPatterns } from './components/AllPatterns'
 import { Glossary } from './components/Glossary'
 import { RowCounter } from './components/RowCounter'
 
@@ -21,7 +20,6 @@ export const App = () => {
         <Route path='/rowcounter' exact>
         <RowCounter />
         </Route>  
-        <AllPatterns/>
       </Switch>
     </BrowserRouter>
   )

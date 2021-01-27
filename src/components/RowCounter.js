@@ -1,21 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-export const RowCounter = () => {
-  const [clickCount, setClickCount] = useState(0);
 
-  const onClicked = (numClicks) => {
-    setClickCount(clickCount + numClicks)
-    // add something that updates the local storage (om man har fyllt i ett värde -> då visas antal varv. Om inte -> då visas 0)
-  };
+const useStickyState = (defaultValue, key) => {
+  const [value, setValue] = useState(() => {
+    const stickyValue = localStorage.getItem(key);
+    return stickyValue !== null
+      ? JSON.parse(stickyValue)
+      : defaultValue;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+  return [value, setValue];
+};
+
+export const RowCounter = () => {
+  const [clickCount, setClickCount] = useStickyState(0, 'count');
 
   return (
     <CounterContainer>
       <CounterHeading>Start counting rows</CounterHeading>
-      <CounterButton onClick={() => onClicked(1)}>+ 1</CounterButton>
-      <CounterButton onClick={() => onClicked(-1)}>- 1</CounterButton>
+      <CounterButton onClick={() => setClickCount(clickCount + 1)}>+ 1</CounterButton>
+      <CounterButton onClick={() => setClickCount(clickCount - 1)}>- 1</CounterButton>
       <CounterText>KNITTED ROWS: {clickCount}</CounterText>
-      {clickCount > 9 ? <CounterText className='progressionText'>Yay! You're getting there.</CounterText> : <></>}
+      {clickCount > 9 ? <CounterText className='progressionText'>Yay! Knit or die.</CounterText> : <></>}
     </CounterContainer>
   )
 }

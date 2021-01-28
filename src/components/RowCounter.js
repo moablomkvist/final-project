@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
+import { Ruler } from 'components/Ruler'
+
 
 const useStickyState = (defaultValue, key) => {
   const [value, setValue] = useState(() => {
@@ -20,13 +22,16 @@ export const RowCounter = () => {
   const [clickCount, setClickCount] = useStickyState(0, 'count');
 
   return (
-    <CounterContainer>
-      <CounterHeading>Start counting rows</CounterHeading>
-      <CounterButton onClick={() => setClickCount(clickCount + 1)}>+ 1</CounterButton>
-      <CounterButton onClick={() => setClickCount(clickCount - 1)}>- 1</CounterButton>
-      <CounterText>KNITTED ROWS: {clickCount}</CounterText>
-      {clickCount > 9 ? <CounterText className='progressionText'>Yay! Knit or die.</CounterText> : <></>}
-    </CounterContainer>
+    <>
+      <CounterContainer>
+        <CounterHeading>Start counting rows</CounterHeading>
+        <CounterButton onClick={() => setClickCount(clickCount + 1)}>+ 1</CounterButton>
+        <CounterButton onClick={() => setClickCount(clickCount - 1)}>- 1</CounterButton>
+        <CounterText>KNITTED ROWS: {clickCount}</CounterText>
+        {clickCount > 9 ? <CounterText className='progressionText'>Yay! Knit or die.</CounterText> : <></>}
+      </CounterContainer>
+      <Ruler />
+    </>
   )
 }
 

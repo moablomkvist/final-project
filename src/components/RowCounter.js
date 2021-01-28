@@ -69,7 +69,8 @@ const CounterButton = styled.button`
   border: solid 1px;
   font-size: 30px;
   cursor: pointer;
-  &:hover {
+
+  &:hover, &:focus, &: {
     border: dashed 2px;
   }
 `

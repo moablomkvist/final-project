@@ -63,7 +63,7 @@ const CounterButton = styled.button`
 
   cursor: pointer;
 
-  &:hover {
+  &:hover, &:focus, &: {
     border: dashed 2px;
   }
 `

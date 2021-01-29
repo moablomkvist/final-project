@@ -39,7 +39,6 @@ const SectionContainer = styled.section`
   display: flex;
   justify-content: flex-start;
   background: #a4a99b;
-
 `
 
 const CounterContainer = styled.div`
@@ -70,7 +69,7 @@ const CounterButton = styled.button`
   font-size: 30px;
   cursor: pointer;
 
-  &:hover, &:focus, &: {
+  &:hover, &:focus {
     border: dashed 2px;
   }
 `

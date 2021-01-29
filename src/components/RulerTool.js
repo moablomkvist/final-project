@@ -30,16 +30,17 @@ const Marker = styled.li`
   color: #000;
   width: 40px;
   border-left: 2px solid #000;
-    &:first-child, , &:nth-child(2n){
-      height: 1.77cm;
+    &:first-child ,&:nth-child(1n){
+      height: 1.3cm;
     }
     &:last-child {
       height: 0cm;
     }
     &:first-child::after,
-    &:nth-child(5n)::after {
+    &:nth-child(1n)::after {
       position: absolute;
       text-align: center;
+      height: 1cm;
       width: 40px;
     }
 `

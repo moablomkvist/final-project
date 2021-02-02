@@ -4,9 +4,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 //import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import { Nav } from './components/Nav'
-import { StartPage } from './components/StartPage'
-import { Glossary } from './components/Glossary'
-import { RowCounter } from './components/RowCounter'
+import { StartPage } from './pages/StartPage'
+import { GlossaryPage } from './pages/GlossaryPage'
+import { ToolboxPage } from './pages/ToolboxPage'
 
 //const reducer = combineReducers({
  // comment: comment.reducer
@@ -25,10 +25,10 @@ export const App = () => {
             <StartPage />
           </Route>
           <Route path='/glossary' exact>
-            <Glossary />  
+            <GlossaryPage />  
           </Route>
-          <Route path='/rowcounter' exact>
-          <RowCounter />
+          <Route path='/toolbox' exact>
+          <ToolboxPage />
           </Route>  
         </Switch>
       </BrowserRouter>

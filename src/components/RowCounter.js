@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import { RulerTool } from 'components/RulerTool'
-
-
 const useStickyState = (defaultValue, key) => {
   const [value, setValue] = useState(() => {
     const stickyValue = localStorage.getItem(key);
@@ -23,7 +20,6 @@ export const RowCounter = () => {
 
   return (
     <SectionContainer>
-      <RulerTool />
       <CounterContainer>
         <CounterHeading>Row Counter:</CounterHeading>
         <CounterButton onClick={() => setClickCount(clickCount + 1)}>+</CounterButton>

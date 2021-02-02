@@ -10,7 +10,7 @@ export const Nav = () => {
       </Heading>
       <MenuLinkList>
         <MenuLink>
-          <NavLink to='/rowcounter'>Row counter</NavLink>
+          <NavLink to='/toolbox'>Toolbox</NavLink>
         </MenuLink>
         <MenuLink>
           <NavLink to='/glossary'>Glossary</NavLink>

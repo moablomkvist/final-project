@@ -44,7 +44,6 @@ const CounterContainer = styled.div`
   justify-content: center;
   margin: 30px;
   background: #a4a99b;
-  //background-color: #83AF9B;
   font-family: 'Fraunces', serif;
 `
 
@@ -60,7 +59,6 @@ const CounterButton = styled.button`
   padding: 2%;
   border-radius: 50%;
   background: #cba892;
-  //background-color: #83AF9B;
   border: solid 1px;
   font-size: 30px;
   cursor: pointer;

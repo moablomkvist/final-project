@@ -6,7 +6,6 @@ const LOGIN_URL = 'http://localhost:8080/sessions'
 const SIGNUP_URL = 'http://localhost:8080/users'
 const PATTERNS_URL = 'http://localhost:8080/patterns'
 
-
 export const UserLoginSignup = () => {
   const [ name, setNames ] = useState('')
   const [ password, setPassword ] = useState('')

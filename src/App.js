@@ -7,6 +7,7 @@ import { Nav } from './components/Nav'
 import { StartPage } from './pages/StartPage'
 import { GlossaryPage } from './pages/GlossaryPage'
 import { ToolboxPage } from './pages/ToolboxPage'
+import { LandingPage } from './pages/LandingPage'
 
 //const reducer = combineReducers({
  // comment: comment.reducer
@@ -18,11 +19,13 @@ import { ToolboxPage } from './pages/ToolboxPage'
 export const App = () => {
   return (
     //<Provider store= {store}>
+    <>
+    <StartPage />
       <BrowserRouter>
         <Nav />
         <Switch>
           <Route path='/' exact>
-            <StartPage />
+            <LandingPage />
           </Route>
           <Route path='/glossary' exact>
             <GlossaryPage />  
@@ -32,6 +35,7 @@ export const App = () => {
           </Route>  
         </Switch>
       </BrowserRouter>
+      </>
     //</Provider>
   )
 }

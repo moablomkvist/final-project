@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { ReactTinyLink } from 'react-tiny-link'
+import React from 'react'
+//import { ReactTinyLink } from 'react-tiny-link'
 import styled from 'styled-components'
 
-export const userLoginSignup = () => {
+export const UserLoginSignup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()

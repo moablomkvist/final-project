@@ -9,18 +9,17 @@ export const userLoginSignup = () => {
   }
 
   return (
-  
   <section>
     <Form>
-      <label>Dela ditt tips på nybörjarmönster</label>
+      <label>Sign up</label>
       <textarea
       >
       </textarea>
-      <label>Länk</label>
+      <label>Lösenord</label>
       <textarea
       >
       </textarea>
-      <button type='submit' onClick={handleSubmit}>Dela</button>
+      <button type='submit' onClick={handleSubmit}>Sign up</button>
     </Form>
   </section>
 

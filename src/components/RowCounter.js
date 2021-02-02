@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-import { Ruler } from 'components/Ruler'
+import { RulerTool } from 'components/RulerTool'
 
 
 const useStickyState = (defaultValue, key) => {
@@ -22,54 +22,60 @@ export const RowCounter = () => {
   const [clickCount, setClickCount] = useStickyState(0, 'count');
 
   return (
-    <>
+    <SectionContainer>
+      <RulerTool />
       <CounterContainer>
-        <CounterHeading>Start counting rows</CounterHeading>
-        <CounterButton onClick={() => setClickCount(clickCount + 1)}>+ 1</CounterButton>
-        <CounterButton onClick={() => setClickCount(clickCount - 1)}>- 1</CounterButton>
-        <CounterText>KNITTED ROWS: {clickCount}</CounterText>
+        <CounterHeading>Row Counter:</CounterHeading>
+        <CounterButton onClick={() => setClickCount(clickCount + 1)}>+</CounterButton>
+        <CounterText>{clickCount} st</CounterText>
+        <CounterButton onClick={() => setClickCount(clickCount - 1)}>-</CounterButton>
         {clickCount > 9 ? <CounterText className='progressionText'>Yay! Knit or die.</CounterText> : <></>}
       </CounterContainer>
-      <Ruler />
-    </>
+    </SectionContainer>
   )
 }
 
-const CounterContainer = styled.section`
+const SectionContainer = styled.section`
+  display: flex;
+  justify-content: flex-start;
+  background: #a4a99b;
+`
+
+const CounterContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  padding: 20px;
+  margin: 30px;
   background: #a4a99b;
   //background-color: #83AF9B;
   font-family: 'Fraunces', serif;
 `
 
 const CounterHeading = styled.h1`
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 400;
 `
 
 const CounterButton = styled.button`
-  width: 25%;
+  width: 65px;
+  height: 65px;
   margin: 10px;
   padding: 2%;
+  border-radius: 50%;
   background: #cba892;
   //background-color: #83AF9B;
-  border: solid 2px;
-  font-size: 20px;
-
+  border: solid 1px;
+  font-size: 30px;
   cursor: pointer;
 
-  &:hover, &:focus, &: {
+  &:hover, &:focus {
     border: dashed 2px;
   }
 `
 
 const CounterText = styled.p`
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 700;
 
   &.progressionText {

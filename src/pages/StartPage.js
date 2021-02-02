@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { UserLoginSignup } from './components/UserLoginSignup'
+import { UserLoginSignup } from 'components/UserLoginSignup'
 
 export const StartPage = () => {
   return (

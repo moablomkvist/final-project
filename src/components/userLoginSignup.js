@@ -20,6 +20,7 @@ export const UserLoginSignup = () => {
       >
       </textarea>
       <button type='submit' onClick={handleSubmit}>Sign up</button>
+      <button onClick={() => setLoginPage(true)}>Logga in</button>
     </Form>
   </section>
 

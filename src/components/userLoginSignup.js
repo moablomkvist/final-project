@@ -7,13 +7,28 @@ const SIGNUP_URL = 'http://localhost:8080/users'
 const PATTERNS_URL = 'http://localhost:8080/patterns'
 
 export const UserLoginSignup = () => {
-  const [ name, setNames ] = useState('')
-  const [ password, setPassword ] = useState('')
-  const [ loginPage, setLoginPage ] = useState(false)
-  const [ patterns, setPatterns ] = useState({})
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+  const [loginPage, setLoginPage] = useState(false)
+  const [patterns, setPatterns] = useState({}) //the page the user gets when logged in
+  const [status, setStatus] = useState('')
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
+  const signupUser = (event) => {
+    event.preventDefault();
+    fetch(SIGNUP_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, password }),
+    })
+    .then(res => res.json())
+      .then(json => {
+        setStatus(json.message)
+      })
+      .catch(err => console.log('error:', err))
+      .finally(() => {
+        setName("");
+        setPassword("");
+      })
   }
 
   const loginUser = (event) => {
@@ -23,12 +38,22 @@ export const UserLoginSignup = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, password }),
     })
-    .then(res => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Please try again!");
+      } else {
+        return res.json();
+      }
+    })
     .then(json => {
       handlePatterns(json.accessToken)
-      //setStatus(json.message)
+      setStatus(json.message)
     })
     .catch(err => console.log('error:', err))
+    .finally(() => {
+      setName("")
+      setPassword("")
+    })
   }
 
   const handlePatterns = (accessToken) => {
@@ -38,28 +63,90 @@ export const UserLoginSignup = () => {
     })
       .then(res => res.json())
       .then(json => {
-        setPatterns(json.savedPattern)
+        setPatterns(json.patterns) //or (setPatterns=true)
       })
       .catch(err => {console.log('error:', err)
     })
   }
 
   return (
-  <section>
-    <Form>
-      <label>Sign up</label>
-      <textarea
-      >
-      </textarea>
-      <label>Lösenord</label>
-      <textarea
-      >
-      </textarea>
-      <button type='submit' onClick={handleSubmit}>Sign up</button>
-      <button onClick={() => setLoginPage(true)}>Logga in</button>
-    </Form>
-  </section>
+    <>
+    <section>
+      {!loginPage && (
+        <>
+        <Form>
+          <label>Create username</label>
+          <textarea
+            required
+            minLength='3'
+            placeholder='Minimum 3 letters'
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          >
+          </textarea>
+          <label>Password</label>
+          <textarea
+            type='password'
+            name='password'
+            required
+            minLength='5'
+            placeholder='Minimum 5 letters'
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          >
+          </textarea>
+          <button
+            type='submit' 
+            onSubmit={signupUser}
+          >
+            Sign up
+          </button>
+        </Form>
+          <button 
+            onClick={() => setLoginPage(true)}
+          >
+            Already have an account?
+          </button>
+        </>
+      )}
+    </section>
 
+    {loginPage && 
+      (
+      <Form onSubmit={loginUser}>
+        <label>
+          Name
+        </label>
+        <input
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          required
+          minLength="3"
+        />
+        <label>
+          Password
+        </label>
+        <input
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          required
+          minLength="5"
+          />
+        <button 
+          type='submit'
+          onClick={() => setPatterns(true)}
+        >
+          Log in
+        </button>
+      </Form>
+    )}
+
+    {patterns && 
+      !loginPage && (
+        <p>Look at all this patterns!</p>
+      )
+    }
+    </>
   )
 }
 

@@ -2,15 +2,16 @@ import React, { useState } from 'react'
 //import { ReactTinyLink } from 'react-tiny-link'
 import styled from 'styled-components'
 
+import { Pattern } from '../components/Pattern'
+
 const LOGIN_URL = 'http://localhost:8080/sessions'
 const SIGNUP_URL = 'http://localhost:8080/users'
-const PATTERNS_URL = 'http://localhost:8080/patterns'
+
 
 export const UserLoginSignup = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [loginPage, setLoginPage] = useState(false)
-  const [patterns, setPatterns] = useState('') //the page the user gets when logged in
   const [status, setStatus] = useState('')
 
   const handleSignup = (event) => {
@@ -22,7 +23,7 @@ export const UserLoginSignup = () => {
     })
     //.then(res => res.json())
       .then(json => {
-        handlePatterns(json.accessToken)
+        Pattern(json.accessToken)
       })
       .catch(err => console.log('error:', err))
       .finally(() => {
@@ -46,7 +47,7 @@ export const UserLoginSignup = () => {
       }
     })
     .then(json => {
-      handlePatterns(json.accessToken)
+      Pattern(json.accessToken)
       setStatus(json.message)
     })
     .catch(err => console.log('error:', err))
@@ -56,18 +57,7 @@ export const UserLoginSignup = () => {
     })
   }
 
-  const handlePatterns = (accessToken) => {
-    fetch(PATTERNS_URL, {
-      method: 'GET',
-      headers: { Authorization: accessToken }
-    })
-      .then(res => res.json())
-      .then(json => {
-        setPatterns(json.patterns) //or (setPatterns=true)
-      })
-      .catch(err => {console.log('error:', err)
-    })
-  }
+
 
   return (
     <>

@@ -10,7 +10,7 @@ export const UserLoginSignup = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [loginPage, setLoginPage] = useState(false)
-  const [patterns, setPatterns] = useState({}) //the page the user gets when logged in
+  const [patterns, setPatterns] = useState('') //the page the user gets when logged in
   const [status, setStatus] = useState('')
 
   const signupUser = (event) => {
@@ -20,9 +20,9 @@ export const UserLoginSignup = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, password }),
     })
-    .then(res => res.json())
+    //.then(res => res.json())
       .then(json => {
-        setStatus(json.message)
+        handlePatterns(json.accessToken)
       })
       .catch(err => console.log('error:', err))
       .finally(() => {
@@ -74,7 +74,7 @@ export const UserLoginSignup = () => {
     <section>
       {!loginPage && (
         <>
-        <Form>
+        <Form onSubmit={signupUser}>
           <label>Create username</label>
           <textarea
             required
@@ -95,11 +95,9 @@ export const UserLoginSignup = () => {
             onChange={(event) => setPassword(event.target.value)}
           >
           </textarea>
-          <button
-            type='submit' 
-            onSubmit={signupUser}
-          >
-            Sign up
+          <button 
+          type='submit'>
+          Sign up
           </button>
         </Form>
           <button 

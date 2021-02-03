@@ -8,7 +8,7 @@ const LOGIN_URL = 'http://localhost:8080/sessions'
 const SIGNUP_URL = 'http://localhost:8080/users'
 
 
-export const UserLoginSignup = () => {
+export const LoginSignup = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [loginPage, setLoginPage] = useState(false)
@@ -142,6 +142,3 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
 `
-
-
-

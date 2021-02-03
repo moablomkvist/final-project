@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { UserLoginSignup } from 'components/UserLoginSignup'
+import { LoginSignup } from 'components/LoginSignup'
 
 export const StartPage = () => {
   return (
     <StartPageContainer>
-      <UserLoginSignup />
+      <LoginSignup />
     </StartPageContainer>
   )
 }

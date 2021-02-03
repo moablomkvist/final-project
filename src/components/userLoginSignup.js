@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 //import { ReactTinyLink } from 'react-tiny-link'
 import styled from 'styled-components'
 
-import { Pattern } from '../components/Pattern'
+import { Pattern } from './Pattern'
 
 const LOGIN_URL = 'http://localhost:8080/sessions'
 const SIGNUP_URL = 'http://localhost:8080/users'

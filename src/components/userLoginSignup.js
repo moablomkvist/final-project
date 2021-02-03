@@ -13,7 +13,7 @@ export const UserLoginSignup = () => {
   const [patterns, setPatterns] = useState('') //the page the user gets when logged in
   const [status, setStatus] = useState('')
 
-  const signupUser = (event) => {
+  const handleSignup = (event) => {
     event.preventDefault();
     fetch(SIGNUP_URL, {
       method: 'POST',
@@ -31,7 +31,7 @@ export const UserLoginSignup = () => {
       })
   }
 
-  const loginUser = (event) => {
+  const handleLogin = (event) => {
     event.preventDefault();
     fetch(LOGIN_URL, {
       method: 'POST',
@@ -74,7 +74,7 @@ export const UserLoginSignup = () => {
     <section>
       {!loginPage && (
         <>
-        <Form onSubmit={signupUser}>
+        <Form onSubmit={handleSignup}>
           <label>Create username</label>
           <textarea
             required
@@ -111,7 +111,7 @@ export const UserLoginSignup = () => {
 
     {loginPage && 
       (
-      <Form onSubmit={loginUser}>
+      <Form onSubmit={handleLogin}>
         <label>
           Name
         </label>

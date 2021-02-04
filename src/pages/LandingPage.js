@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { Pattern } from '../components/Pattern'
+import { HandlePattern } from '../components/HandlePattern'
 
 export const LandingPage = () => {
   return (
     <>
-      <Pattern />
+      <HandlePattern />
       <p>Knitting</p>
     </>
   )

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 //import { ReactTinyLink } from 'react-tiny-link'
 import styled from 'styled-components'
 
-import { Pattern } from './Pattern'
+import { HandlePattern } from './HandlePattern'
 
 const LOGIN_URL = 'http://localhost:8080/sessions'
 const SIGNUP_URL = 'http://localhost:8080/users'
@@ -12,7 +12,7 @@ export const LoginSignup = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [loginPage, setLoginPage] = useState(false)
-  const [status, setStatus] = useState('')
+  const [patterns, setPatterns] = useState([])
 
   const handleSignup = (event) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ export const LoginSignup = () => {
     })
     //.then(res => res.json())
       .then(json => {
-        Pattern(json.accessToken)
+        HandlePattern(json.accessToken)
       })
       .catch(err => console.log('error:', err))
       .finally(() => {
@@ -47,8 +47,7 @@ export const LoginSignup = () => {
       }
     })
     .then(json => {
-      Pattern(json.accessToken)
-      setStatus(json.message)
+      HandlePattern(json.accessToken)
     })
     .catch(err => console.log('error:', err))
     .finally(() => {

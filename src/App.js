@@ -1,7 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-//import { Provider } from 'react-redux'
-//import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { Provider } from 'react-redux'
+import { combineReducers, createStore } from 'redux'
+
+import { patternReducer } from 'reducers/patternReducer'
 
 import { Nav } from './components/Nav'
 import { StartPage } from './pages/StartPage'
@@ -9,17 +11,17 @@ import { GlossaryPage } from './pages/GlossaryPage'
 import { ToolboxPage } from './pages/ToolboxPage'
 import { LandingPage } from './pages/LandingPage'
 
-//const reducer = combineReducers({
- // comment: comment.reducer
-//})
+const reducers = combineReducers(patternReducer);
 
-//const store = configureStore({ reducer })
+const store = createStore(
+  reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 
 export const App = () => {
   return (
-    //<Provider store= {store}>
-    <>
+    <Provider store= {store}>
     <StartPage />
       <BrowserRouter>
         <Nav />
@@ -35,7 +37,6 @@ export const App = () => {
           </Route>  
         </Switch>
       </BrowserRouter>
-      </>
-    //</Provider>
+    </Provider>
   )
 }

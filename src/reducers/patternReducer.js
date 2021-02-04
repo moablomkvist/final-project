@@ -3,8 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const patternReducer = createSlice({
   name: "patternReducer",
   initialState: {
-    all: [],
-    post: {}
+    all: []
   },
   reducers: {
     setPatterns: (state, action) => {

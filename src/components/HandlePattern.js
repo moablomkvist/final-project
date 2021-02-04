@@ -14,7 +14,7 @@ export const HandlePattern = () => {
         headers: { 'Content-Type': 'application/json '},
       })
         .then((res) => res.json())
-        .then((json) => dispatch(patternReducer.actions.setPatterns(json.res))); //how to store the patterns in Redux store. 
+        .then((json) => dispatch(patternReducer.actions.setPatterns(json))); //how to store the patterns in Redux store. 
       }, [dispatch]); //for not continuously updating. Gets depending on this variable.  
 
 

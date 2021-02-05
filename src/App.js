@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { combineReducers, createStore } from 'redux'
 
 import { patternReducer } from 'reducers/patternReducer'
+import { userReducer } from 'reducers/userReducer'
 
 import { Nav } from './components/Nav'
 import { StartPage } from './pages/StartPage'
@@ -11,7 +12,11 @@ import { GlossaryPage } from './pages/GlossaryPage'
 import { ToolboxPage } from './pages/ToolboxPage'
 import { LandingPage } from './pages/LandingPage'
 
-const reducers = combineReducers(patternReducer);
+const reducers = combineReducers({
+  patternReducer: patternReducer.reducer,
+  userReducer: userReducer.reducer,
+
+});
 
 const store = createStore(
   reducers,

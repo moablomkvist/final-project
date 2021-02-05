@@ -18,7 +18,7 @@ export const HandlePattern = () => {
       }, [dispatch]); //for not continuously updating. Gets depending on this variable.  
 
       return (
-        <section>
+        <section id='test'>
         {patterns.map((pattern) => (
           <div key={pattern._id}>
             <h2>{pattern.post}</h2>

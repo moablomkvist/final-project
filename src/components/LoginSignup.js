@@ -70,6 +70,7 @@ export const LoginSignup = () => {
       .catch((err) => handleLoginFailed(err));
   };
 
+  //Istället för att skriva det såhär så använder vi useEffect som triggar useHistory till sidan för /landingpage om accesToken är en string, annars är acesstoken null. Allt ska ske i Startpage med browserrouter.
   if (accessToken) {
     return <><LandingPage /></>;
   }

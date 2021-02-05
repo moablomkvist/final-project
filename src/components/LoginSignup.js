@@ -18,9 +18,8 @@ export const LoginSignup = () => {
 
 
   const handleLoginSuccess = (loginResponse) => {
-    dispatch(
-      userReducer.actions.setAccessToken({ accessToken: loginResponse.accessToken })
-    );
+    dispatch(userReducer.actions.setAccessToken({ accessToken: loginResponse.accessToken })
+);
     dispatch(userReducer.actions.setUserId({ userId: loginResponse.userId }));
     dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Logged in" }));
   }
@@ -70,11 +69,7 @@ export const LoginSignup = () => {
       .catch((err) => handleLoginFailed(err));
   };
 
-  if (accessToken) {
-    return <><LandingPage /></>;
-  }
-
-
+  if (!accessToken) { // If user is logged out, show login form
   return (
     <>
     <section>
@@ -82,25 +77,25 @@ export const LoginSignup = () => {
         <>
         <Form onSubmit={handleSignup}>
           <label>Create username</label>
-          <textarea
+          <input
             required
             minLength='3'
             placeholder='Minimum 3 letters'
             value={name}
             onChange={(event) => setName(event.target.value)}
           >
-          </textarea>
+          </input>
           <label>Password</label>
-          <textarea
-            type='password'
-            name='password'
+          <input
+            type="password"
+            name="password"
             required
             minLength='5'
             placeholder='Minimum 5 letters'
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           >
-          </textarea>
+          </input>
           <button 
           type='submit'>
           Sign up
@@ -131,6 +126,8 @@ export const LoginSignup = () => {
           Password
         </label>
         <input
+          type="password"
+          name="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           required
@@ -144,7 +141,10 @@ export const LoginSignup = () => {
       </Form>
     )}
     </>
-  )
+  );
+  } else {  // If user is logged in, show profile
+    return <LandingPage/>;
+  }
 }
 
 const Form = styled.form`

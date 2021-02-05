@@ -31,13 +31,10 @@ export const userReducer = createSlice({
       console.log(`Status Message: ${statusMessage}`)
       state.login.statusMessage = statusMessage
     },
-    logout: (state, action) => {
-      console.log("logging out")
-      state.login.userId = 0;
-      state.login.accessToken = null;
-    }
   },
 })
+
+
 
 
 

@@ -14,8 +14,6 @@ export const LoginSignup = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
 
-
-  const [patterns, setPatterns] = useState('')
   const [loginPage, setLoginPage] = useState(false)
 
 
@@ -140,18 +138,11 @@ export const LoginSignup = () => {
           />
         <button 
           type='submit'
-          onClick={() => setPatterns(true)}
         >
           Log in
         </button>
       </Form>
     )}
-
-    {patterns && 
-      !loginPage && (
-        <p>Look at all this patterns!</p>
-      )
-    }
     </>
   )
 }

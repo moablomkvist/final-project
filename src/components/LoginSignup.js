@@ -1,58 +1,81 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components'
 
-import { HandlePattern } from './HandlePattern'
+import { userReducer} from '../reducers/userReducer'
+import { LandingPage } from 'pages/LandingPage';
 
-const LOGIN_URL = 'http://localhost:8080/sessions'
-const SIGNUP_URL = 'http://localhost:8080/users'
+const LOGIN_URL = 'http://localhost:8081/sessions'
+const SIGNUP_URL = 'http://localhost:8081/users'
 
 export const LoginSignup = () => {
+  const dispatch = useDispatch()
+  const accessToken = useSelector((store) => store.userReducer.login.accessToken)
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
-  const [loginPage, setLoginPage] = useState(false)
-  const [patterns, setPatterns] = useState([])
 
+
+  const [patterns, setPatterns] = useState('')
+  const [loginPage, setLoginPage] = useState(false)
+
+
+  const handleLoginSuccess = (loginResponse) => {
+    dispatch(
+      userReducer.actions.setAccessToken({ accessToken: loginResponse.accessToken })
+    );
+    dispatch(userReducer.actions.setUserId({ userId: loginResponse.userId }));
+    dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Logged in" }));
+  }
+
+  const handleLoginFailed = (loginError) => {
+    dispatch(userReducer.actions.setAccessToken({ accessToken: null }));
+    dispatch(userReducer.actions.setStatusMessage({ statusMessage: loginError }));
+  };
+
+  //Signup
   const handleSignup = (event) => {
     event.preventDefault();
+
     fetch(SIGNUP_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, password }),
+      headers: { 'Content-Type': 'application/json' },
     })
-    //.then(res => res.json())
-      .then(json => {
-        HandlePattern(json.accessToken)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Could not create user')
+        }
+        return res.json()
       })
-      .catch(err => console.log('error:', err))
-      .finally(() => {
-        setName("");
-        setPassword("");
-      })
-  }
+      .then((json) => handleLoginSuccess(json))
+      .catch((err) => handleLoginFailed(err))
+  };
 
+  //Login
   const handleLogin = (event) => {
     event.preventDefault();
+
     fetch(LOGIN_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, password }),
+      headers: { 'Content-Type': 'application/json' },
     })
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Please try again!");
-      } else {
-        return res.json();
-      }
-    })
-    .then(json => {
-      HandlePattern(json.accessToken)
-    })
-    .catch(err => console.log('error:', err))
-    .finally(() => {
-      setName("")
-      setPassword("")
-    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(
+            'Unable to log in. Please check that your username and password is correct'
+          )
+        }
+        return res.json()
+      })
+      .then((json) => handleLoginSuccess(json))
+      .catch((err) => handleLoginFailed(err));
+  };
+
+  if (accessToken) {
+    return <><LandingPage /></>;
   }
+
 
   return (
     <>

@@ -4,7 +4,7 @@ import { patternReducer } from '../reducers/patternReducer'
 
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
-  const patterns = useSelector((store) => store.reducer.all)
+  const patterns = useSelector((store) => store.patternReducer.all)
 
     const PATTERNS_URL = 'http://localhost:8081/patterns';
 
@@ -17,12 +17,11 @@ export const HandlePattern = () => {
         .then((json) => dispatch(patternReducer.actions.setPatterns(json))); //how to store the patterns in Redux store. 
       }, [dispatch]); //for not continuously updating. Gets depending on this variable.  
 
-
       return (
         <section>
         {patterns.map((pattern) => (
           <div key={pattern._id}>
-            <li>{pattern.pattern}</li>
+            <h2>{pattern.post}</h2>
           </div>
         ))}
         </section>

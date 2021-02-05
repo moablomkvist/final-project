@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
-//import { ReactTinyLink } from 'react-tiny-link'
 import styled from 'styled-components'
 
 import { HandlePattern } from './HandlePattern'
 
 const LOGIN_URL = 'http://localhost:8080/sessions'
 const SIGNUP_URL = 'http://localhost:8080/users'
-
 
 export const LoginSignup = () => {
   const [name, setName] = useState('')
@@ -55,8 +53,6 @@ export const LoginSignup = () => {
       setPassword("")
     })
   }
-
-
 
   return (
     <>

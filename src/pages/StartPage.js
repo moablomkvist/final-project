@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import { LoginSignup } from 'components/LoginSignup'
 
 export const StartPage = () => {

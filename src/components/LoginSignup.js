@@ -14,7 +14,6 @@ export const LoginSignup = () => {
   const accessToken = useSelector((store) => store.userReducer.login.accessToken)
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
-
   const [loginPage, setLoginPage] = useState(false)
 
 
@@ -75,36 +74,36 @@ export const LoginSignup = () => {
     <>
       {!loginPage && (
         <>
+        <MembersButton onClick={() => setLoginPage(true)}>
+          Already a member?
+        </MembersButton>
         <AuthContainer>
-        <h2>Bli medlem</h2>
+        <h2>Become a member</h2>
         <Form onSubmit={handleSignup}>
-          <label>Användarnamn</label>
+          <label>Username</label>
           <Input
             required
             minLength='3'
-            placeholder='Min 3 tecken'
+            placeholder='Min 3 letters'
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
-          <label>Lösenord</label>
+          <label>Password</label>
           <Input
             type="password"
             name="password"
             required
             minLength='5'
-            placeholder='Min 5 tecken'
+            placeholder='Min 5 letters'
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
           <Button 
           type='submit'>
-          Bli medlem
+          Join the circle
           </Button>
         </Form>
         </AuthContainer>
-          <Button onClick={() => setLoginPage(true)}>
-            Redan medlem?
-          </Button>
         </>
       )}
     
@@ -133,7 +132,7 @@ export const LoginSignup = () => {
           minLength="5"
           />
         <Button type='submit'>
-          Logga in
+          Login
         </Button>
       </Form>
     )}
@@ -169,4 +168,22 @@ const AuthContainer = styled.section`
   border-radius: 6px;
   margin: 20px;
   padding: 20px;
+`;
+const MembersButton = styled.button`
+background-color: #5E6572;
+border: none;
+color: #fff;
+font-family: 'Josefin Slab', serif;
+padding: 10px;
+width: 40%;
+text-align: center;
+transition-duration: 0.4s;
+overflow: hidden;
+box-shadow: 0 2px 10px #949899;
+border-radius: 4px;
+  &:hover {
+    background: #a88979;
+    box-shadow: 0px 2px 10px 5px #949899;
+  }
+}
 `

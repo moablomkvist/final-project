@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { userReducer} from '../reducers/userReducer';
 
-import { Nav } from '../components/Nav'
+import { PostPage } from '../pages/PostPage'
 import { GlossaryPage } from '../pages/GlossaryPage'
 import { ToolboxPage } from '../pages/ToolboxPage'
+
+import { Nav } from '../components/Nav'
 import { HandlePattern } from '../components/HandlePattern'
-
-
 
 export const LandingPage = () => {
   const dispatch = useDispatch();
@@ -28,6 +28,9 @@ export const LandingPage = () => {
           <Route path='/' exact>
             <HandlePattern />
           </Route>
+          <Route path='/post-pattern' exact>
+            <PostPage />
+          </Route>
           <Route path='/glossary' exact>
             <GlossaryPage />  
           </Route>
@@ -37,6 +40,7 @@ export const LandingPage = () => {
         </Switch>
         <HandlePattern />
       </BrowserRouter>
+
       <button
         type="submit"
         onClick={() => handleLogoutButton()}

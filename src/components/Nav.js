@@ -8,14 +8,21 @@ export const Nav = () => {
       <Heading>
         <NavLink to='/'>Knitting Circle</NavLink>
       </Heading>
+
       <MenuLinkList>
+      <MenuLink>
+          <NavLink to='/post-pattern'>Post pattern</NavLink>
+        </MenuLink>
+
         <MenuLink>
           <NavLink to='/toolbox'>Toolbox</NavLink>
         </MenuLink>
+
         <MenuLink>
           <NavLink to='/glossary'>Glossary</NavLink>
         </MenuLink>
       </MenuLinkList>
+
     </TopNavigation>
   )
 }

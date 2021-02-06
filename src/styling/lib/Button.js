@@ -18,5 +18,4 @@ export const Button = styled.button`
       background: #a88979;
       box-shadow: 0px 2px 10px 5px #949899;
     }
-}
 `

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { patternReducer } from '../reducers/patternReducer'
 
 export const HandlePattern = () => {
@@ -22,6 +23,10 @@ export const HandlePattern = () => {
         {patterns.map((pattern) => (
           <div key={pattern._id}>
             <h2>{pattern.post}</h2>
+            <p>{pattern.source}</p>
+            <a>{pattern.imageSource}</a>
+            <p>{pattern.yarn}</p>
+            <p>{pattern.needles}</p>
           </div>
         ))}
         </section>

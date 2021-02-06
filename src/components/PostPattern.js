@@ -1,20 +1,15 @@
-import React from 'react'
-//import { ReactTinyLink } from 'react-tiny-link'
-import styled from 'styled-components'
-
+import React from "react";
+import styled from "styled-components";
 
 export const PostPattern = () => {
+
 
   return (
     <PostingForm>
       <h1>Spread some knitting</h1>
       <TextfieldsContainer>
         <label>Post pattern</label>
-        <input 
-          type="text" 
-          placeholder="Post a URL"
-          required
-        ></input>
+        <input type="text" placeholder="Post a URL" required></input>
 
         <label>Give a short reason why to knit it</label>
         <input type="text"></input>
@@ -35,11 +30,10 @@ export const PostPattern = () => {
         <input type="radio"></input>
       </RadioButtonContainer>
 
-      <button type='submit'>Share pattern</button>
-
-  </PostingForm>
-  )
-}
+      <button type="submit">Share pattern</button>
+    </PostingForm>
+  );
+};
 
 const PostingForm = styled.form`
   display: flex;
@@ -48,25 +42,15 @@ const PostingForm = styled.form`
   justify-content: center;
   align-items: center;
   background: #a4a99b;
-  font-family: 'Fraunces';
-`
+  font-family: "Fraunces";
+`;
 const TextfieldsContainer = styled.section`
   display: flex;
   flex-direction: column;
   margin: 10px;
-`
+`;
 const RadioButtonContainer = styled.section`
   display: flex;
   flex-direction: row;
   margin: 40px;
-`
-
-{/* <ReactTinyLink
-  cardSize="small"
-  showGraphic={true}
-  loadSecureUrl={true}
-  requestHeaders={true}
-  maxLine={20}
-  minLine={0}
-  url="https://www.petiteknit.com/products/holiday-slipover-4?variant=31714479374391">
-</ReactTinyLink> */}
+`;

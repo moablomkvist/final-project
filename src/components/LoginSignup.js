@@ -72,43 +72,41 @@ export const LoginSignup = () => {
   if (!accessToken) { // If user is logged out, show login form
   return (
     <>
-    <section>
       {!loginPage && (
         <>
+        <AuthContainer>
+        <h2>Bli medlem</h2>
         <Form onSubmit={handleSignup}>
-          <label>Create username</label>
-          <input
+          <label>Användarnamn</label>
+          <Input
             required
             minLength='3'
-            placeholder='Minimum 3 letters'
+            placeholder='Min 3 tecken'
             value={name}
             onChange={(event) => setName(event.target.value)}
-          >
-          </input>
-          <label>Password</label>
-          <input
+          />
+          <label>Lösenord</label>
+          <Input
             type="password"
             name="password"
             required
             minLength='5'
-            placeholder='Minimum 5 letters'
+            placeholder='Min 5 tecken'
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-          >
-          </input>
+          />
           <button 
           type='submit'>
-          Sign up
+          Bli medlem
           </button>
         </Form>
-          <button 
-            onClick={() => setLoginPage(true)}
-          >
-            Already have an account?
+        </AuthContainer>
+          <button onClick={() => setLoginPage(true)}>
+            Redan medlem?
           </button>
         </>
       )}
-    </section>
+    
 
     {loginPage && 
       (
@@ -116,7 +114,7 @@ export const LoginSignup = () => {
         <label>
           Name
         </label>
-        <input
+        <Input
           value={name}
           onChange={(event) => setName(event.target.value)}
           required
@@ -125,7 +123,7 @@ export const LoginSignup = () => {
         <label>
           Password
         </label>
-        <input
+        <Input
           type="password"
           name="password"
           value={password}
@@ -136,7 +134,7 @@ export const LoginSignup = () => {
         <button 
           type='submit'
         >
-          Log in
+          Logga in
         </button>
       </Form>
     )}
@@ -150,4 +148,19 @@ export const LoginSignup = () => {
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+`;
+const Input = styled.input`
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 0;
+  border-bottom: 1px solid #83979d;
+`;
+const AuthContainer = styled.section`
+  box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2),
+  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  background-color: #83979d;
+  border-radius: 6px;
+  margin: 20px;
+  padding: 20px;
 `

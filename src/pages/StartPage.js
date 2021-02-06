@@ -19,4 +19,6 @@ const StartPageContainer = styled.section`
   height: 100vh;
   background: #a4a99b;
   font-family: 'Fraunces';
+  border: solid 4px #FFFFFF;
+  margin: 20px;
 `

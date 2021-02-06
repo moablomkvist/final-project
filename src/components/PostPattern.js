@@ -1,5 +1,4 @@
 import React from 'react'
-//import { ReactTinyLink } from 'react-tiny-link'
 import styled from 'styled-components'
 
 
@@ -61,12 +60,3 @@ const RadioButtonContainer = styled.section`
   margin: 40px;
 `
 
-{/* <ReactTinyLink
-  cardSize="small"
-  showGraphic={true}
-  loadSecureUrl={true}
-  requestHeaders={true}
-  maxLine={20}
-  minLine={0}
-  url="https://www.petiteknit.com/products/holiday-slipover-4?variant=31714479374391">
-</ReactTinyLink> */}

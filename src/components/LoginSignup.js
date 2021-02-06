@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { userReducer} from '../reducers/userReducer'
 import { LandingPage } from 'pages/LandingPage';
+import { Button } from 'styling/lib/Button';
 
 const LOGIN_URL = 'http://localhost:8081/sessions'
 const SIGNUP_URL = 'http://localhost:8081/users'
@@ -95,15 +96,15 @@ export const LoginSignup = () => {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-          <button 
+          <Button 
           type='submit'>
           Bli medlem
-          </button>
+          </Button>
         </Form>
         </AuthContainer>
-          <button onClick={() => setLoginPage(true)}>
+          <Button onClick={() => setLoginPage(true)}>
             Redan medlem?
-          </button>
+          </Button>
         </>
       )}
     
@@ -131,11 +132,9 @@ export const LoginSignup = () => {
           required
           minLength="5"
           />
-        <button 
-          type='submit'
-        >
+        <Button type='submit'>
           Logga in
-        </button>
+        </Button>
       </Form>
     )}
     </>
@@ -150,11 +149,18 @@ const Form = styled.form`
   flex-direction: column;
 `;
 const Input = styled.input`
-  padding: 10px;
+  padding: 8px;
+  width:100%;
   margin-top: 5px;
   margin-bottom: 5px;
   border: 0;
-  border-bottom: 1px solid #83979d;
+  opacity: 0.3;
+  box-shadow: 0 0 15px 5px rgba(0,0,0,0.07);
+  font-family: inherit;
+    &:hover {
+      box-shadow:0 0 4px rgba(0,0,0,0.12);
+      opacity: 0.5;
+    }
 `;
 const AuthContainer = styled.section`
   box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2),

@@ -14,7 +14,6 @@ export const LoginSignup = () => {
   const accessToken = useSelector((store) => store.userReducer.login.accessToken)
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
-
   const [loginPage, setLoginPage] = useState(false)
 
 
@@ -76,36 +75,35 @@ export const LoginSignup = () => {
       {!loginPage && (
         <>
         <MembersButton onClick={() => setLoginPage(true)}>
-          Redan medlem?
+          Already a member?
         </MembersButton>
         <AuthContainer>
-        <h2>Bli medlem</h2>
+        <h2>Become a member</h2>
         <Form onSubmit={handleSignup}>
-          <label>Användarnamn</label>
+          <label>Username</label>
           <Input
             required
             minLength='3'
-            placeholder='Min 3 tecken'
+            placeholder='Min 3 letters'
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
-          <label>Lösenord</label>
+          <label>Password</label>
           <Input
             type="password"
             name="password"
             required
             minLength='5'
-            placeholder='Min 5 tecken'
+            placeholder='Min 5 letters'
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
           <Button 
           type='submit'>
-          Bli medlem
+          Join the circle
           </Button>
         </Form>
         </AuthContainer>
-
         </>
       )}
     
@@ -134,7 +132,7 @@ export const LoginSignup = () => {
           minLength="5"
           />
         <Button type='submit'>
-          Logga in
+          Login
         </Button>
       </Form>
     )}

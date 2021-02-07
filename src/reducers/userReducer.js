@@ -2,9 +2,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   login: {
-    accessToken: null,
-    userId: 0,
-    statusMessage: ""
+    accessToken: localStorage.accessToken || null,
+    userId: localStorage.userId || 0,
+    statusMessage: localStorage.statusMessage || ""
+  },
+  actions: {
+    favoritePatterns: [],
   },
 }
 
@@ -30,6 +33,16 @@ export const userReducer = createSlice({
       const { statusMessage } = action.payload
       console.log(`Status Message: ${statusMessage}`)
       state.login.statusMessage = statusMessage
+    },
+    logout: (state, action) => {
+      console.log("Logging out");
+      state.login.accessToken = null;
+      state.login.userId = 0;
+      state.login.statusMessage = "";
+      localStorage.clear();
+    },
+    setFavoritePatterns: (store, action) => {
+      store.actions.favoriteVideos = action.payload;
     },
   },
 })

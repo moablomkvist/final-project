@@ -16,7 +16,7 @@ export const PostPattern = () => {
 
     fetch(PATTERNS_URL, {
       method: "POST",
-      body: ({ post, source, imageSource, needles, yarn }),
+      body: JSON.stringify({ post, source, imageSource, needles, yarn }),
       headers: { "Content-Type": "application/json" },
     })
     .then((res) => {

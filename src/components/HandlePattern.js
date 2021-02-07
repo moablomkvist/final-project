@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Moment from "moment";
 
 import { patternReducer } from '../reducers/patternReducer'
 import { PatternCard } from 'styling/lib/PatternCard';
@@ -25,7 +26,7 @@ export const HandlePattern = () => {
       return (
         <section id='test'>
         {patterns.map((pattern) => (
-          <PatternCard key={pattern._id}>
+          <PatternCard key={pattern._id} createdAt={pattern.createdAt}>
             <PatternName>{pattern.post}</PatternName>
             <a href={pattern.source} alt="pattern description">
               <PatternImage src={pattern.imageSource} alt="pattern image"/>

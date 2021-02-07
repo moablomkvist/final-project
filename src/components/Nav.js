@@ -29,12 +29,14 @@ export const Nav = () => {
 
 const TopNavigation = styled.nav`
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  width: 100%;
   background: #cba892;
   font-size: 18px;
   font-family: 'Fraunces', serif;
+  margin: 0px;
 
   @media (min-width: 768px) {
     justify-content: left;
@@ -45,7 +47,7 @@ const TopNavigation = styled.nav`
 const Heading = styled.h1`
   margin: 15px 0 5px 0;
   font-weight: 700;
-  font-size: 64px;
+  font-size: 55px;
   text-align: center;
   text-transform: uppercase;
 `
@@ -53,7 +55,8 @@ const Heading = styled.h1`
 const MenuLinkList = styled.ul`
   display: flex;
   list-style: none;
-  margin: 5px 0px 20px 0px;
+  margin: 5px 0px 0px 0px;
+  padding: 0;
 
   @media (min-width: 768px) {
     margin: 0;
@@ -62,6 +65,7 @@ const MenuLinkList = styled.ul`
 
 const MenuLink = styled.li`
   margin: 10px;
+  font-size: 14px;
 
   &:hover {
     text-decoration: underline;

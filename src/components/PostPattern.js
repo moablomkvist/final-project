@@ -16,7 +16,7 @@ export const PostPattern = () => {
 
     fetch(PATTERNS_URL, {
       method: "POST",
-      body: JSON.stringify({ post, source, imageSource, needles, yarn }),
+      body: ({ post, source, imageSource, needles, yarn }),
       headers: { "Content-Type": "application/json" },
     })
     .then((res) => {
@@ -37,6 +37,7 @@ export const PostPattern = () => {
       })
       .catch((err) => console.log("error:", err));
   };
+  
 
   return (
     <PostingForm onSubmit={handleSubmit}>

@@ -10,8 +10,6 @@ import { HandlePattern } from '../components/HandlePattern'
 import { Logout } from '../components/Logout'
 
 
-
-
 export const LandingPage = () => {
   
   return (

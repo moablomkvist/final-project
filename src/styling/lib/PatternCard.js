@@ -5,6 +5,7 @@ export const PatternCard = styled.article`
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  margin-top: 20px;
   
   @media (min-width: 768px) {
     width: 25%;

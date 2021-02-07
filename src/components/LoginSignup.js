@@ -16,7 +16,6 @@ export const LoginSignup = () => {
   const [password, setPassword] = useState('')
   const [loginPage, setLoginPage] = useState(false)
 
-
   const handleLoginSuccess = (loginResponse) => {
     dispatch(userReducer.actions.setAccessToken({ accessToken: loginResponse.accessToken })
 );
@@ -147,6 +146,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
 `;
+
 const Input = styled.input`
   padding: 8px;
   width:100%;
@@ -156,11 +156,13 @@ const Input = styled.input`
   opacity: 0.3;
   box-shadow: 0 0 15px 5px rgba(0,0,0,0.07);
   font-family: inherit;
-    &:hover {
-      box-shadow:0 0 4px rgba(0,0,0,0.12);
-      opacity: 0.5;
-    }
+  
+  &:hover {
+    box-shadow:0 0 4px rgba(0,0,0,0.12);
+    opacity: 0.5;
+  }
 `;
+
 const AuthContainer = styled.section`
   box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2),
   0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
@@ -169,6 +171,7 @@ const AuthContainer = styled.section`
   margin: 20px;
   padding: 20px;
 `;
+
 const MembersButton = styled.button`
 background-color: #5E6572;
 border: none;
@@ -181,9 +184,9 @@ transition-duration: 0.4s;
 overflow: hidden;
 box-shadow: 0 2px 10px #949899;
 border-radius: 4px;
-  &:hover {
-    background: #a88979;
-    box-shadow: 0px 2px 10px 5px #949899;
-  }
+
+&:hover {
+  background: #a88979;
+  box-shadow: 0px 2px 10px 5px #949899;
 }
 `

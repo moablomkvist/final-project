@@ -103,7 +103,6 @@ export const PostPattern = () => {
 const PostingForm = styled.form`
   display: flex;
   flex-direction: column;
-  height: 100vh;
   justify-content: center;
   align-items: center;
   background: #a4a99b;

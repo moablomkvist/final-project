@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Moment from "moment";
+import moment from 'moment';
 
 import { patternReducer } from '../reducers/patternReducer'
 import { PatternCard } from 'styling/lib/PatternCard';
@@ -34,7 +34,7 @@ export const HandlePattern = () => {
 
             <PatternDetails>{pattern.yarn}</PatternDetails>
             <PatternDetails>{pattern.needles}</PatternDetails>
-            <PatternDetails>{pattern.createdAt}</PatternDetails>
+            <PatternDetails>{moment(pattern.createdAt).fromNow()}</PatternDetails>
           </PatternCard>
         ))}
         </section>

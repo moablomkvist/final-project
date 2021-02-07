@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   position: relative;
-  background-color: #5E6572;
+  background: #5E6572;
   border: none;
   color: #fff;
   font-family: 'Josefin Slab', serif;
@@ -14,8 +14,9 @@ export const Button = styled.button`
   overflow: hidden;
   box-shadow: 0 2px 10px #949899;
   border-radius: 4px;
-    &:hover {
-      background: #a88979;
-      box-shadow: 0px 2px 10px 5px #949899;
-    }
+
+  &:hover {
+    background: #a88979;
+    box-shadow: 0px 2px 10px 5px #949899;
+  }
 `

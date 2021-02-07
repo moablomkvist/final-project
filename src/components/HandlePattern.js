@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { patternReducer } from '../reducers/patternReducer'
+import { PatternCard } from 'styling/lib/PatternCard';
+import { PatternName } from 'styling/lib/PatternCard';
+import { PatternImage } from 'styling/lib/PatternCard';
+import { PatternDetails } from 'styling/lib/PatternCard';
 
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
@@ -21,13 +25,16 @@ export const HandlePattern = () => {
       return (
         <section id='test'>
         {patterns.map((pattern) => (
-          <div key={pattern._id}>
-            <h2>{pattern.post}</h2>
-            <p>{pattern.source}</p>
-            <a>{pattern.imageSource}</a>
-            <p>{pattern.yarn}</p>
-            <p>{pattern.needles}</p>
-          </div>
+          <PatternCard key={pattern._id}>
+            <PatternName>{pattern.post}</PatternName>
+            <a href={pattern.source} alt="pattern description">
+              <PatternImage src={pattern.imageSource} alt="pattern image"/>
+            </a>
+
+            <PatternDetails>{pattern.yarn}</PatternDetails>
+            <PatternDetails>{pattern.needles}</PatternDetails>
+            <PatternDetails>{pattern.createdAt}</PatternDetails>
+          </PatternCard>
         ))}
         </section>
       );

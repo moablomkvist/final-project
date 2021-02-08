@@ -1,9 +1,8 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
-import { Button} from 'styling/lib/Button'
+import { Button } from 'styling/lib/Button'
 import { Form, Input, Container } from 'styling/lib/Card'
-
-const PATTERNS_URL = "http://localhost:8081/patterns";
+import { useHistory } from 'react-router-dom'
 
 export const PostPattern = () => {
   const [post, setPost] = useState("");
@@ -12,10 +11,13 @@ export const PostPattern = () => {
   const [needles, setNeedles] = useState("");
   const [yarn, setYarn] = useState("");
 
-  console.log("render")
+  const PATTERNS_URL = "http://localhost:8081/patterns";
 
+  let history = useHistory();
+  const handlePostSuccess = () => {
+      history.push("/");
+    }
 
-  
   const handleSubmit = (event) => {
     event.preventDefault();
       fetch(PATTERNS_URL, {
@@ -23,9 +25,16 @@ export const PostPattern = () => {
         body: JSON.stringify({ post, source, imageSource, needles, yarn }),
         headers: { "Content-Type": "application/json" },
       })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Could not create a pattern");
+        }
+        return res.json();
+      })
+      .then((json) => handlePostSuccess(json))
       .catch((err) => console.log("error:", err));
-    }; 
-
+  };
+  
   return (
     <Form onSubmit={handleSubmit}>
       <Container>
@@ -38,7 +47,6 @@ export const PostPattern = () => {
           placeholder="URL"
           required
         />
-
         <label>Add image link</label>
         <Input
           type="text"
@@ -70,7 +78,6 @@ export const PostPattern = () => {
           placeholder="Ex. Sock needles, 3,5 mm"
         />
       </Container>
-      <Button type="submit">Share pattern</Button>
+      <Button type="submit" >Share pattern</Button>
     </Form>
-  );
-};
+  );}

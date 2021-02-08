@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { userReducer } from 'reducers/userReducer'
 
 import { Button } from 'styling/lib/Button'
-
 
 export const Logout = () => {
   const [loggedOut, setLoggedOut] = useState(false);
@@ -12,20 +12,20 @@ export const Logout = () => {
   useSelector((store) => store.userReducer.login.statusMessage);
   const dispatch = useDispatch();
 
+  const handleLogoutButton = () => {
+    dispatch(userReducer.actions.logout());
+    setLoggedOut(true);
+  };
 
-const handleLogoutButton = () => {
-  dispatch(userReducer.actions.logout());
-  setLoggedOut(true);
-};
-return (
-  <>
-  {loggedOut === false ? (
-    <Button to="/" type="submit" onClick={handleLogoutButton}>
-      Logout
-    </Button>
-  ) : (
-    <></>
-  )}
-</>
-)
+  return (
+    <>
+      {loggedOut === false ? (
+        <Button to="/" type="submit" onClick={handleLogoutButton}>
+          Log out
+        </Button>
+      ) : (
+        <></>
+      )}
+    </>
+  )
 };

@@ -6,10 +6,9 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  padding: 8px;
+  margin: 5px 0;
   width:100%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  padding: 8px;
   border: 0;
   opacity: 0.3;
   box-shadow: 0 0 15px 5px rgba(0,0,0,0.07);
@@ -21,11 +20,20 @@ export const Input = styled.input`
   }
 `;
 
-export const Container = styled.section`
+export const Container = styled.article`
   box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2),
   0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  background-color: #83979d;
+  background: #83979d;
   border-radius: 6px;
   margin: 20px;
   padding: 20px;
+
+  &.row-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    font-family: 'Fraunces', serif;
+  }
 `;

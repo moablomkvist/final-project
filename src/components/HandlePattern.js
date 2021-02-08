@@ -5,7 +5,6 @@ import styled from "styled-components"
 
 import { patternReducer } from '../reducers/patternReducer'
 
-
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
   const patterns = useSelector((store) => store.patternReducer.all)

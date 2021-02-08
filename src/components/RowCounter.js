@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
+import { Container } from 'styling/lib/Card'
+
 const useStickyState = (defaultValue, key) => {
   const [value, setValue] = useState(() => {
     const stickyValue = localStorage.getItem(key);
@@ -20,35 +22,28 @@ export const RowCounter = () => {
 
   return (
     <SectionContainer>
-      <CounterContainer>
-        <CounterHeading>Row Counter:</CounterHeading>
+        <Container className="row-counter">
+        <CounterHeading>Row Counter</CounterHeading>
         <CounterButton onClick={() => setClickCount(clickCount + 1)}>+</CounterButton>
         <CounterText>{clickCount} st</CounterText>
         <CounterButton onClick={() => setClickCount(clickCount - 1)}>-</CounterButton>
-        {clickCount > 9 ? <CounterText className='progressionText'>Yay! Knit or die.</CounterText> : <></>}
-      </CounterContainer>
+        {clickCount > 9 ?
+          <CounterText className='progression-text'>Yay! Knit or die.</CounterText> 
+        : <></>}
+        </Container>
     </SectionContainer>
   )
 }
 
 const SectionContainer = styled.section`
   display: flex;
-  justify-content: flex-start;
-  background: #a4a99b;
-`
-
-const CounterContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin: 30px;
+  align-items: center;
   background: #a4a99b;
-  font-family: 'Fraunces', serif;
 `
 
 const CounterHeading = styled.h1`
-  font-size: 30px;
+  font-size: 16px;
   font-weight: 400;
 `
 
@@ -56,11 +51,11 @@ const CounterButton = styled.button`
   width: 65px;
   height: 65px;
   margin: 10px;
-  padding: 2%;
+  padding: 1%;
   border-radius: 50%;
   background: #cba892;
-  border: solid 1px;
-  font-size: 30px;
+  border: none;
+  font-size: 32px;
   cursor: pointer;
 
   &:hover, &:focus {
@@ -69,11 +64,13 @@ const CounterButton = styled.button`
 `
 
 const CounterText = styled.p`
-  font-size: 30px;
+  font-size: 36px;
   font-weight: 700;
+  margin: 0;
 
-  &.progressionText {
-    font-size: 18px;
+  &.progression-text {
+    font-size: 16px;
     font-weight: 400;
+    margin: 16px;
   }
 `

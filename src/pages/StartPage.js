@@ -2,9 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 
-import { LoginSignup } from 'components/LoginSignup'
-import { Header } from 'styling/lib/Header'
 import { LandingPage } from './LandingPage'
+
+import { LoginSignup } from 'components/LoginSignup'
+
+import { Header } from 'styling/lib/Header'
+
 
 export const StartPage = () => {
   
@@ -14,8 +17,8 @@ const accessToken = useSelector((store) => store.userReducer.login.accessToken)
   return (
     <StartPageContainer>
       <Header>
-        <p className="SubTitle">Yes, I like to knit. No, im not 'Old'</p>
-        <h1 className="HeadTitle">KNITTING CIRCLE</h1>
+        <p className="sub-title">Yes, I like to knit. No, I am not 'old'.</p>
+        <h1 className="head-title">KNITTING CIRCLE</h1>
       </Header>
       <CoverPhoto src="https://i.pinimg.com/564x/f9/19/79/f91979a3628229f6f55444b495cf5b62.jpg" alt="knitting-model"></CoverPhoto>
       <LoginSignup />

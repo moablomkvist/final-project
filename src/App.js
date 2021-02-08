@@ -1,19 +1,12 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, createStore } from 'redux'
+import { BrowserRouter } from 'react-router-dom'
 
 import { patternReducer } from 'reducers/patternReducer'
 import { userReducer } from 'reducers/userReducer'
 
 import { StartPage } from './pages/StartPage'
-
-import { PostPage } from './pages/PostPage'
-import { GlossaryPage } from './pages/GlossaryPage'
-import { ToolboxPage } from './pages/ToolboxPage'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-
-import { Nav } from './components/Nav'
-import { HandlePattern } from './components/HandlePattern'
 
 const reducers = combineReducers({
   patternReducer: patternReducer.reducer,
@@ -29,26 +22,9 @@ const store = createStore(
 export const App = () => {
   return (
     <Provider store= {store}>
-
       <BrowserRouter>
-              <Nav />
-              <Switch>
-                <Route path='/' exact>
-                  <HandlePattern />
-                </Route>
-                <Route path='/post-pattern' exact>
-                  <PostPage />
-                </Route>
-                <Route path='/glossary' exact>
-                  <GlossaryPage />  
-                </Route>
-                <Route path='/toolbox' exact>
-                <ToolboxPage />
-                </Route>  
-              </Switch>
-      </BrowserRouter>
-
       <StartPage />
+      </BrowserRouter>
     </Provider>
   )
 }

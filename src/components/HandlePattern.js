@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
+import styled from "styled-components"
 
 import { patternReducer } from '../reducers/patternReducer'
-import { PatternCard } from 'styling/lib/PatternCard';
-import { PatternName } from 'styling/lib/PatternCard';
-import { PatternImage } from 'styling/lib/PatternCard';
-import { PatternDetails } from 'styling/lib/PatternCard';
 
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
@@ -26,12 +23,11 @@ export const HandlePattern = () => {
       return (
         <section id='test'>
         {patterns.map((pattern) => (
-          <PatternCard key={pattern._id} createdAt={pattern.createdAt}>
+          <PatternCard key={pattern._id}>
             <PatternName>{pattern.post}</PatternName>
             <a href={pattern.source} alt="pattern description">
               <PatternImage src={pattern.imageSource} alt="pattern image"/>
             </a>
-
             <PatternDetails>{pattern.yarn}</PatternDetails>
             <PatternDetails>{pattern.needles}</PatternDetails>
             <PatternDetails>{moment(pattern.createdAt).fromNow()}</PatternDetails>
@@ -41,3 +37,37 @@ export const HandlePattern = () => {
       );
     
 }
+
+export const PatternCard = styled.article`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 20px;
+  
+  @media (min-width: 768px) {
+    width: 25%;
+  }
+`
+
+export const PatternName = styled.h3`
+  margin: 10px;
+  font-size: 24px;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
+`
+
+export const PatternImage = styled.img`
+  width: 100%;
+`
+
+export const PatternDetails = styled.p`
+  margin: 10px;
+  font-size: 18px;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+`

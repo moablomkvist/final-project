@@ -1,28 +1,34 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { userReducer} from '../reducers/userReducer';
+import { Route, Switch } from 'react-router-dom'
 
-import { HandlePattern } from '../components/HandlePattern'
+import { PostPage } from 'pages/PostPage'
+import { GlossaryPage } from 'pages/GlossaryPage'
+import { ToolboxPage } from 'pages/ToolboxPage'
+import { HandlePattern } from 'components/HandlePattern'
+import { Nav } from '../components/Nav'
+import { Logout } from '../components/Logout'
+
 
 export const LandingPage = () => {
-  const dispatch = useDispatch();
-
-  const handleLogoutButton = () => {
-    dispatch(userReducer.actions.setStatusMessage({ statusMessage: 'Logged out' }));
-    dispatch(userReducer.actions.setAccessToken({ accessToken: null }));
-    dispatch(userReducer.actions.setUserId({ userId: 0 }));
-    dispatch(userReducer.actions.setName({ name: '' }))
-  }
   
   return (
-    <>
-      <HandlePattern />
-
-      <button
-        type="submit"
-        onClick={() => handleLogoutButton()}
-        value="Logout"
-      >Logga ut</button>
+    <> 
+      <Nav />
+      <Switch>
+          <Route path='/' exact>
+            <HandlePattern />
+          </Route>
+          <Route path='/post-pattern' exact>
+            <PostPage />
+          </Route>
+          <Route path='/glossary' exact>
+            <GlossaryPage />  
+          </Route>
+          <Route path='/toolbox' exact>
+          <ToolboxPage />
+          </Route>  
+        </Switch>
+      <Logout />
     </>
   )
 }

@@ -32,5 +32,4 @@ export const PatternDetails = styled.p`
   @media (min-width: 768px) {
     font-size: 24px;
   }
-
 `

@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components'
 
 import { userReducer} from '../reducers/userReducer'
-import { LandingPage } from 'pages/LandingPage';
 import { Button } from 'styling/lib/Button';
+
 
 const LOGIN_URL = 'http://localhost:8081/sessions'
 const SIGNUP_URL = 'http://localhost:8081/users'
 
 export const LoginSignup = () => {
   const dispatch = useDispatch()
-  const accessToken = useSelector((store) => store.userReducer.login.accessToken)
+  useSelector((store) => store.userReducer.login.accessToken)
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [loginPage, setLoginPage] = useState(false)
@@ -68,7 +68,7 @@ export const LoginSignup = () => {
       .catch((err) => handleLoginFailed(err));
   };
 
-  if (!accessToken) { // If user is logged out, show login form
+ // If user is logged out, show login form
   return (
     <>
       {!loginPage && (
@@ -106,7 +106,7 @@ export const LoginSignup = () => {
         </>
       )}
     
-
+    
     {loginPage && 
       (
       <Form onSubmit={handleLogin}>
@@ -137,9 +137,7 @@ export const LoginSignup = () => {
     )}
     </>
   );
-  } else {  // If user is logged in, show profile
-    return <LandingPage/>;
-  }
+
 }
 
 const Form = styled.form`

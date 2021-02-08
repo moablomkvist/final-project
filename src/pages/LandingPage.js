@@ -1,22 +1,20 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
-import { PostPage } from '../pages/PostPage'
-import { GlossaryPage } from '../pages/GlossaryPage'
-import { ToolboxPage } from '../pages/ToolboxPage'
-
+import { PostPage } from 'pages/PostPage'
+import { GlossaryPage } from 'pages/GlossaryPage'
+import { ToolboxPage } from 'pages/ToolboxPage'
+import { HandlePattern } from 'components/HandlePattern'
 import { Nav } from '../components/Nav'
-import { HandlePattern } from '../components/HandlePattern'
 import { Logout } from '../components/Logout'
 
 
 export const LandingPage = () => {
   
   return (
-    <>
-      <BrowserRouter>
-        <Nav />
-        <Switch>
+    <> 
+      <Nav />
+      <Switch>
           <Route path='/' exact>
             <HandlePattern />
           </Route>
@@ -30,8 +28,6 @@ export const LandingPage = () => {
           <ToolboxPage />
           </Route>  
         </Switch>
-        <HandlePattern />
-      </BrowserRouter>
       <Logout />
     </>
   )

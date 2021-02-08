@@ -26,12 +26,11 @@ export const HandlePattern = () => {
       return (
         <section id='test'>
         {patterns.map((pattern) => (
-          <PatternCard key={pattern._id} createdAt={pattern.createdAt}>
+          <PatternCard key={pattern._id}>
             <PatternName>{pattern.post}</PatternName>
             <a href={pattern.source} alt="pattern description">
               <PatternImage src={pattern.imageSource} alt="pattern image"/>
             </a>
-
             <PatternDetails>{pattern.yarn}</PatternDetails>
             <PatternDetails>{pattern.needles}</PatternDetails>
             <PatternDetails>{moment(pattern.createdAt).fromNow()}</PatternDetails>

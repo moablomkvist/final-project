@@ -22,7 +22,6 @@ export const Nav = () => {
           <NavLink to='/glossary'>Glossary</NavLink>
         </MenuLink>
       </MenuLinkList>
-
     </TopNavigation>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, createStore } from 'redux'
+import { BrowserRouter } from 'react-router-dom'
 
 import { patternReducer } from 'reducers/patternReducer'
 import { userReducer } from 'reducers/userReducer'
@@ -21,7 +22,9 @@ const store = createStore(
 export const App = () => {
   return (
     <Provider store= {store}>
+      <BrowserRouter>
       <StartPage />
+      </BrowserRouter>
     </Provider>
   )
 }

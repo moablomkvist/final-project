@@ -1,30 +1,30 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 export const Nav = () => {
   return (
     <TopNavigation>
       <Heading>
-        <NavLink to='/'>Knitting Circle</NavLink>
+        <NavLink to="/">Knitting Circle</NavLink>
       </Heading>
 
       <MenuLinkList>
-      <MenuLink>
-          <NavLink to='/post-pattern'>Post pattern</NavLink>
+        <MenuLink>
+          <NavLink to="/post-pattern">Post pattern</NavLink>
         </MenuLink>
 
         <MenuLink>
-          <NavLink to='/toolbox'>Toolbox</NavLink>
+          <NavLink to="/toolbox">Toolbox</NavLink>
         </MenuLink>
 
         <MenuLink>
-          <NavLink to='/glossary'>Glossary</NavLink>
+          <NavLink to="/glossary">Glossary</NavLink>
         </MenuLink>
       </MenuLinkList>
     </TopNavigation>
-  )
-}
+  );
+};
 
 const TopNavigation = styled.nav`
   display: flex;
@@ -34,14 +34,14 @@ const TopNavigation = styled.nav`
   width: 100%;
   background: #cba892;
   font-size: 18px;
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   margin: 0px;
 
   @media (min-width: 768px) {
     justify-content: left;
     padding: 20px 5px 40px 0;
   }
-`
+`;
 
 const Heading = styled.h1`
   margin: 15px 0 5px 0;
@@ -49,7 +49,7 @@ const Heading = styled.h1`
   font-size: 55px;
   text-align: center;
   text-transform: uppercase;
-`
+`;
 
 const MenuLinkList = styled.ul`
   display: flex;
@@ -60,7 +60,7 @@ const MenuLinkList = styled.ul`
   @media (min-width: 768px) {
     margin: 0;
   }
-`
+`;
 
 const MenuLink = styled.li`
   margin: 10px;
@@ -69,4 +69,4 @@ const MenuLink = styled.li`
   &:hover {
     text-decoration: underline;
   }
-`
+`;

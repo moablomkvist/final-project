@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
 
-import { Button} from 'styling/lib/Button'
+import { Button } from 'styling/lib/Button'
 import { Form, Input, Container } from 'styling/lib/Card'
-
-const PATTERNS_URL = "http://localhost:8081/patterns";
 
 export const PostPattern = () => {
   const [post, setPost] = useState("");
@@ -13,7 +10,7 @@ export const PostPattern = () => {
   const [needles, setNeedles] = useState("");
   const [yarn, setYarn] = useState("");
 
-  console.log("render")
+  const PATTERNS_URL = "http://localhost:8081/patterns";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,13 +20,11 @@ export const PostPattern = () => {
         body: JSON.stringify({ post, source, imageSource, needles, yarn }),
         headers: { "Content-Type": "application/json" },
       })
-      .catch((err) => console.log("error:", err));
+    .catch((err) => console.log("error:", err));
   };
   
-  
-  
   return (
-    <Form onClick={(event) => handleSubmit(event)}>
+    <Form onClick={handleSubmit}>
       <Container>
         <h1>Share pattern with the circle</h1>
         <label>Add pattern link</label>
@@ -72,9 +67,7 @@ export const PostPattern = () => {
           placeholder="Ex. Sock needles, 3,5 mm"
         />
       </Container>
-      <Link to='/'>
       <Button type="submit">Share pattern</Button>
-      </Link>
     </Form>
   );
 };

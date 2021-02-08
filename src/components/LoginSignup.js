@@ -17,8 +17,7 @@ export const LoginSignup = () => {
   const [loginPage, setLoginPage] = useState(false)
 
   const handleLoginSuccess = (loginResponse) => {
-    dispatch(userReducer.actions.setAccessToken({ accessToken: loginResponse.accessToken })
-);
+    dispatch(userReducer.actions.setAccessToken({ accessToken: loginResponse.accessToken }));
     dispatch(userReducer.actions.setUserId({ userId: loginResponse.userId }));
     dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Logged in" }));
   }

@@ -24,15 +24,18 @@ export const userReducer = createSlice({
       const { userId } = action.payload
       console.log(`User Id: ${userId}`);
       state.login.userId = userId
+      localStorage.setItem("userId", userId);
     },
     setName: (state, action) => {
       const { name } = action.payload
       state.login.name = name
+      localStorage.setItem("name", name);
     },
     setStatusMessage: (state, action) => {
       const { statusMessage } = action.payload
       console.log(`Status Message: ${statusMessage}`)
       state.login.statusMessage = statusMessage
+      localStorage.setItem("statusMessage", statusMessage);
     },
     logout: (state, action) => {
       console.log("Logging out");

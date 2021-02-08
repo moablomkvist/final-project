@@ -40,7 +40,7 @@ export const PostPattern = () => {
   
 
   return (
-    <PostingForm onSubmit={handleSubmit}>
+    <PostingForm onSubmit={(event) => handleSubmit(event)}>
 
       <TextfieldsContainer>
         <h1>Share pattern with the circle</h1>

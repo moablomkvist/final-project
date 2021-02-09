@@ -1,10 +1,11 @@
 import React from 'react'
 
-import {useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { Button } from 'styling/lib/Button'
 
 export const DeletePattern = () => {
+  useSelector((store) => store.patternReducer.all._id)
 
   const handleDeletePattern = (_id) => {
     fetch(`http://localhost:8081/patterns/${_id}`, {

@@ -4,12 +4,12 @@ import moment from 'moment';
 import styled from "styled-components"
 
 import { patternReducer } from '../reducers/patternReducer'
+import { DeletePattern } from 'components/DeletePattern'
 
 
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
   const patterns = useSelector((store) => store.patternReducer.all)
-  const patternId = useSelector((store) => store.patternReducer.patternId)
   
     const PATTERNS_URL = 'http://localhost:8081/patterns';
 
@@ -29,23 +29,6 @@ export const HandlePattern = () => {
         //how to store the patterns in Redux store. 
     }, [dispatch]); //for not continuously updating. Gets depending on this variable.  
 
-      const handleDeletePattern = (_id) => {
-        fetch(`http://localhost:8081/patterns/${_id}`, {
-          method: 'DELETE',
-          headers: {'Content-Type': 'application/json'},
-        })
-        .then((res) => {
-          if (!res.ok) {
-          throw new Error('Could not delete pattern');
-          }
-          return res.json();
-        })
-        // .then((json) => {
-        //   dispatch(patternReducer.actions.setPatternDeleted(true))
-        // })
-        .catch((err) => console.log("error:", err));
-      }
-
       return (
         <section >
         {patterns.map((pattern) => (
@@ -57,7 +40,7 @@ export const HandlePattern = () => {
             <PatternDetails>{pattern.yarn}</PatternDetails>
             <PatternDetails>{pattern.needles}</PatternDetails>
             <PatternDetails>{moment(pattern.createdAt).fromNow()}</PatternDetails>
-            <button onClick={handleDeletePattern(patternId._id)}>Delete</button> 
+            <DeletePattern />
           </PatternCard>
         ))}
         </section>

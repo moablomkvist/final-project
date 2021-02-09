@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 
 import { LandingPage } from './LandingPage'
+import { Footer } from 'components/Footer'
 
 import { LoginSignup } from 'components/LoginSignup'
 
@@ -22,6 +23,7 @@ const accessToken = useSelector((store) => store.userReducer.login.accessToken)
       </Header>
       <CoverPhoto src="https://i.pinimg.com/564x/f9/19/79/f91979a3628229f6f55444b495cf5b62.jpg" alt="knitting-model"></CoverPhoto>
       <LoginSignup />
+      <Footer />
     </StartPageContainer>
   )
 } else {  

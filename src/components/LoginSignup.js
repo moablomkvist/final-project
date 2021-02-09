@@ -9,6 +9,7 @@ import { Button } from "styling/lib/Button";
 export const LoginSignup = () => {
   const dispatch = useDispatch();
   useSelector((store) => store.userReducer.login.accessToken);
+  const statusMessage = useSelector((store) => store.userReducer.login.statusMessage)
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [loginPage, setLoginPage] = useState(false);
@@ -17,22 +18,14 @@ export const LoginSignup = () => {
   const SIGNUP_URL = "http://localhost:8081/users";
 
   const handleLoginSuccess = (loginResponse) => {
-    dispatch(
-      userReducer.actions.setAccessToken({
-        accessToken: loginResponse.accessToken,
-      })
-    );
+    dispatch(userReducer.actions.setAccessToken({accessToken: loginResponse.accessToken,}));
     dispatch(userReducer.actions.setUserId({ userId: loginResponse.userId }));
-    dispatch(
-      userReducer.actions.setStatusMessage({ statusMessage: "Logged in" })
-    );
+    dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Welcome!" }));
   };
 
-  const handleLoginFailed = (loginError) => {
+  const handleLoginFailed = () => {
     dispatch(userReducer.actions.setAccessToken({ accessToken: null }));
-    dispatch(
-      userReducer.actions.setStatusMessage({ statusMessage: loginError })
-    );
+    dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Please try with another username or password." }));
   };
 
   //Signup
@@ -51,7 +44,7 @@ export const LoginSignup = () => {
         return res.json();
       })
       .then((json) => handleLoginSuccess(json))
-      .catch((err) => handleLoginFailed(err));
+      .catch((err) => handleLoginFailed(statusMessage));
   };
 
   //Login
@@ -66,13 +59,13 @@ export const LoginSignup = () => {
       .then((res) => {
         if (!res.ok) {
           throw new Error(
-            "Unable to log in. Please check that your username and password is correct"
+            "Unable to log in. Please check that your username and password is correct."
           );
         }
         return res.json();
       })
       .then((json) => handleLoginSuccess(json))
-      .catch((err) => handleLoginFailed(err));
+      .catch((err) => handleLoginFailed(statusMessage));
   };
 
   // If user is logged out, show login form
@@ -105,6 +98,7 @@ export const LoginSignup = () => {
                 onChange={(event) => setPassword(event.target.value)}
               />
               <Button type="submit">Join the circle</Button>
+              <p>{statusMessage}</p>
             </Form>
           </AuthContainer>
         </>
@@ -129,6 +123,7 @@ export const LoginSignup = () => {
             minLength="5"
           />
           <Button type="submit">Login</Button>
+          <p>{statusMessage}</p>
         </Form>
       )}
     </>

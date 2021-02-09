@@ -47,9 +47,8 @@ export const HandlePattern = () => {
       }
 
       return (
-        <section id='test'>
+        <section >
         {patterns.map((pattern) => (
-          <>
           <PatternCard key={pattern._id}>
             <PatternName>{pattern.post}</PatternName>
             <a href={pattern.source} alt="pattern description">
@@ -60,7 +59,6 @@ export const HandlePattern = () => {
             <PatternDetails>{moment(pattern.createdAt).fromNow()}</PatternDetails>
             <button onClick={handleDeletePattern(patternId._id)}>Delete</button> 
           </PatternCard>
-        </>
         ))}
         </section>
         

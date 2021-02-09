@@ -6,8 +6,6 @@ import styled from "styled-components"
 
 import { patternReducer } from '../reducers/patternReducer'
 
-import { DeletePattern } from '../components/DeletePattern'
-
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
   const patternId = useParams() 
@@ -60,12 +58,13 @@ export const HandlePattern = () => {
             <PatternDetails>{pattern.needles}</PatternDetails>
             <PatternDetails>{moment(pattern.createdAt).fromNow()}</PatternDetails>
             <button onClick={() => handleDeletePattern(patternId._id)}>Delete</button>
-            <DeletePattern />
           </PatternCard>
           
         ))}
         </section>
+        
       );
+    
 }
 
 export const PatternCard = styled.article`

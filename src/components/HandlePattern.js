@@ -55,7 +55,7 @@ export const HandlePattern = () => {
   };
 
   return (
-    <section>
+    <PatternPage>
       {patterns.map((pattern) => (
         <PatternCard key={pattern._id}>
 
@@ -82,47 +82,58 @@ export const HandlePattern = () => {
 
         </PatternCard>
       ))}
-    </section>
+    </PatternPage>
   );
 };
 
-export const PatternCard = styled.article`
+const PatternPage = styled.section`
+@media (min-width: 768px) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+`
+
+const PatternCard = styled.article`
   margin: 10px 0;
   border-bottom: 2px dotted white;
   padding-bottom: 20px;
 
   @media (min-width: 768px) {
-    width: 25%;
+    border: 2px dotted white;
+    width: 28%;
+    margin: 20px;
   }
 `;
 
-export const PatternImageWrapper = styled.section`
+const PatternImageWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
 `
 
-export const PatternName = styled.h3`
+const PatternName = styled.h3`
   margin: 15px;
   font-size: 26px;
   text-transform: uppercase;
 
   @media (min-width: 768px) {
-    font-size: 32px;
+    font-size: 28px;
   }
 `;
 
-export const PatternImage = styled.img`
+const PatternImage = styled.img`
   width: 100%;
 `;
 
 //Everything below the image
-export const PatternTextWrapper = styled.section`
+const PatternTextWrapper = styled.section`
   display: flex;
 `
 
-export const PatternDetailsContainer = styled.section`
+const PatternDetailsContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -131,28 +142,28 @@ export const PatternDetailsContainer = styled.section`
   font-family: 'Fraunces', serif;
 `
 
-export const PatternDetails = styled.p`
+const PatternDetails = styled.p`
   margin: 10px;
   font-size: 18px;
   font-weight: 400;
   width: fit-content;
 
   @media (min-width: 768px) {
-    font-size: 24px;
+    font-size: 20px;
   }
 `;
 
-export const TimeDetails = styled.p`
+const TimeDetails = styled.p`
   margin: 40px 10px 0;
   font-size: 16px;
   font-weight: 300;
 
   @media (min-width: 768px) {
-    font-size: 24px;
+    font-size: 18px;
   }
 `;
 
-export const SavePatternContainer = styled.section`
+const SavePatternContainer = styled.section`
   display: flex;
   justify-content: right;
   font-family: 'Fraunces', serif;

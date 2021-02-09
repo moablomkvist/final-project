@@ -38,18 +38,10 @@ const TopNavigation = styled.nav`
   margin: 0px;
 
   @media (min-width: 768px) {
-    justify-content: left;
+    justify-content: center;
     padding: 20px 5px 40px 0;
   }
 `;
-
-// const Heading = styled.h1`
-//   margin: 15px 0 5px 0;
-//   font-weight: 700;
-//   font-size: 55px;
-//   text-align: center;
-//   text-transform: uppercase;
-// `;
 
 const MenuLinkList = styled.ul`
   display: flex;

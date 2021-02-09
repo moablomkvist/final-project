@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 import { Button } from 'styling/lib/Button'
-import { Form, Input, Container } from 'styling/lib/Card'
+import { Form, Input, Label, Container } from 'styling/lib/Card'
 import { useHistory } from 'react-router-dom'
 
 export const PostPattern = () => {
@@ -36,27 +37,32 @@ export const PostPattern = () => {
   };
   
   return (
-    <Form onSubmit={handleSubmit}>
-      <Container>
-        <h1>Share pattern with the circle</h1>
+  <PostpageContainer>
+    <CoverPhoto src="https://i.pinimg.com/564x/f9/19/79/f91979a3628229f6f55444b495cf5b62.jpg" alt="knitting-model"></CoverPhoto>
+    <Form className="post-form" onSubmit={handleSubmit}>
+      <Container className="post-container">
+        <PostHeading>Share pattern with the circle</PostHeading>
 
-        <label>Name of the pattern</label>
-        <Input
+        <Label>Name of the pattern</Label>
+        <Input 
+          className="post-input"
           type="text"
           value={post}
           onChange={(event) => setPost(event.target.value)}
         />
 
-        <label>Add pattern link</label>
+        <Label>Add pattern link</Label>
         <Input
+          className="post-input"
           type="text"
           value={source}
           onChange={(event) => setSource(event.target.value)}
           placeholder="Link address (url)"
           required
         />
-        <label>Add image link</label>
+        <Label>Add image link</Label>
         <Input
+          className="post-input"
           type="text"
           value={imageSource}
           onChange={(event) => setImageSource(event.target.value)}
@@ -64,21 +70,47 @@ export const PostPattern = () => {
           required
         />
 
-        <label>Name of the used yarn</label>
+        <Label>Name of the used yarn</Label>
         <Input
+          className="post-input"
           type="text"
           value={yarn}
           onChange={(event) => setYarn(event.target.value)}
         />
 
-        <label>Sizes of used needles</label>
+        <Label>Sizes of used needles</Label>
         <Input
+          className="post-input"
           type="text"
           value={needles}
           onChange={(event) => setNeedles(event.target.value)}
           placeholder="Ex. Sock needles, 3,5 mm"
         />
       </Container>
-      <Button type="submit">Share pattern</Button>
-    </Form>
+      <Button className="share-button" type="submit">Share pattern</Button>
+
+     </Form>
+    </PostpageContainer>
   );}
+
+  const PostpageContainer = styled.section`
+    display: flex;
+    flex-wrap: wrap;
+  `
+
+  const PostHeading = styled.h1`  
+
+    @media (min-width: 768px) {
+      font-size: 40px;
+    }
+  `
+
+  const CoverPhoto = styled.img`
+  width: 100%;
+  margin-bottom: 10px;
+
+  @media (min-width: 768px) {
+    width: 45%;
+    margin: 2%;
+  }
+  `

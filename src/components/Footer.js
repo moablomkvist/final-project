@@ -5,23 +5,15 @@ import styled from 'styled-components'
 export const Footer = () => {
   return (
     <FooterContainer>
-      <h3>Knitting Circle</h3>
-      <InfoContainer>
-      <h4>About</h4>
+        <Icon src="../assets/knit-2923687_640.png" alt="Logo"></Icon>
+        <InfoContainer>
       <p>We are the virtual knitting circle. Share free patterns and start knitting.</p>
       </InfoContainer>
       <InfoContainer>
-      <h4>Contact us</h4>
+      <h3>"Knit happens!"</h3>
       </InfoContainer>
       <InfoContainer>
-        <ListContainer>
-        <h4>Knitting World</h4>
-          <List >
-              <a href="https://www.ravelry.com/" target="_blank" rel="noopener noreferrer">
-              <Icon src="../assets/RavelrySecondaryLogo2020-Color.png" alt="Ravelry"></Icon>
-              </a>
-          </List>
-        </ListContainer>
+        <Copyright>© Moa Blomkvist & Caroline Birgersson</Copyright>
       </InfoContainer>
     </FooterContainer>
   )};
@@ -29,6 +21,7 @@ export const Footer = () => {
   const FooterContainer = styled.footer `
     display: flex;
     flex-direction: column;
+    padding: 20px;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -37,19 +30,15 @@ export const Footer = () => {
     text-align: center;
 `; 
   const InfoContainer = styled.section`
-    width: 70%;
+    width: 100%;
+  `;
 
-  `;
-  const ListContainer = styled.ul`
-    list-style: none;
-    padding: 0;
-`;
-  const List = styled.li`
-    list-style: none;
-  `;
   const Icon = styled.img`
     width: 20%;
 `;
+  const Copyright = styled.p`
+  font-size: 10px;
+  `;
 
 
 

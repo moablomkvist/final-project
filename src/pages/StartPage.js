@@ -36,7 +36,7 @@ const StartPageContainer = styled.section`
   align-items: center;
   background: #a4a99b;
   font-family: 'Fraunces';
-  border: solid 2px #FFFFFF;
+  border: dashed 2px #c3c9b7;
   margin: 20px;
 `
 

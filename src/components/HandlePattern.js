@@ -77,9 +77,7 @@ export const HandlePattern = () => {
               <p>Save <span role="img" aria-label="yarn">🧶</span></p>
             </SavePatternContainer>
           </PatternTextWrapper>
-
           <Button className="delete-button" onClick={() => {handleDeletePattern(pattern._id);}}>Delete</Button>
-
         </PatternCard>
       ))}
     </section>
@@ -88,7 +86,7 @@ export const HandlePattern = () => {
 
 export const PatternCard = styled.article`
   margin: 10px 0;
-  border-bottom: 2px dotted white;
+  border-bottom: 2px dashed #c3c9b7;
   padding-bottom: 20px;
 
   @media (min-width: 768px) {

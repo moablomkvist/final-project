@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import styled from "styled-components"
@@ -23,12 +23,16 @@ export const HandlePattern = () => {
             return res.json();
           }
         })
-        .then((json) => dispatch(patternReducer.actions.setPatterns(json))); //how to store the patterns in Redux store. 
-      }, [dispatch]); //for not continuously updating. Gets depending on this variable.  
+        .then((json) => dispatch(patternReducer.actions.setPatterns(json)))
+        //how to store the patterns in Redux store. 
+    }, [dispatch]); //for not continuously updating. Gets depending on this variable.  
+
+
 
       return (
         <section id='test'>
         {patterns.map((pattern) => (
+          <>
           <PatternCard key={pattern._id}>
             <PatternName>{pattern.post}</PatternName>
             <a href={pattern.source} alt="pattern description">
@@ -38,8 +42,10 @@ export const HandlePattern = () => {
             <PatternDetails>{pattern.needles}</PatternDetails>
             <PatternDetails>{moment(pattern.createdAt).fromNow()}</PatternDetails>
           </PatternCard>
+        </>
         ))}
         </section>
+        
       );
     
 }

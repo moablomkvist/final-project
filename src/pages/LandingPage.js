@@ -9,6 +9,8 @@ import { HandlePattern } from 'components/HandlePattern'
 import { Nav } from '../components/Nav'
 import { Logout } from '../components/Logout'
 
+
+
 export const LandingPage = () => {
   
   return (

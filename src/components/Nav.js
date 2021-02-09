@@ -1,14 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { Header } from 'styling/lib/Header'
 import styled from "styled-components";
 
 export const Nav = () => {
   return (
     <TopNavigation>
-      <Heading>
-        <NavLink to="/">Knitting Circle</NavLink>
-      </Heading>
-
+      <Header>
+        <p className="sub-title">If im sitting, im knitting</p>
+        <NavLink className="head-title" to="/">Knitting Circle</NavLink>
+      </Header>
       <MenuLinkList>
         <MenuLink>
           <NavLink to="/post-pattern">Post pattern</NavLink>
@@ -33,7 +34,6 @@ const TopNavigation = styled.nav`
   align-items: center;
   width: 100%;
   background: #cba892;
-  font-size: 18px;
   font-family: "Fraunces", serif;
   margin: 0px;
 
@@ -43,16 +43,17 @@ const TopNavigation = styled.nav`
   }
 `;
 
-const Heading = styled.h1`
-  margin: 15px 0 5px 0;
-  font-weight: 700;
-  font-size: 55px;
-  text-align: center;
-  text-transform: uppercase;
-`;
+// const Heading = styled.h1`
+//   margin: 15px 0 5px 0;
+//   font-weight: 700;
+//   font-size: 55px;
+//   text-align: center;
+//   text-transform: uppercase;
+// `;
 
 const MenuLinkList = styled.ul`
   display: flex;
+
   list-style: none;
   margin: 5px 0px 0px 0px;
   padding: 0;
@@ -64,7 +65,7 @@ const MenuLinkList = styled.ul`
 
 const MenuLink = styled.li`
   margin: 10px;
-  font-size: 14px;
+  font-size: 18px;
 
   &:hover {
     text-decoration: underline;

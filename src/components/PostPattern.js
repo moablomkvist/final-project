@@ -44,7 +44,7 @@ export const PostPattern = () => {
           type="text"
           value={source}
           onChange={(event) => setSource(event.target.value)}
-          placeholder="URL"
+          placeholder="Link-adress"
           required
         />
         <label>Add image link</label>
@@ -52,7 +52,7 @@ export const PostPattern = () => {
           type="text"
           value={imageSource}
           onChange={(event) => setImageSource(event.target.value)}
-          placeholder="URL"
+          placeholder="Image-adress"
           required
         />
 

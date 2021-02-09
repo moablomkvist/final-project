@@ -6,16 +6,16 @@ export const Header = styled.header `
   align-items: center;
   margin: 0px;
   background: #cba892;
+  text-align: center;
   
   & .head-title {
-    text-align: center;
+    margin: 15px 0 5px 0;
+    font-weight: 700;
     font-size: 55px;
-    padding-bottom: 20px;
-    margin: 0;
+    text-transform: uppercase;
   }
 
   & .sub-title {
-    text-align: center;
     font-size: 10px;
     font-weight: normal;
     margin-top: 15px;

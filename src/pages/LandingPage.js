@@ -8,6 +8,8 @@ import { ToolboxPage } from 'pages/ToolboxPage'
 import { HandlePattern } from 'components/HandlePattern'
 import { Nav } from '../components/Nav'
 import { Logout } from '../components/Logout'
+import { Footer } from 'components/Footer'
+
 
 
 
@@ -30,6 +32,7 @@ export const LandingPage = () => {
           <ToolboxPage />
         </Route>  
       </Switch>
+      <Footer />
       <Logout />
     </>
   )

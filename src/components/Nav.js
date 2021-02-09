@@ -53,9 +53,8 @@ const TopNavigation = styled.nav`
 
 const MenuLinkList = styled.ul`
   display: flex;
-
   list-style: none;
-  margin: 5px 0px 0px 0px;
+  margin: 5px 0px;
   padding: 0;
 
   @media (min-width: 768px) {

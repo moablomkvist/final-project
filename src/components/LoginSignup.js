@@ -73,9 +73,9 @@ export const LoginSignup = () => {
     <>
       {!loginPage && (
         <>
-          <MembersButton onClick={() => setLoginPage(true)}>
+          <Button className="members-button" onClick={() => setLoginPage(true)}>
             Already a member?
-          </MembersButton>
+          </Button>
           <AuthContainer>
             <h2>Become a member</h2>
             <Form onSubmit={handleSignup}>
@@ -122,7 +122,7 @@ export const LoginSignup = () => {
             required
             minLength="5"
           />
-          <Button type="submit">Login</Button>
+          <Button className="members-button" type="submit">Log in</Button>
           <p>{statusMessage}</p>
         </Form>
       )}
@@ -158,23 +158,4 @@ const AuthContainer = styled.section`
   border-radius: 6px;
   margin: 20px;
   padding: 20px;
-`;
-
-const MembersButton = styled.button`
-  background-color: #5e6572;
-  border: none;
-  color: #fff;
-  font-family: "Josefin Slab", serif;
-  padding: 10px;
-  width: 40%;
-  text-align: center;
-  transition-duration: 0.4s;
-  overflow: hidden;
-  box-shadow: 0 2px 10px #949899;
-  border-radius: 4px;
-
-  &:hover {
-    background: #a88979;
-    box-shadow: 0px 2px 10px 5px #949899;
-  }
 `;

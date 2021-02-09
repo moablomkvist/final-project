@@ -18,7 +18,7 @@ export const LoginSignup = () => {
   const SIGNUP_URL = "http://localhost:8081/users";
 
   const handleLoginSuccess = (loginResponse) => {
-    dispatch(userReducer.actions.setAccessToken({accessToken: loginResponse.accessToken,}));
+    dispatch(userReducer.actions.setAccessToken({ accessToken: loginResponse.accessToken }));
     dispatch(userReducer.actions.setUserId({ userId: loginResponse.userId }));
     dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Welcome!" }));
   };

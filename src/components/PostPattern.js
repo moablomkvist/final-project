@@ -39,12 +39,20 @@ export const PostPattern = () => {
     <Form onSubmit={handleSubmit}>
       <Container>
         <h1>Share pattern with the circle</h1>
+
+        <label>Name of the pattern</label>
+        <Input
+          type="text"
+          value={post}
+          onChange={(event) => setPost(event.target.value)}
+        />
+
         <label>Add pattern link</label>
         <Input
           type="text"
           value={source}
           onChange={(event) => setSource(event.target.value)}
-          placeholder="Link-adress"
+          placeholder="Link address (url)"
           required
         />
         <label>Add image link</label>
@@ -52,15 +60,8 @@ export const PostPattern = () => {
           type="text"
           value={imageSource}
           onChange={(event) => setImageSource(event.target.value)}
-          placeholder="Image-adress"
+          placeholder="Image address (url)"
           required
-        />
-
-        <label>Name of the pattern</label>
-        <Input
-          type="text"
-          value={post}
-          onChange={(event) => setPost(event.target.value)}
         />
 
         <label>Name of the used yarn</label>
@@ -78,6 +79,6 @@ export const PostPattern = () => {
           placeholder="Ex. Sock needles, 3,5 mm"
         />
       </Container>
-      <Button type="submit" >Share pattern</Button>
+      <Button type="submit">Share pattern</Button>
     </Form>
   );}

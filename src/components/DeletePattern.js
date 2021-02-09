@@ -1,7 +1,5 @@
 import React from 'react'
 
-import {useSelector } from 'react-redux'
-
 import { Button } from 'styling/lib/Button'
 
 export const DeletePattern = () => {
@@ -17,9 +15,6 @@ export const DeletePattern = () => {
       }
       return res.json();
     })
-    // .then((json) => {
-    //   dispatch(patternReducer.actions.setPatternDeleted(true))
-    // })
     .catch((err) => console.log("error:", err));
   }
 

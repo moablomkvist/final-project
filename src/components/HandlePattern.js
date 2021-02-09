@@ -1,15 +1,17 @@
 import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import moment from 'moment';
 import styled from "styled-components"
 
 import { patternReducer } from '../reducers/patternReducer'
 
+import { DeletePattern } from '../components/DeletePattern'
 
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
-  const patterns = useSelector((store) => store.patternReducer.all)
-  const patternId = useSelector((store) => store.patternReducer.patternId)
+  const patternId = useParams() 
+  const patterns = useSelector((store) => store.patternReducer.all) 
   
     const PATTERNS_URL = 'http://localhost:8081/patterns';
 
@@ -57,13 +59,13 @@ export const HandlePattern = () => {
             <PatternDetails>{pattern.yarn}</PatternDetails>
             <PatternDetails>{pattern.needles}</PatternDetails>
             <PatternDetails>{moment(pattern.createdAt).fromNow()}</PatternDetails>
-            <button onClick={handleDeletePattern(patternId._id)}>Delete</button> 
+            <button onClick={() => handleDeletePattern(patternId._id)}>Delete</button>
+            <DeletePattern />
           </PatternCard>
+          
         ))}
         </section>
-        
       );
-    
 }
 
 export const PatternCard = styled.article`

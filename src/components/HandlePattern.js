@@ -8,8 +8,8 @@ import { patternReducer } from '../reducers/patternReducer'
 
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
-  const patternId = useParams() 
   const patterns = useSelector((store) => store.patternReducer.all) 
+  const accessToken = useSelector((store) => store.userReducer.login.accessToken);
   
     const PATTERNS_URL = 'http://localhost:8081/patterns';
 
@@ -32,7 +32,7 @@ export const HandlePattern = () => {
       const handleDeletePattern = (_id) => {
         fetch(`http://localhost:8081/patterns/${_id}`, {
           method: 'DELETE',
-          headers: {'Content-Type': 'application/json'},
+          headers: {'Content-Type': 'application/json', 'Authorization': accessToken},
         })
         .then((res) => {
           if (!res.ok) {
@@ -57,14 +57,13 @@ export const HandlePattern = () => {
             <PatternDetails>{pattern.yarn}</PatternDetails>
             <PatternDetails>{pattern.needles}</PatternDetails>
             <PatternDetails>{moment(pattern.createdAt).fromNow()}</PatternDetails>
-            <button onClick={() => handleDeletePattern(patternId._id)}>Delete</button>
+            <button onClick={handleDeletePattern}>Delete</button>
           </PatternCard>
           
         ))}
         </section>
         
       );
-    
 }
 
 export const PatternCard = styled.article`

@@ -25,7 +25,7 @@ export const LoginSignup = () => {
 
   const handleLoginFailed = () => {
     dispatch(userReducer.actions.setAccessToken({ accessToken: null }));
-    dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Please try with another username or password" }));
+    dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Please try with another username or password." }));
   };
 
   //Signup
@@ -59,7 +59,7 @@ export const LoginSignup = () => {
       .then((res) => {
         if (!res.ok) {
           throw new Error(
-            "Unable to log in. Please check that your username and password is correct"
+            "Unable to log in. Please check that your username and password is correct."
           );
         }
         return res.json();

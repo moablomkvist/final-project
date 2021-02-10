@@ -92,7 +92,6 @@ const PatternPage = styled.section`
 @media (min-width: 768px) {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   width: 100%;
 }
 `
@@ -103,9 +102,9 @@ const PatternCard = styled.article`
   padding-bottom: 20px;
 
   @media (min-width: 768px) {
-    border: 2px dotted white;
-    width: 28%;
-    margin: 20px;
+    border: 2px dashed #c3c9b7;
+    width: 31%;
+    margin: 15px;
   }
 `;
 

@@ -123,7 +123,7 @@ export const LoginSignup = () => {
             minLength="5"
           />
           <Button className="members-button" type="submit">Log in</Button>
-          <p>{statusMessage}</p>
+          <Status>{statusMessage}</Status>
         </Form>
       )}
     </>
@@ -158,4 +158,8 @@ const AuthContainer = styled.section`
   border-radius: 6px;
   margin: 20px;
   padding: 20px;
+`;
+
+const Status = styled.p`
+  font-size: 10px;
 `;

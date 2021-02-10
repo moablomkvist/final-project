@@ -29,6 +29,7 @@ export const Footer = () => {
     background: #cba892;
     text-align: center;
 `; 
+
   const InfoContainer = styled.section`
     width: 100%;
   `;
@@ -36,6 +37,7 @@ export const Footer = () => {
   const Icon = styled.img`
     width: 20%;
 `;
+
   const Copyright = styled.p`
   font-size: 10px;
   `;

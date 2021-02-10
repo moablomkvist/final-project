@@ -77,7 +77,7 @@ export const LoginSignup = () => {
             Already a member?
           </Button>
           <AuthContainer>
-            <h2>Become a member</h2>
+            <SignupHeader>Become a member</SignupHeader>
             <Form onSubmit={handleSignup}>
               <label>Username</label>
               <Input
@@ -98,7 +98,7 @@ export const LoginSignup = () => {
                 onChange={(event) => setPassword(event.target.value)}
               />
               <Button type="submit">Join the circle</Button>
-              <p>{statusMessage}</p>
+              <StatusMessage>{statusMessage}</StatusMessage>
             </Form>
           </AuthContainer>
         </>
@@ -122,8 +122,8 @@ export const LoginSignup = () => {
             required
             minLength="5"
           />
-          <Button className="members-button" type="submit">Log in</Button>
-          <Status>{statusMessage}</Status>
+          <Button className="login-button" type="submit">Log in</Button>
+          <StatusMessage>{statusMessage}</StatusMessage>
         </Form>
       )}
     </>
@@ -135,11 +135,18 @@ const Form = styled.form`
   flex-direction: column;
 `;
 
+const SignupHeader = styled.h2 `
+  margin-bottom: 40px;
+
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
+`
+
 const Input = styled.input`
   padding: 8px;
   width: 100%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px 0 20px 0;
   border: 0;
   opacity: 0.3;
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.07);
@@ -148,6 +155,10 @@ const Input = styled.input`
   &:hover {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
     opacity: 0.5;
+  }
+
+  @media (min-width: 768px) {
+    padding: 12px;
   }
 `;
 
@@ -160,6 +171,9 @@ const AuthContainer = styled.section`
   padding: 20px;
 `;
 
-const Status = styled.p`
-  font-size: 10px;
-`;
+const StatusMessage = styled.p`
+  color: white;
+  margin: 5px 0 15px 0;
+  font-size: 14px;
+  width: 70%;
+`

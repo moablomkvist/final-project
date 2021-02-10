@@ -22,6 +22,10 @@ export const Nav = () => {
         <MenuLink>
           <NavLink to="/glossary">Glossary</NavLink>
         </MenuLink>
+
+        <MenuLink>
+          <NavLink to="/favourite-pattern">Favourite</NavLink>
+        </MenuLink>
       </MenuLinkList>
     </TopNavigation>
   );

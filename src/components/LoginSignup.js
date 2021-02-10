@@ -14,8 +14,8 @@ export const LoginSignup = () => {
   const [password, setPassword] = useState("");
   const [loginPage, setLoginPage] = useState(false);
 
-  const LOGIN_URL = "https://knitting-circle.herokuapp.com/sessions";
-  const SIGNUP_URL = "https://knitting-circle.herokuapp.com/users";
+  const LOGIN_URL = "http://localhost:8081/sessions";
+  const SIGNUP_URL = "http://localhost:8081/users";
 
   const handleLoginSuccess = (loginResponse) => {
     dispatch(userReducer.actions.setAccessToken({ accessToken: loginResponse.accessToken }));

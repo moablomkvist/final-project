@@ -5,7 +5,7 @@ import moment from "moment";
 import styled from "styled-components";
 
 import { patternReducer } from "../reducers/patternReducer";
-// import { Favourite } from "components/Favourite"
+import { Favourite } from 'components/Favourite'
 
 import { Button } from "../styling/lib/Button"
 
@@ -14,7 +14,7 @@ export const HandlePattern = () => {
   const patterns = useSelector((store) => store.patternReducer.all);
   const accessToken = useSelector((store) => store.userReducer.login.accessToken);
 
-  const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
+  const PATTERNS_URL = "http://localhost:8081/patterns";
 
   let history = useHistory();
   const handleDeleteSuccess = () => {
@@ -38,7 +38,7 @@ export const HandlePattern = () => {
   }, [dispatch]); //for not continuously updating. Gets depending on this variable.
 
   const handleDeletePattern = (_id) => {
-    fetch(`https://knitting-circle.herokuapp.com/patterns/${_id}`, {
+    fetch(`http://localhost:8081/patterns/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,6 @@ export const HandlePattern = () => {
     <PatternPage>
       {patterns.map((pattern) => (
         <PatternCard key={pattern._id}>
-
           <PatternImageWrapper>
             <PatternName>{pattern.post}</PatternName>
             <a href={pattern.source} alt="pattern description">
@@ -75,9 +74,7 @@ export const HandlePattern = () => {
             </PatternDetailsContainer>
 
             <SavePatternContainer>
-              {/* <Favourite
-              id={pattern._id} 
-              /> */}
+              <Favourite /> 
               <p>Save <span role="img" aria-label="yarn">🧶</span></p>
             </SavePatternContainer>
           </PatternTextWrapper>
@@ -89,23 +86,27 @@ export const HandlePattern = () => {
 };
 
 const PatternPage = styled.section`
-@media (min-width: 768px) {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-between;
 `
-
 const PatternCard = styled.article`
   margin: 10px 0;
   border-bottom: 2px dashed #c3c9b7;
   padding-bottom: 20px;
+  width: 100%;
 
-  @media (min-width: 768px) {
+  @media (min-width: 667px) and (max-width: 1024px) {
     border: 2px dashed #c3c9b7;
-    width: 31%;
+    width: 45%;
     margin: 15px;
   }
+  @media (min-width: 1025px) {
+    border: 2px dashed #c3c9b7;
+    width: 30%;
+    margin: 15px; 
+  }
+
 `;
 
 const PatternImageWrapper = styled.section`

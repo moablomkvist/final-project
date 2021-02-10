@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { RowCounter } from '../components/RowCounter'
-import { RulerTool } from '../components/RulerTool'
+// import { RulerTool } from '../components/RulerTool'
 
 export const ToolboxPage = () => {
   return(

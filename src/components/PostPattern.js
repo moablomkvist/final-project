@@ -12,7 +12,7 @@ export const PostPattern = () => {
   const [needles, setNeedles] = useState("");
   const [yarn, setYarn] = useState("");
 
-  const PATTERNS_URL = "http://localhost:8081/patterns";
+  const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
 
   let history = useHistory();
   const handlePostSuccess = () => {
@@ -89,7 +89,7 @@ export const PostPattern = () => {
       </Container>
       <Button className="share-button" type="submit">Share pattern</Button>
 
-     </Form>
+    </Form>
     </PostpageContainer>
   );}
 

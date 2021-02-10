@@ -5,6 +5,7 @@ import moment from "moment";
 import styled from "styled-components";
 
 import { patternReducer } from "../reducers/patternReducer";
+// import { Favourite } from "components/Favourite"
 
 import { Button } from "../styling/lib/Button"
 
@@ -74,6 +75,9 @@ export const HandlePattern = () => {
             </PatternDetailsContainer>
 
             <SavePatternContainer>
+              {/* <Favourite
+              id={pattern._id} 
+              /> */}
               <p>Save <span role="img" aria-label="yarn">🧶</span></p>
             </SavePatternContainer>
           </PatternTextWrapper>

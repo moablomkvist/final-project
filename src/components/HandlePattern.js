@@ -8,8 +8,9 @@ import { patternReducer } from "../reducers/patternReducer";
 import { favouriteReducer } from "../reducers/favouriteReducer"
 
 import { Button } from "../styling/lib/Button"
+import { FavouriteButton } from "styling/lib/FavouriteButton"
 
-export const HandlePattern = (yarn) => {
+export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
   const patterns = useSelector((store) => store.patternReducer.all);
   const accessToken = useSelector((store) => store.userReducer.login.accessToken);
@@ -76,13 +77,10 @@ export const HandlePattern = (yarn) => {
               <TimeDetails>{moment(pattern.createdAt).fromNow()}</TimeDetails>
             </PatternDetailsContainer>
             <SavePatternContainer>
-            <button className="fav-button" 
-            onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}
-            style={{ background: yarn > 0 ? "#FFADAD" : "#EAEAEA" }}>
-            <span role="img" aria-label="yarn">
-            {"🧶 "}
-            </span>
-            </button>
+            <FavouriteButton className="fav-button" 
+            onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
+              <img src="/assets/star.svg" alt="favourite-star"/>
+            </FavouriteButton>
             </SavePatternContainer>
           </PatternTextWrapper>
           <Button className="delete-button" onClick={() => {handleDeletePattern(pattern._id);}}>Delete</Button>

@@ -92,7 +92,9 @@ export const HandlePattern = () => {
             </FavouriteButton>
             </SavePatternContainer>
           </PatternTextWrapper>
-          <Button className="delete-button" onClick={() => {handleDeletePattern(pattern._id);}}>Delete</Button>
+          <Button className="delete-button" onClick={() => {handleDeletePattern(pattern._id);}}>
+          <img src="../assets/trash-2.svg" alt="trash-delete"/>
+          </Button>
         </PatternCard>
       ))}
     </PatternPage>

@@ -5,18 +5,22 @@ export const Header = styled.header `
   justify-content: center;
   align-items: center;
   margin: 0px;
-  background: #cba892;
-  // background: #F3EBDF;
+  background: #f3eadf;
   text-align: center;
   
   & .head-title {
-    margin: 15px 0 5px 0;
+    margin: 5px;
+    padding-top: 20px;
     font-weight: 700;
     font-size: 55px;
     text-transform: uppercase;
 
-    @media (min-width: 768px) {
-      margin: 15px 0 40px 0;
+    @media (min-width: 667px) and (max-width: 1024px) {
+    }
+      @media (min-width: 1025px) {
+      height: 200px;
+      font-size: 75px;
+      
     }
   }
 
@@ -25,8 +29,10 @@ export const Header = styled.header `
     font-weight: normal;
     margin-top: 15px;
 
-    @media (min-width: 768px) {
-      font-size: 14px;
+    @media (min-width: 667px) and (max-width: 1024px) {
+    }
+      @media (min-width: 1025px) {
+        padding-top: 30px;
     }
   }
 `; 

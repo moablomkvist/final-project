@@ -7,14 +7,17 @@ import { ToolboxPage } from 'pages/ToolboxPage'
 import { FavouritesPage } from 'pages/FavouritesPage'
 
 import { HandlePattern } from 'components/HandlePattern'
-import { Nav } from '../components/Nav'
-import { Footer } from 'components/Footer'
+import { Nav } from "components/Nav.js"
 
-export const LandingPage = () => {
-  
+export const Header = () => {
   return (
-    <> 
+    <>
+    <Header>
+      <p className="sub-title">Yes, I like to knit. No, I am not 'old'.</p>
+      <h1 className="head-title">Knitting Circle</h1>
+      
       <Nav />
+
       <Switch>
         <Route path='/' exact>
           <HandlePattern />
@@ -28,11 +31,12 @@ export const LandingPage = () => {
         <Route path='/toolbox' exact>
           <ToolboxPage />
         </Route> 
-        <Route path='/favourite-patterns' exact>
+        <Route path='/favourite-pattern' exact>
           <FavouritesPage />
         </Route>   
       </Switch>
-      <Footer />
-    </>
+
+    </Header>
+  </>
   )
 }

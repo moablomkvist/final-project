@@ -53,17 +53,21 @@ export const Button = styled.button`
   &.logout {
     padding: 0;
     margin: 0;
-    color: black;
-    font-weight: bold;
-    text-decoration: underline;
+    color: #f3eadf;
+    font-family: 'Fraunces', serif;
     background: none;
+    box-shadow: none;
+    border-radius: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &.login-button {
     background-color: #767a6e;
     border: none;
     color: #fff;
-    font-family: "Josefin Slab", serif;
     padding: 10px;
     width: 40%;
     text-align: center;
@@ -89,7 +93,6 @@ export const Button = styled.button`
     background: #a4a99b;
     border: 1.5px dotted white;
     color: #fff;
-    font-family: "Josefin Slab", serif;
     padding: 10px;
     width: 40%;
     text-align: center;

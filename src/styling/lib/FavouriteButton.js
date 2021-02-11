@@ -5,14 +5,16 @@ export const FavouriteButton = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: #EAEAEA;
-  width: 30px;
-  height: 30px;
+  background: none;
+  width: 40px;
+  height: 40px;
   border: none;
   border-radius: 50%;
-  padding: 0;
+  padding: 10px;
     &:focus {
       outline: transparent;
-      background: green;
+    }
+    &:hover {
+      box-shadow: 0px 2px 10px 5px #949899;
     }
 `

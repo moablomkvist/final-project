@@ -15,7 +15,7 @@ export const HandlePattern = () => {
   const patterns = useSelector((store) => store.patternReducer.all);
   const accessToken = useSelector((store) => store.userReducer.login.accessToken);
   
-  const PATTERNS_URL = "http://localhost:8081/patterns";
+  const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
 
   let history = useHistory();
   const handleDeleteSuccess = () => {
@@ -40,7 +40,7 @@ export const HandlePattern = () => {
 
 
   const handleDeletePattern = (_id) => {
-    fetch(`http://localhost:8081/patterns/${_id}`, {
+    fetch(`https://knitting-circle.herokuapp.com/patterns/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -78,8 +78,8 @@ export const HandlePattern = () => {
             </PatternDetailsContainer>
             <SavePatternContainer>
             <FavouriteButton className="fav-button" 
-            onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
-              <img src="/assets/star.svg" alt="favourite-star"/>
+              onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
+              <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>
             </FavouriteButton>
             </SavePatternContainer>
           </PatternTextWrapper>

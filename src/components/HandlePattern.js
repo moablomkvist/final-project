@@ -64,9 +64,9 @@ export const HandlePattern = () => {
       {patterns.map((pattern) => (
         <PatternCard key={pattern._id}>
             <PatternImageWrapper>
-            <PatternName post={pattern.post} />
+            <PatternName>{pattern.post}</PatternName>
             <a href={pattern.source} alt="pattern description">
-              <PatternImage src={pattern.imageSource} alt="patter-image" />
+              <PatternImage src={pattern.imageSource} alt="patter" />
             </a>
           </PatternImageWrapper>
           <PatternTextWrapper>

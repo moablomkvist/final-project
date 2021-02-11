@@ -28,7 +28,7 @@ export const LandingPage = () => {
         <Route path='/toolbox' exact>
           <ToolboxPage />
         </Route> 
-        <Route path='/favourite-pattern' exact>
+        <Route path='/favourite-patterns' exact>
           <FavouritesPage />
         </Route>   
       </Switch>

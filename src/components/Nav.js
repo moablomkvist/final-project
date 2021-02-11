@@ -14,20 +14,17 @@ export const Nav = () => {
       </Header>
       <MenuLinkList>
         <MenuLink>
-          <NavLink to="/post-pattern">Post pattern</NavLink>
+          <NavLink to="/post-pattern">Share pattern</NavLink>
         </MenuLink>
 
         <MenuLink>
-          <NavLink to="/toolbox">Toolbox</NavLink>
+          <NavLink to="/toolbox">Start knitting</NavLink>
         </MenuLink>
 
         <MenuLink>
           <NavLink to="/glossary">Glossary</NavLink>
         </MenuLink>
         
-        <MenuLink>
-          <NavLink to="/favourite-pattern">Favourite</NavLink>
-        </MenuLink>
         <MenuLink>
           <Logout/>
         </MenuLink>
@@ -63,8 +60,11 @@ const MenuLinkList = styled.ul`
 
 const MenuLink = styled.li`
   margin: 10px;
-  font-size: 18px;
+  font-size: 14px;
   &:hover {
     text-decoration: underline;
+  }
+  @media (min-width: 1025px) {
+    font-size: 18px;
   }
 `;

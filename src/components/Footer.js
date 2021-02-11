@@ -59,7 +59,7 @@ export const Footer = () => {
       width: 15%;
     }
     @media (min-width: 1025px) {
-      width: 10%;
+      width: 8%;
     }
 `;
 

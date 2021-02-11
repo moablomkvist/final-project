@@ -72,9 +72,16 @@ export const LoginSignup = () => {
   return (
     <>
       {!loginPage && (
-        <>
+        <SignupLoginWrapper>
+          <AuthContainer className="member-card">
+          <SignupHeader>Circle member</SignupHeader>
+          <p>Do we know you from before? Just log in and start exploring.</p>
+          <Button className="members-button" onClick={() => setLoginPage(true)}>
+            Part of the circle
+          </Button>
+          </AuthContainer>
           <AuthContainer>
-            <SignupHeader>Be a member</SignupHeader>
+            <SignupHeader>Become a member</SignupHeader>
             <Form onSubmit={handleSignup}>
               <label>Username</label>
               <Input
@@ -96,16 +103,14 @@ export const LoginSignup = () => {
               />
               <Button type="submit">Join the circle</Button>
               <StatusMessage>{statusMessage}</StatusMessage>
-              <Button className="members-button" onClick={() => setLoginPage(true)}>
-            Already a member?
-          </Button>
             </Form>
           </AuthContainer>
-        </>
+          </SignupLoginWrapper>
+
       )}
 
       {loginPage && (
-        <Form onSubmit={handleLogin}>
+        <Form onSubmit={handleLogin} className="login-page">
           <label>Name</label>
           <Input
             value={name}
@@ -162,6 +167,11 @@ const Input = styled.input`
   }
 `;
 
+const SignupLoginWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+`
+
 const AuthContainer = styled.section`
   box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
@@ -169,6 +179,10 @@ const AuthContainer = styled.section`
   border-radius: 6px;
   margin: 20px;
   padding: 20px;
+
+  &.member-card {
+    background-color: #a4a99b;
+  }
 `;
 
 const StatusMessage = styled.p`

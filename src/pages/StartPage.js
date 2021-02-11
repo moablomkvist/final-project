@@ -22,7 +22,7 @@ const accessToken = useSelector((store) => store.userReducer.login.accessToken)
         <h1 className="head-title">Knitting Circle</h1>
       </Header>
 
-   <IntroWrapper>
+    <IntroWrapper>
       <Heading>"If not knit now then when"</Heading>
       <Ingress>
         Some call it slow fashion. We call it a matter of thinking. 
@@ -32,7 +32,7 @@ const accessToken = useSelector((store) => store.userReducer.login.accessToken)
     </IntroWrapper>
 
       <ContentContainer>
-        <CoverPhoto src="https://i.pinimg.com/564x/f9/19/79/f91979a3628229f6f55444b495cf5b62.jpg" alt="knitting-model"></CoverPhoto>
+        <CoverPhoto src="../assets/knitting-circle-cover.jpg" alt="Model in knitted clothes"></CoverPhoto>
         <LoginSignup />
       </ContentContainer>
       <Footer />
@@ -55,6 +55,7 @@ const StartPageContainer = styled.section`
 `;
 
 const ContentContainer = styled.section`
+  justify-content: center;
 
   @media (min-width: 667px) and (max-width: 1024px) {
   }
@@ -64,13 +65,13 @@ const ContentContainer = styled.section`
   }
 `;
 
-
 const CoverPhoto = styled.img`
   width: 100%;
-  margin-bottom: 10px;
+  padding: 10px;
 
   @media (min-width: 768px) {
-    width: 60%;
+    width: 40%;
+    padding: 0px;
     margin-top: 20px;
     margin-bottom: 20px;
   }

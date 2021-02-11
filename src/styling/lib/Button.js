@@ -29,14 +29,13 @@ export const Button = styled.button`
   &.delete-button {
     width: 25%;
     background: none;
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-bottom: 0px;
+    margin: 20px 0px 0px 10px;
   }
 
   &.members-button {
-    background-color: #f3eadf;
+    background: #f3eadf;
     color: black;
+    font-weight: bold;
   
     &:hover {
       background: #a88979;
@@ -45,7 +44,7 @@ export const Button = styled.button`
 
     @media (min-width: 768px) {
       font-size: 18px;
-      width: 100%;
+      width: 50%;
       padding: 15px;
       border-radius: 4px;
     }

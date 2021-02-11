@@ -77,11 +77,11 @@ export const LoginSignup = () => {
           <SignupHeader>Circle member</SignupHeader>
           <p>Do we know you from before? Just log in and start exploring.</p>
           <Button className="members-button" onClick={() => setLoginPage(true)}>
-            Part of the circle
+            Already a knitter?
           </Button>
           </AuthContainer>
           <AuthContainer>
-            <SignupHeader>Become a member</SignupHeader>
+            <SignupHeader>Become a knitter</SignupHeader>
             <Form onSubmit={handleSignup}>
               <label>Username</label>
               <Input
@@ -174,14 +174,14 @@ const SignupLoginWrapper = styled.section`
 
 const AuthContainer = styled.section`
   box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  background-color: #83979d;
+  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  background-color: #767a6e;
   border-radius: 6px;
   margin: 20px;
   padding: 20px;
 
   &.member-card {
-    background-color: #a4a99b;
+    background-color: #d1b8ab;
   }
 `;
 

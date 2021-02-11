@@ -8,7 +8,7 @@ export const Button = styled.button`
   border: none;
   padding: 10px;
   margin: 20px 0;
-  background: #5E6572;
+  background: #a4a99b;
   color: #fff;
   font-size: 14px;
   letter-spacing: 1px;
@@ -18,7 +18,7 @@ export const Button = styled.button`
   overflow: hidden;
 
   &:hover {
-    background: #a88979;
+    background: #767a6e;
     box-shadow: 0px 2px 10px 5px #949899;
   }
 
@@ -60,7 +60,7 @@ export const Button = styled.button`
   }
 
   &.login-button {
-    background-color: #5e6572;
+    background-color: #767a6e;
     border: none;
     color: #fff;
     font-family: "Josefin Slab", serif;

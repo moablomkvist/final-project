@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 
 import { LandingPage } from './LandingPage'
 import { Footer } from 'components/Footer'
-
 import { LoginSignup } from 'components/LoginSignup'
 
 import { Header } from 'styling/lib/Header'
@@ -23,6 +22,7 @@ const accessToken = useSelector((store) => store.userReducer.login.accessToken)
       </Header>
 
     <IntroWrapper>
+    <img className="knit-logo" src="assets/knit-2923687_640.png" alt="logo"/>
       <Heading>"If not knit now then when"</Heading>
       <Ingress>
         Some call it slow fashion. We call it a matter of thinking. 
@@ -46,15 +46,15 @@ const StartPageContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #a4a99b;
   font-family: 'Fraunces';
-  border: dashed 2px #c3c9b7;
-  background: #F3EBDF;
+  border: solid 2px #f3eadf;
+  background: #a4a99b;
   margin: 20px;
 `;
 
 const ContentContainer = styled.section`
   justify-content: center;
+  padding: 30px;
   @media (min-width: 667px) and (max-width: 1024px) {
   }
   @media (min-width: 1025px) {
@@ -84,6 +84,17 @@ const IntroWrapper = styled.section`
   &.ending-wrapper {
     border-top: dashed 2px #c3c9b7;
     border-bottom: none;
+  }
+  & .knit-logo {
+    width: 20%;
+    padding-bottom: 20px;
+
+    @media (min-width: 667px) and (max-width: 1024px) {
+      width: 10%;
+    }
+      @media (min-width: 1025px) {
+      width: 10%;
+    }
   }
 `
 

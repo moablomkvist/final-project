@@ -58,9 +58,6 @@ export const HandlePattern = () => {
       .then((json) => handleDeleteSuccess(json))
       .catch((err) => console.log("error:", err));
   };
-  
-  
-
 
   return (
     <PatternPage>

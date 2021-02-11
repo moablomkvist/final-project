@@ -54,6 +54,7 @@ export const Button = styled.button`
     padding: 0;
     margin: 0;
     color: black;
+    font-weight: bold;
     text-decoration: underline;
     background: none;
   }

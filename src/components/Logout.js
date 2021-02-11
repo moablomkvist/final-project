@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { userReducer } from 'reducers/userReducer'
 
-import { Button } from 'styling/lib/Button'
+//import { Button } from 'styling/lib/Button'
 
 export const Logout = () => {
   const [loggedOut, setLoggedOut] = useState(false);

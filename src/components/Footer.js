@@ -1,11 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
-import { Logout } from 'components/Logout'
-
 export const Footer = () => {
-  const accessToken = useSelector((store) => store.userReducer.login.accessToken);
 
   return (
     <FooterContainer>
@@ -16,8 +12,6 @@ export const Footer = () => {
       <InfoContainer>
         <Copyright>© Moa Blomkvist & Caroline Birgersson</Copyright>
       </InfoContainer>
-      {accessToken &&
-        <Logout />}
     </FooterContainer>
   )};
 

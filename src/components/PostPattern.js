@@ -13,6 +13,8 @@ export const PostPattern = () => {
   const [needles, setNeedles] = useState("");
   const [yarn, setYarn] = useState("");
 
+  const accessToken = useSelector((store) => store.userReducer.login.accessToken);
+
   const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
 
   let history = useHistory();
@@ -25,7 +27,7 @@ export const PostPattern = () => {
       fetch(PATTERNS_URL, {
         method: "POST",
         body: JSON.stringify({ post, source, imageSource, needles, yarn }),
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Authorization: accessToken },
       })
       .then((res) => {
         if (!res.ok) {

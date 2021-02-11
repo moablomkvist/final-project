@@ -20,7 +20,6 @@ export const HandlePattern = () => {
 
   let history = useHistory();
   const handleDeleteSuccess = () => {
-    console.log('success')
     history.go();
   };
 
@@ -28,7 +27,7 @@ export const HandlePattern = () => {
     fetch(PATTERNS_URL, {
       method: "GET",
       headers: { 
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
     })
       .then((res) => {
@@ -92,8 +91,10 @@ export const HandlePattern = () => {
             </FavouriteButton>
             </SavePatternContainer>
           </PatternTextWrapper>
+
           <Button className="delete-button" onClick={() => {handleDeletePattern(pattern._id);}}>
           <img src="../assets/trash-2.svg" alt="trash-delete"/>
+
           </Button>
         </PatternCard>
       ))}
@@ -108,6 +109,7 @@ const FilterContainer = styled.section`
   margin: 20px;
   border-bottom: 2px dashed #c3c9b7;
 `
+
 const FilterLink = styled.p`
   font-size: 20px;
 `

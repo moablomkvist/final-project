@@ -11,7 +11,7 @@ export const ToolboxPage = () => {
     <ToolboxContainer>
       <Heading>"It's better to have knit and ripped than to never have knit at all"</Heading>
       <Ingress>We have all been there, sitting in the handicraft in school. But now it's your choice. We like to keep it simple for you to get started. 
-        And you you know what? This is the new start of a new knitting era. All knitters are in use of a row counter – so you're gonna love this. We just say "just another row ...".</Ingress>
+        And you you know what? All knitters are in use of a row counter – so you're gonna love this. We just say "just another row ...".</Ingress>
     </ToolboxContainer> 
     <ToolboxContainer>
       <RowCounter />
@@ -52,25 +52,10 @@ export const ToolboxPage = () => {
         <ToolboxTips>You can find a lot of inspiration when you scan through different hashtags. We have collected a bunch of them so you can feel the desire to have the needles in your hand as soon as possible. And buy know you have everything you need to start.</ToolboxTips>
       </ToolboxContainer>
     </ContainerWrapper>
-
-    <IntroWrapper className="ending-wrapper">
-    </IntroWrapper>
       
     </>
   )
 }
-
-const IntroWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 40px 0;
-  font-family: 'Fraunces';
-  border-bottom: dashed 2px #c3c9b7;
-  width: 100%;
-  padding-bottom: 40px;
-`
 
 const Heading = styled.h1`
   font-size: 30px;
@@ -84,6 +69,7 @@ const Heading = styled.h1`
 
 const Ingress = styled.p`
   width: 90%;
+  margin-bottom: 50px;
 
   @media (min-width: 768px) {
     font-size: 20px;
@@ -114,6 +100,7 @@ const ContainerWrapper = styled.section`
 const ToolboxContainer = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @media (min-width: 768px) {
     width: 50%;
@@ -131,7 +118,7 @@ const CoverPhoto = styled.img`
 `
 
 const ToolboxHeading = styled.h1`
-  margin: 40px;
+  margin: 15px 20px;
 
   @media (min-width: 768px) {
     font-size: 40px;
@@ -154,6 +141,8 @@ const ToolboxTips = styled.p`
 const Quote = styled.h1`
   font-size: 30px;
   width: 90%;
+  margin-top: 15px;
+  margin-bottom: 0;
 
   @media (min-width: 768px) {
     font-size: 40px;

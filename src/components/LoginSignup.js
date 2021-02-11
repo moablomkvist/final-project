@@ -138,6 +138,11 @@ export const LoginSignup = () => {
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+    @media (min-width: 667px) and (max-width: 1024px) {
+      
+    }
+      @media (min-width: 1025px) {
+    }
 `;
 
 const SignupHeader = styled.h2 `
@@ -157,14 +162,18 @@ const Input = styled.input`
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.07);
   font-family: inherit;
 
-  &:hover {
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
-    opacity: 0.5;
-  }
+    &:hover {
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
+      opacity: 0.5;
+    }
 
-  @media (min-width: 768px) {
-    padding: 12px;
-  }
+    @media (min-width: 667px) and (max-width: 1024px) {
+    
+    }
+    
+    @media (min-width: 1025px) {
+    
+    }
 `;
 
 const SignupLoginWrapper = styled.section`

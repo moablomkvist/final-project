@@ -14,7 +14,7 @@ export const PostPattern = () => {
   const [yarn, setYarn] = useState("");
   const accessToken = useSelector((store) => store.userReducer.login.accessToken);
 
-  const PATTERNS_URL = "http://localhost:8081/patterns";
+  const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
 
   let history = useHistory();
   const handlePostSuccess = () => {

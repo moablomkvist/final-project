@@ -64,7 +64,7 @@ export const Button = styled.button`
     color: #fff;
     font-family: "Josefin Slab", serif;
     padding: 10px;
-    width: 60%;
+    width: 40%;
     text-align: center;
     transition-duration: 0.4s;
     overflow: hidden;
@@ -76,11 +76,11 @@ export const Button = styled.button`
       background: #a88979;
       box-shadow: 0px 2px 10px 5px #949899;
     }
+    @media (min-width: 667px) and (max-width: 1024px) {
 
-    @media (min-width: 768px) {
-      font-size: 18px;
-      width: 60%;
-      border-radius: 4px;
+    }
+    @media (min-width: 1025px) {
+
     }
   }
 

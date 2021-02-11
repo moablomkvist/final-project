@@ -6,9 +6,6 @@ const initialState = {
     userId: localStorage.userId || 0,
     statusMessage: localStorage.statusMessage || ""
   },
-  // actions: {
-  //   favouritePatterns: [],
-  // },
 }
 
 export const userReducer = createSlice({
@@ -44,9 +41,6 @@ export const userReducer = createSlice({
       state.login.statusMessage = "";
       localStorage.clear();
     },
-    // setFavouritePatterns: (store, action) => {
-    //   store.actions.favouritePatterns = action.payload;
-    // },
   },
 })
 

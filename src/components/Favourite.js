@@ -8,15 +8,14 @@ export const Favourite = () => {
   const { patternId } = useParams();
   const dispatch = useDispatch(); 
   const favouritePatterns = useSelector((store) => store.favouriteReducer.list.items);
+  
   const isFavorite = !!favouritePatterns.find(item => item.id === patternId);
 
   const handleClick = (isFavourite) => {
     if (isFavourite) {
-    //   dispatch(favouriteReducer.actions.deleteFavourite({ id: patternId })
-    //   )
-    // } else {
-      dispatch(favouriteReducer.actions.addFavourite({ id: patternId })
-      )
+      dispatch(favouriteReducer.actions.deleteFavourite({ id: patternId }))
+    } else {
+      dispatch(favouriteReducer.actions.addFavourite({ id: patternId }))
     };
   };
   
@@ -24,9 +23,9 @@ export const Favourite = () => {
   return(
     <>
     <div isFavourite={isFavorite}></div>
-    <button 
-      onClick={handleClick}>
-    </button>
+    {/* <button 
+      onClick={handleFavourite}>
+    </button> */}
   </> 
   )
 }

@@ -5,7 +5,7 @@ import moment from "moment";
 import styled from "styled-components";
 
 import { patternReducer } from "../reducers/patternReducer";
-import { Favourite } from 'components/Favourite'
+import { favouriteReducer } from "../reducers/favouriteReducer"
 
 import { Button } from "../styling/lib/Button"
 
@@ -13,7 +13,7 @@ export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
   const patterns = useSelector((store) => store.patternReducer.all);
   const accessToken = useSelector((store) => store.userReducer.login.accessToken);
-
+  
   const PATTERNS_URL = "http://localhost:8081/patterns";
 
   let history = useHistory();
@@ -37,6 +37,7 @@ export const HandlePattern = () => {
     //how to store the patterns in Redux store.
   }, [dispatch]); //for not continuously updating. Gets depending on this variable.
 
+
   const handleDeletePattern = (_id) => {
     fetch(`http://localhost:8081/patterns/${_id}`, {
       method: "DELETE",
@@ -54,28 +55,30 @@ export const HandlePattern = () => {
       .then((json) => handleDeleteSuccess(json))
       .catch((err) => console.log("error:", err));
   };
+  
+  
+
 
   return (
     <PatternPage>
       {patterns.map((pattern) => (
         <PatternCard key={pattern._id}>
-          <PatternImageWrapper>
-            <PatternName>{pattern.post}</PatternName>
+            <PatternImageWrapper>
+            <PatternName post={pattern.post} />
             <a href={pattern.source} alt="pattern description">
-              <PatternImage src={pattern.imageSource} alt="pattern image" />
+              <PatternImage src={pattern.imageSource} alt="patter-image" />
             </a>
           </PatternImageWrapper>
-
           <PatternTextWrapper>
             <PatternDetailsContainer>
               <PatternDetails>Yarn / {pattern.yarn}</PatternDetails>
               <PatternDetails>Needles / {pattern.needles}</PatternDetails>
               <TimeDetails>{moment(pattern.createdAt).fromNow()}</TimeDetails>
             </PatternDetailsContainer>
-
             <SavePatternContainer>
-              <Favourite /> 
+            <button onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
               <p>Save <span role="img" aria-label="yarn">🧶</span></p>
+            </button>
             </SavePatternContainer>
           </PatternTextWrapper>
           <Button className="delete-button" onClick={() => {handleDeletePattern(pattern._id);}}>Delete</Button>
@@ -83,7 +86,7 @@ export const HandlePattern = () => {
       ))}
     </PatternPage>
   );
-};
+  };
 
 const PatternPage = styled.section`
   display: flex; 

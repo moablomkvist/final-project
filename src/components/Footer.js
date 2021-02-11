@@ -11,9 +11,6 @@ export const Footer = () => {
     <FooterContainer>
         <Icon src="../assets/knit-2923687_640.png" alt="Logo"></Icon>
       <InfoContainer>
-        <h3>Slow Fashion</h3>
-      </InfoContainer>
-      <InfoContainer>
         <p>We are the virtual knitting circle. Share free patterns and start knitting.</p>
       </InfoContainer>
       <InfoContainer>

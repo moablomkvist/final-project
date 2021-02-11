@@ -194,7 +194,7 @@ const WordCardContainer = styled.article`
   margin: 10px;
   padding: 10px 0;
   width: 90%;
-  border: 4px dashed #cba892;
+  border: 2px dashed #c3c9b7;
 
   @media (min-width: 768px) {
     margin: 20px;

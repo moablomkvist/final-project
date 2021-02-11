@@ -109,7 +109,6 @@ const PatternCard = styled.article`
     width: 30%;
     margin: 15px; 
   }
-
 `;
 
 const PatternImageWrapper = styled.section`

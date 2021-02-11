@@ -6,6 +6,7 @@ export const Header = styled.header `
   align-items: center;
   margin: 0px;
   background: #cba892;
+  // background: #F3EBDF;
   text-align: center;
   
   & .head-title {
@@ -15,7 +16,7 @@ export const Header = styled.header `
     text-transform: uppercase;
 
     @media (min-width: 768px) {
-      margin: 15px 0 15px 0;
+      margin: 15px 0 40px 0;
     }
   }
 

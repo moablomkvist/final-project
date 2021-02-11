@@ -73,11 +73,8 @@ export const LoginSignup = () => {
     <>
       {!loginPage && (
         <>
-          <Button className="members-button" onClick={() => setLoginPage(true)}>
-            Already a member?
-          </Button>
           <AuthContainer>
-            <SignupHeader>Become a member</SignupHeader>
+            <SignupHeader>Be a member</SignupHeader>
             <Form onSubmit={handleSignup}>
               <label>Username</label>
               <Input
@@ -99,6 +96,9 @@ export const LoginSignup = () => {
               />
               <Button type="submit">Join the circle</Button>
               <StatusMessage>{statusMessage}</StatusMessage>
+              <Button className="members-button" onClick={() => setLoginPage(true)}>
+            Already a member?
+          </Button>
             </Form>
           </AuthContainer>
         </>

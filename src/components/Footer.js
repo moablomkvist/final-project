@@ -22,8 +22,10 @@ export const Footer = () => {
     align-items: center;
     margin: 0px;
     background: #f3eadf;
-    @media (min-width: 667px) and (max-width: 1024px) {
-    }
+      @media (min-width: 667px) and (max-width: 1024px) {
+        flex-direction: row;
+        justify-content: start;
+      }
     @media (min-width: 1025px) {
       flex-direction: row;
       height: 200px;

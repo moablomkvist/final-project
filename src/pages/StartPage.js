@@ -55,22 +55,29 @@ const StartPageContainer = styled.section`
 const ContentContainer = styled.section`
   justify-content: center;
   padding: 30px;
-  @media (min-width: 667px) and (max-width: 1024px) {
-  }
-  @media (min-width: 1025px) {
+
+    @media (min-width: 667px) and (max-width: 1024px) {
+    }
+    @media (min-width: 1025px) {
     display: flex;  
-  }
+    }
 `;
 
 const CoverPhoto = styled.img`
   width: 100%;
   padding: 10px;
-  @media (min-width: 768px) {
-    width: 40%;
-    padding: 0px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+
+    @media (min-width: 667px) and (max-width: 1024px) {
+      width: 70%;
+      padding: 0px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 1025px) {
+      width: 50%;
+    }
+
 `
 
 const IntroWrapper = styled.section`

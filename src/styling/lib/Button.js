@@ -50,6 +50,14 @@ export const Button = styled.button`
     }
   }
 
+  &.logout {
+    padding: 0;
+    margin: 0;
+    color: black;
+    text-decoration: underline;
+    background: none;
+  }
+
   &.login-button {
     background-color: #5e6572;
     border: none;

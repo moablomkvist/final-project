@@ -7,10 +7,16 @@ import { RowCounter } from '../components/RowCounter'
 export const ToolboxPage = () => {
   return(
     <>
-    <IntroWrapper>
+    <ContainerWrapper className="first-part-wrapper">
+    <ToolboxContainer>
       <Heading>"It's better to have knit and ripped than to never have knit at all"</Heading>
-      <Ingress>We have all been there, sitting in the handicraft in school. But now it's your choice. We like to keep it simple for you to get started. And you you know what? This is the new start of a new knitting era. Don't you wanna be a part of it?</Ingress>
-    </IntroWrapper>
+      <Ingress>We have all been there, sitting in the handicraft in school. But now it's your choice. We like to keep it simple for you to get started. 
+        And you you know what? This is the new start of a new knitting era. All knitters are in use of a row counter – so you're gonna love this. We just say "just another row ...".</Ingress>
+    </ToolboxContainer> 
+    <ToolboxContainer>
+      <RowCounter />
+    </ToolboxContainer> 
+    </ContainerWrapper>
 
     <ContainerWrapper>
       <ToolboxContainer>
@@ -24,7 +30,7 @@ export const ToolboxPage = () => {
       </ToolboxContainer>
     </ContainerWrapper>
 
-    <ContainerWrapper>
+    <ContainerWrapper className="middle-part-wrapper">
       <ToolboxContainer>
       <ToolboxHeading>Step 2 / Learn knit & purl stitch</ToolboxHeading>
       <ToolboxTips>If you know how to do a knit stich and purl stitch you have come a far way. You combine those stitches in a lot of patterns. The amazing thing with internet is that (except that you have landed here) you can find tutorials on everything. Here is a list of useful resources:</ToolboxTips>
@@ -36,7 +42,7 @@ export const ToolboxPage = () => {
       </ToolboxContainer>
     </ContainerWrapper>
 
-    <ContainerWrapper className="ending-wrapper">
+    <ContainerWrapper>
       <ToolboxContainer>
         <CoverPhoto src="https://images.unsplash.com/photo-1605433235628-489951ba1978?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1638&q=80" alt="knitting-model"></CoverPhoto>
       </ToolboxContainer>
@@ -48,9 +54,6 @@ export const ToolboxPage = () => {
     </ContainerWrapper>
 
     <IntroWrapper className="ending-wrapper">
-      <Heading>"Just another row before I go ..."</Heading>
-      <Ingress>Use the row counter so you don't miss a row.</Ingress>
-      <RowCounter />
     </IntroWrapper>
       
     </>
@@ -67,11 +70,6 @@ const IntroWrapper = styled.section`
   border-bottom: dashed 2px #c3c9b7;
   width: 100%;
   padding-bottom: 40px;
-
-  &.ending-wrapper {
-    border-top: dashed 2px #c3c9b7;
-    border-bottom: none;
-  }
 `
 
 const Heading = styled.h1`
@@ -80,7 +78,7 @@ const Heading = styled.h1`
 
   @media (min-width: 768px) {
     font-size: 40px;
-    width: 40%;
+    width: 100%;
   }
 `
 
@@ -89,7 +87,7 @@ const Ingress = styled.p`
 
   @media (min-width: 768px) {
     font-size: 20px;
-    width: 40%;
+    width: 100%;
   }
 `
 
@@ -100,6 +98,16 @@ const ContainerWrapper = styled.section`
 
   @media (min-width: 768px) {
     flex-direction: row;
+
+    &.middle-part-wrapper {
+      margin: 80px 0;
+    }
+
+    &.first-part-wrapper {
+      margin: 80px 0;
+      padding: 20px;
+      border-bottom: dashed 2px #c3c9b7;
+    }
   }
 `
 
@@ -109,6 +117,7 @@ const ToolboxContainer = styled.section`
 
   @media (min-width: 768px) {
     width: 50%;
+    margin-left: 15px;
   }
 `
 

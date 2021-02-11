@@ -51,15 +51,12 @@ const StartPageContainer = styled.section`
   border: dashed 2px #c3c9b7;
   background: #F3EBDF;
   margin: 20px;
-
 `;
 
 const ContentContainer = styled.section`
   justify-content: center;
-
   @media (min-width: 667px) and (max-width: 1024px) {
   }
-
   @media (min-width: 1025px) {
     display: flex;  
   }
@@ -68,7 +65,6 @@ const ContentContainer = styled.section`
 const CoverPhoto = styled.img`
   width: 100%;
   padding: 10px;
-
   @media (min-width: 768px) {
     width: 40%;
     padding: 0px;
@@ -85,7 +81,6 @@ const IntroWrapper = styled.section`
   margin: 40px 0;
   font-family: 'Fraunces';
   width: 100%;
-
   &.ending-wrapper {
     border-top: dashed 2px #c3c9b7;
     border-bottom: none;
@@ -95,7 +90,6 @@ const IntroWrapper = styled.section`
 const Heading = styled.h1`
   font-size: 30px;
   width: 90%;
-
   @media (min-width: 768px) {
     font-size: 40px;
     width: 40%;
@@ -106,10 +100,8 @@ const Ingress = styled.p`
   width: 90%;
   padding-bottom: 50px;
   border-bottom: dashed 2px #c3c9b7;
-
   @media (min-width: 768px) {
     font-size: 20px;
     width: 40%;
   }
 `
-

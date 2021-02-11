@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 import { Button } from 'styling/lib/Button'
 import { Form, Input, Label, Container } from 'styling/lib/Card'
@@ -11,6 +12,7 @@ export const PostPattern = () => {
   const [imageSource, setImageSource] = useState("");
   const [needles, setNeedles] = useState("");
   const [yarn, setYarn] = useState("");
+  const accessToken = useSelector((store) => store.userReducer.login.accessToken);
 
   const PATTERNS_URL = "http://localhost:8081/patterns";
 
@@ -24,7 +26,7 @@ export const PostPattern = () => {
       fetch(PATTERNS_URL, {
         method: "POST",
         body: JSON.stringify({ post, source, imageSource, needles, yarn }),
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Authorization: accessToken },
       })
       .then((res) => {
         if (!res.ok) {

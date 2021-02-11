@@ -10,9 +10,6 @@ import { HandlePattern } from 'components/HandlePattern'
 import { Nav } from '../components/Nav'
 import { Footer } from 'components/Footer'
 
-
-
-
 export const LandingPage = () => {
   
   return (

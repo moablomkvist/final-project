@@ -20,9 +20,9 @@ export const Logout = () => {
   return (
     <>
       {loggedOut === false ? (
-        <Button to="/" type="submit" onClick={handleLogoutButton}>
+        <a to="/" type="submit" className="logout" onClick={handleLogoutButton}>
           Log out
-        </Button>
+        </a>
       ) : (
         <></>
       )}

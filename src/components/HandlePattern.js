@@ -24,7 +24,9 @@ export const HandlePattern = (yarn) => {
   useEffect(() => {
     fetch(PATTERNS_URL, {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Content-Type": "application/json"
+      },
     })
       .then((res) => {
         if (!res.ok) {

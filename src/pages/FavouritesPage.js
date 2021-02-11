@@ -4,11 +4,11 @@ import { favouriteReducer } from 'reducers/favouriteReducer';
 
 export const FavouritesPage = () => {
   const dispatch = useDispatch()
-  const favPatterns = useSelector((store) => store.favouriteReducer.items)
+  const patterns = useSelector((store) => store.favouriteReducer.items)
 
   return (
     <>
-      {favPatterns.map((pattern) => (
+      {patterns.map((pattern) => (
         <section>
         <li key={pattern._id} pattern={pattern}>
           <a href={pattern.source} alt="pattern description">

@@ -1,45 +1,23 @@
-import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 import { favouriteReducer } from 'reducers/favouriteReducer';
 
 export const FavouritesPage = () => {
-  const history = useHistory();
-  const accessToken = useSelector((store) => store.userReducer.login.accessToken);
-  const allFavourites = useSelector((store) => store.favouriteReducer.list.items);
-  const dispatch = useDispatch();
-    
-  const handleClick = ( patternId ) => {
-    dispatch(favouriteReducer.actions.deleteFavourite({ id: patternId }));
-  };
-  const handleChange = () => {
-    dispatch(favouriteReducer.actions.clearAll());
-  };
-
-  useEffect(() => {
-    if (!accessToken) {
-      history.push("/")
-    }
-  }, [history, accessToken]);
+  const dispatch = useDispatch()
+  const favPatterns = useSelector((store) => store.favouriteReducer.items)
 
   return (
     <>
-      <h1>Favourite Patterns</h1>
-      <div>
-        {allFavourites.map((item) => (
-          <div
-            button onClick={handleClick}
-            id={item.id}>
-            </div>
-        ))}
-      </div>
-      {allFavourites.length > 0 &&
-        <button
-          className="clear-all-button"
-          onClick={handleChange}>
-          Clear all favourites
-        </button>}
+      {favPatterns.map((pattern) => (
+        <section>
+        <li key={pattern._id} pattern={pattern}>
+          <a href={pattern.source} alt="pattern description">
+          <img src={pattern.imageSource} alt="pattern"/>
+        </a>
+        </li>
+        <button type="button" onClick={() => dispatch(favouriteReducer.actions.deleteFavourite(pattern))}>-</button>
+        </section>
+      ))}
     </>
   )
 };

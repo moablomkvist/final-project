@@ -46,7 +46,6 @@ const StartPageContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #a4a99b;
   font-family: 'Fraunces';
   border: dashed 2px #c3c9b7;
   background: #F3EBDF;

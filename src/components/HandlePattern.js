@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import moment from "moment";
 import styled from "styled-components";
+//import { NavLink } from "react-router-dom";
 
 import { patternReducer } from "../reducers/patternReducer";
 import { favouriteReducer } from "../reducers/favouriteReducer"
@@ -19,6 +20,7 @@ export const HandlePattern = () => {
 
   let history = useHistory();
   const handleDeleteSuccess = () => {
+    console.log('success')
     history.go();
   };
 
@@ -53,13 +55,21 @@ export const HandlePattern = () => {
         if (!res.ok) {
           throw new Error("Could not delete pattern");
         }
-        return console.log("deleted");
+        console.log('success')
+        return res.json()
       })
       .then((json) => handleDeleteSuccess(json))
       .catch((err) => console.log("error:", err));
   };
 
   return (
+    <>
+    {/* <FilterContainer>
+      <FilterLink>All patterns</FilterLink>
+      <p>/</p>
+      <FilterLink>Favourites</FilterLink>
+  </FilterContainer> */}
+
     <PatternPage>
       {patterns.map((pattern) => (
         <PatternCard key={pattern._id}>
@@ -86,8 +96,14 @@ export const HandlePattern = () => {
         </PatternCard>
       ))}
     </PatternPage>
+  </>
   );
   };
+
+// const FilterContainer = styled.section`
+//   display: flex;
+//   justify-content: center;
+// `
 
 const PatternPage = styled.section`
   display: flex; 

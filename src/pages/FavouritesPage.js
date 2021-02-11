@@ -8,6 +8,7 @@ import { Button } from 'styling/lib/Button'
 export const FavouritesPage = () => {
   const dispatch = useDispatch()
   const patterns = useSelector((store) => store.favouriteReducer.items)
+
   
   return (
     <PatternPage>

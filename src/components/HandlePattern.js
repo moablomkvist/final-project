@@ -9,7 +9,7 @@ import { favouriteReducer } from "../reducers/favouriteReducer"
 
 import { Button } from "../styling/lib/Button"
 
-export const HandlePattern = () => {
+export const HandlePattern = (yarn) => {
   const dispatch = useDispatch(); //store all the patterns
   const patterns = useSelector((store) => store.patternReducer.all);
   const accessToken = useSelector((store) => store.userReducer.login.accessToken);
@@ -76,8 +76,12 @@ export const HandlePattern = () => {
               <TimeDetails>{moment(pattern.createdAt).fromNow()}</TimeDetails>
             </PatternDetailsContainer>
             <SavePatternContainer>
-            <button onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
-              <p>Save <span role="img" aria-label="yarn">🧶</span></p>
+            <button className="fav-button" 
+            onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}
+            style={{ background: yarn > 0 ? "#FFADAD" : "#EAEAEA" }}>
+            <span role="img" aria-label="yarn">
+            {"🧶 "}
+            </span>
             </button>
             </SavePatternContainer>
           </PatternTextWrapper>

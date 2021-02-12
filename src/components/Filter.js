@@ -16,7 +16,7 @@ const FilterContainer = styled.section`
   display: flex;
   justify-content: center;
   margin: 20px;
-  border-bottom: 2px dashed #c3c9b7;
+  padding: 15px;
   position: sticky;
   background: #d1b8ab;
   top: 0;

@@ -47,6 +47,7 @@ const PatternPage = styled.section`
 
 const PatternCard = styled.article`
   margin: 10px 0;
+  border-bottom: 2px dashed #c3c9b7;
   padding-bottom: 20px;
   width: 100%;
 

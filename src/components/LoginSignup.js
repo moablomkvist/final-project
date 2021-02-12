@@ -138,10 +138,12 @@ export const LoginSignup = () => {
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  width: 80%;
     @media (min-width: 667px) and (max-width: 1024px) {
-      
+      width: 60%;
     }
       @media (min-width: 1025px) {
+        width: 60%;
     }
 `;
 

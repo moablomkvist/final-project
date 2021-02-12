@@ -69,7 +69,7 @@ export const Button = styled.button`
     border: none;
     color: #fff;
     padding: 10px;
-    width: 40%;
+    width: 30%;
     text-align: center;
     transition-duration: 0.4s;
     overflow: hidden;
@@ -85,6 +85,7 @@ export const Button = styled.button`
 
     }
     @media (min-width: 1025px) {
+      
 
     }
   }

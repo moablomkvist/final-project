@@ -5,8 +5,8 @@ export const Footer = () => {
 
   return (
     <FooterContainer>
-        <Icon src="../assets/knit-2923687_640.png" alt="Logo"></Icon>
       <InfoContainer>
+        <Icon src="../assets/knit-2923687_640.png" alt="Logo"></Icon>
         <Info>We are the virtual knitting circle. Share free patterns and start knitting.</Info>
         <Copyright>© Moa Blomkvist & Caroline Birgersson</Copyright>
       </InfoContainer>
@@ -14,20 +14,14 @@ export const Footer = () => {
   )};
 
   const FooterContainer = styled.footer `
-    display: flex;
-    flex-direction: column;
     padding: 20px;
     width: 100%;
-    justify-content: center;
-    align-items: center;
     margin: 0px;
     background: #f3eadf;
       @media (min-width: 667px) and (max-width: 1024px) {
-        flex-direction: row;
-        justify-content: start;
+
       }
     @media (min-width: 1025px) {
-      flex-direction: row;
       height: 200px;
     }
 
@@ -35,14 +29,16 @@ export const Footer = () => {
 
   const InfoContainer = styled.section`
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin: 40px;
 
       @media (min-width: 667px) and (max-width: 1024px) {
-        width: 50%;
       }
       @media (min-width: 1025px) {
-        flex-direction: row;
+        
       }
   `;
 
@@ -52,7 +48,7 @@ export const Footer = () => {
     }
       @media (min-width: 1025px) {
       width: 27%;
-      flex-direction: row;
+      
     }
   `
   const Copyright = styled.p`
@@ -62,7 +58,7 @@ export const Footer = () => {
     }
       @media (min-width: 1025px) {
       width: 27%;
-      flex-direction: row;
+      
     }
   `;
 

@@ -74,10 +74,10 @@ export const LoginSignup = () => {
       {!loginPage && (
         <SignupLoginWrapper>
           <AuthContainer className="member-card">
-          <SignupHeader>Circle member</SignupHeader>
+          <SignupHeader>Already a knitter?</SignupHeader>
           <p>Do we know you from before? Just log in and start exploring.</p>
           <Button className="members-button" onClick={() => setLoginPage(true)}>
-            Already a knitter?
+            Member Login
           </Button>
           </AuthContainer>
           <AuthContainer>
@@ -101,7 +101,7 @@ export const LoginSignup = () => {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <Button type="submit">Join the circle</Button>
+              <Button type="submit">Join us!</Button>
               <StatusMessage>{statusMessage}</StatusMessage>
             </Form>
           </AuthContainer>

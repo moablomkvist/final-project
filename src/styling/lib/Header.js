@@ -28,7 +28,7 @@ export const Header = styled.header `
     text-transform: uppercase;
 
     &:hover {
-      color: #a4a99b;
+      color: #5e3d2c;
     }
 
     @media (min-width: 667px) and (max-width: 1024px) {

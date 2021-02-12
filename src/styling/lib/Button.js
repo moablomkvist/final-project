@@ -53,7 +53,6 @@ export const Button = styled.button`
     box-shadow: none;
     border-radius: none;
     text-decoration: underline;
-
     &:hover {
       text-decoration: underline;
     }

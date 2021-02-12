@@ -92,7 +92,6 @@ export const Button = styled.button`
 
   &.share-button {
     background: #a4a99b;
-    border: 1.5px dotted white;
     color: #fff;
     padding: 10px;
     width: 40%;

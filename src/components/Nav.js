@@ -39,7 +39,7 @@ const TopNavigation = styled.nav`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: #cba892;
+  background: #d1b8ab;
   font-family: "Fraunces", serif;
   margin: 0px;
   @media (min-width: 768px) {

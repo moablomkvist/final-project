@@ -75,7 +75,7 @@ const CoverPhoto = styled.img`
     }
 
     @media (min-width: 1025px) {
-      width: 50%;
+      width: 60%;
     }
 
 `

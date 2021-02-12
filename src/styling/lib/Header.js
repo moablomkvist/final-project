@@ -5,7 +5,7 @@ export const Header = styled.header `
   justify-content: center;
   align-items: center;
   margin: 0px;
-  background: #cba892;
+  background: #d1b8ab;
   text-align: center;
   
   & .head-title {

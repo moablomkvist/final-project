@@ -24,9 +24,9 @@ export const RowCounter = () => {
     <SectionContainer>
         <Container className="row-counter">
         <CounterHeading>Row Counter </CounterHeading>
-        <CounterButton onClick={() => setClickCount(clickCount + 1)}>➕</CounterButton>
+        <CounterButton onClick={() => setClickCount(clickCount + 1)}><span role="img">➕</span></CounterButton>
         <CounterText>{clickCount} st</CounterText>
-        <CounterButton onClick={() => setClickCount(clickCount - 1)}>➖</CounterButton>
+        <CounterButton onClick={() => setClickCount(clickCount - 1)}><span role="img">➖</span></CounterButton>
         {clickCount > 9 ?
           <CounterText className='progression-text'>Yay! Just on more.</CounterText> 
         : <></>}

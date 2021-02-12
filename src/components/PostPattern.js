@@ -100,6 +100,7 @@ export const PostPattern = () => {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
   `
 
   const PostHeading = styled.h1`  
@@ -109,8 +110,9 @@ export const PostPattern = () => {
   `
 
   const CoverPhoto = styled.img`
-  width: 60%;
-  margin: 20px 0 0 0;
+  width: 100%;
+  margin-bottom: 10px;
+  align-items: flex-start;
   
   @media (min-width: 667px) and (max-width: 1024px) {
     width: 80%;

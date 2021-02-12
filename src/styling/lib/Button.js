@@ -47,11 +47,12 @@ export const Button = styled.button`
   &.logout {
     padding: 0;
     margin: 0;
-    color: #f3eadf;
+    color: #5e3d2c;
     font-family: 'Fraunces', serif;
     background: none;
     box-shadow: none;
     border-radius: none;
+    text-decoration: underline;
 
     &:hover {
       text-decoration: underline;

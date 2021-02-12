@@ -40,7 +40,7 @@ export const HandlePattern = () => {
       .then((json) => dispatch(patternReducer.actions.setPatterns(json)));
   }, [dispatch]); //for not continuously updating. Gets depending on this variable.
 
-
+  
   const handleDeletePattern = (_id) => {
     fetch(`https://knitting-circle.herokuapp.com/patterns/${_id}`, {
       method: "DELETE",
@@ -77,17 +77,15 @@ export const HandlePattern = () => {
               <PatternDetails>Needles / {pattern.needles}</PatternDetails>
               <TimeDetails>{moment(pattern.createdAt).fromNow()}</TimeDetails>
             </PatternDetailsContainer>
-
             <SavePatternContainer>
-              
                 <FavouriteDeleteButton onClick={() => {handleDeletePattern(pattern._id);}}>
-                <img src="../assets/trash-2.svg" alt="trash-delete"/>
+                  <img src="../assets/trash-2.svg" alt="trash-delete"/>
                 </FavouriteDeleteButton>
-    
-          <FavouriteDeleteButton className="fav-button" 
-              onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
-              <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>
-            </FavouriteDeleteButton>
+                <FavouriteDeleteButton className="fav-button" 
+                  onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
+                  <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>
+                </FavouriteDeleteButton>
+                
             </SavePatternContainer>
 
           </PatternTextWrapper>

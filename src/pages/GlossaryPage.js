@@ -140,7 +140,7 @@ const Header = styled.header`
   padding: 15px;
   position: sticky;
   top: 0;
-  background: #cba892;
+  background: #a4a99b;
 
   @media (min-width: 768px) {
     padding: 20px 0;
@@ -172,7 +172,7 @@ const NavigationLink = styled.a`
 const LetterSection = styled.section`
   display: flex;
   flex-direction: column;
-  background: #a4a99b;
+  background: ;
   font-family: 'Fraunces';
 
   @media (min-width: 768px) {

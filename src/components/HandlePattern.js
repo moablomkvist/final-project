@@ -81,15 +81,27 @@ const PatternCard = styled.article`
   padding-bottom: 20px;
   width: 100%;
 
+  &:hover {
+    border-bottom: 2px solid #c3c9b7;
+  }
+
   @media (min-width: 667px) and (max-width: 1024px) {
     border: 2px dashed #c3c9b7;
     width: 45%;
     margin: 15px;
+
+    &:hover {
+      border: 2px solid #c3c9b7;
+    }
   }
   @media (min-width: 1025px) {
     border: 2px dashed #c3c9b7;
     width: 30%;
     margin: 15px; 
+
+    &:hover {
+      border: 2px solid #c3c9b7;
+    }
   }
 `;
 

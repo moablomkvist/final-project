@@ -29,6 +29,6 @@ const FilterLink = styled.p`
   text-transform: uppercase;
 
   @media (min-width: 1025px) {
-    widht: 50%;
+    font-size: 30px;
   }
 `

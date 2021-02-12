@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import moment from "moment";
 import styled from "styled-components";
 
 import { patternReducer } from "../reducers/patternReducer";
 import { favouriteReducer } from "../reducers/favouriteReducer"
 
+import { DeletePattern } from "components/DeletePattern" 
 import { Filter } from "components/Filter"
 
 import { FavouriteDeleteButton } from "styling/lib/FavouriteDeleteButton"
@@ -14,14 +14,9 @@ import { FavouriteDeleteButton } from "styling/lib/FavouriteDeleteButton"
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
   const patterns = useSelector((store) => store.patternReducer.all);
-  const accessToken = useSelector((store) => store.userReducer.login.accessToken);
+  // const accessToken = useSelector((store) => store.userReducer.login.accessToken)
   
   const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
-
-  let history = useHistory();
-  const handleDeleteSuccess = () => {
-    history.go();
-  };
 
   useEffect(() => {
     fetch(PATTERNS_URL, {
@@ -39,26 +34,7 @@ export const HandlePattern = () => {
       })
       .then((json) => dispatch(patternReducer.actions.setPatterns(json)));
   }, [dispatch]); //for not continuously updating. Gets depending on this variable.
-
   
-  const handleDeletePattern = (_id) => {
-    fetch(`https://knitting-circle.herokuapp.com/patterns/${_id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: accessToken,
-      },
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Could not delete pattern");
-        }
-        return res.json()
-      })
-      .then((json) => handleDeleteSuccess(json))
-      .catch((err) => console.log("error:", err));
-  };
-
   return (
 <>
     <Filter />
@@ -78,9 +54,7 @@ export const HandlePattern = () => {
               <TimeDetails>{moment(pattern.createdAt).fromNow()}</TimeDetails>
             </PatternDetailsContainer>
             <SavePatternContainer>
-                <FavouriteDeleteButton onClick={() => {handleDeletePattern(pattern._id);}}>
-                  <img src="../assets/trash-2.svg" alt="trash-delete"/>
-                </FavouriteDeleteButton>
+                <DeletePattern pattern={pattern} />
                 <FavouriteDeleteButton className="fav-button" 
                   onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
                   <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>

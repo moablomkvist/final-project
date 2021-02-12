@@ -51,6 +51,8 @@ export const Container = styled.article`
   padding: 20px;
 
   &.row-counter {
+    width: 300px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -23,12 +23,12 @@ export const RowCounter = () => {
   return (
     <SectionContainer>
         <Container className="row-counter">
-        <CounterHeading>Row Counter</CounterHeading>
-        <CounterButton onClick={() => setClickCount(clickCount + 1)}>+</CounterButton>
+        <CounterHeading>Row Counter </CounterHeading>
+        <CounterButton onClick={() => setClickCount(clickCount + 1)}>➕</CounterButton>
         <CounterText>{clickCount} st</CounterText>
-        <CounterButton onClick={() => setClickCount(clickCount - 1)}>-</CounterButton>
+        <CounterButton onClick={() => setClickCount(clickCount - 1)}>➖</CounterButton>
         {clickCount > 9 ?
-          <CounterText className='progression-text'>Yay! Knit or die.</CounterText> 
+          <CounterText className='progression-text'>Yay! Just on more.</CounterText> 
         : <></>}
         </Container>
     </SectionContainer>
@@ -37,9 +37,11 @@ export const RowCounter = () => {
 
 const SectionContainer = styled.section`
   display: flex;
+  width: 300px;
   justify-content: center;
   align-items: center;
   background: #a4a99b;
+  border-radius: 10%;
 `
 
 const CounterHeading = styled.h1`
@@ -57,10 +59,14 @@ const CounterButton = styled.button`
   border: none;
   font-size: 32px;
   cursor: pointer;
+  transition-duration: 0.4s;
+  overflow: hidden;
 
   &:hover, &:focus {
-    border: dashed 2px;
+    background: #767a6e;
+    box-shadow: 0px 2px 10px 5px #949899;
   }
+
 `
 
 const CounterText = styled.p`

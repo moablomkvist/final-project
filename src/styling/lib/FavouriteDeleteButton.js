@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const FavouriteButton = styled.button`
+export const FavouriteDeleteButton = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,6 +10,7 @@ export const FavouriteButton = styled.button`
   height: 40px;
   border: none;
   border-radius: 50%;
+  margin-top: 5px;
   padding: 10px;
     &:focus {
       outline: transparent;

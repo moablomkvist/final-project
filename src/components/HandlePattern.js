@@ -9,8 +9,7 @@ import { favouriteReducer } from "../reducers/favouriteReducer"
 
 import { Filter } from "components/Filter"
 
-import { Button } from "../styling/lib/Button"
-import { FavouriteButton } from "styling/lib/FavouriteButton"
+import { FavouriteDeleteButton } from "styling/lib/FavouriteDeleteButton"
 
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
@@ -39,7 +38,6 @@ export const HandlePattern = () => {
         }
       })
       .then((json) => dispatch(patternReducer.actions.setPatterns(json)));
-    //how to store the patterns in Redux store.
   }, [dispatch]); //for not continuously updating. Gets depending on this variable.
 
 
@@ -55,7 +53,6 @@ export const HandlePattern = () => {
         if (!res.ok) {
           throw new Error("Could not delete pattern");
         }
-        console.log('success')
         return res.json()
       })
       .then((json) => handleDeleteSuccess(json))
@@ -71,7 +68,7 @@ export const HandlePattern = () => {
             <PatternImageWrapper>
             <PatternName>{pattern.post}</PatternName>
             <a href={pattern.source} alt="pattern description">
-              <PatternImage src={pattern.imageSource} alt="patter" />
+              <PatternImage src={pattern.imageSource} alt="pattern" />
             </a>
           </PatternImageWrapper>
           <PatternTextWrapper>
@@ -80,18 +77,20 @@ export const HandlePattern = () => {
               <PatternDetails>Needles / {pattern.needles}</PatternDetails>
               <TimeDetails>{moment(pattern.createdAt).fromNow()}</TimeDetails>
             </PatternDetailsContainer>
+
             <SavePatternContainer>
-            <FavouriteButton className="fav-button" 
+              
+                <FavouriteDeleteButton onClick={() => {handleDeletePattern(pattern._id);}}>
+                <img src="../assets/trash-2.svg" alt="trash-delete"/>
+                </FavouriteDeleteButton>
+    
+          <FavouriteDeleteButton className="fav-button" 
               onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
               <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>
-            </FavouriteButton>
+            </FavouriteDeleteButton>
             </SavePatternContainer>
+
           </PatternTextWrapper>
-
-          <Button className="delete-button" onClick={() => {handleDeletePattern(pattern._id);}}>
-          <img src="../assets/trash-2.svg" alt="trash-delete"/>
-
-          </Button>
         </PatternCard>
       ))}
     </PatternPage>
@@ -152,7 +151,7 @@ const PatternDetailsContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: left;
-  width: 75%;
+  width: 70%;
   margin-left: 10px;
   font-family: 'Fraunces', serif;
 `
@@ -181,7 +180,4 @@ const TimeDetails = styled.p`
 const SavePatternContainer = styled.section`
   display: flex;
   justify-content: right;
-  font-family: 'Fraunces', serif;
-  font-weight: 400;
-  width: 25%;
 `

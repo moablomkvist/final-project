@@ -41,7 +41,7 @@ export const PostPattern = () => {
   
   return (
   <PostpageContainer>
-    <CoverPhoto src="https://i.pinimg.com/564x/f9/19/79/f91979a3628229f6f55444b495cf5b62.jpg" alt="knitting-model"></CoverPhoto>
+    <CoverPhoto src="assets/knitting-circle-cover.jpg" alt="knitting-model"></CoverPhoto>
     <Form className="post-form" onSubmit={handleSubmit}>
       <Container className="post-container">
         <PostHeading>Share pattern with the circle</PostHeading>
@@ -102,18 +102,19 @@ export const PostPattern = () => {
   `
 
   const PostHeading = styled.h1`  
-
     @media (min-width: 768px) {
       font-size: 40px;
     }
   `
 
   const CoverPhoto = styled.img`
-  width: 100%;
+  width: 40%;
   margin-bottom: 10px;
 
-  @media (min-width: 768px) {
-    width: 45%;
-    margin: 2%;
+  @media (min-width: 667px) and (max-width: 1024px) {
+    widht: 80%;
+  }
+  @media (min-width: 1025px) {
+    widht: 50%;
   }
   `

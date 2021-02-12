@@ -42,7 +42,7 @@ export const ToolboxPage = () => {
       </ToolboxContainer>
     </ContainerWrapper>
 
-    <ContainerWrapper>
+    <ContainerWrapper className="first-part-wrapper">
       <ToolboxContainer>
         <CoverPhoto src="https://images.unsplash.com/photo-1591004947588-a9ea6a85cefe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80"
         ></CoverPhoto>

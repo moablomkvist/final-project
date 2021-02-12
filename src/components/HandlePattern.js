@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import moment from "moment";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 import { patternReducer } from "../reducers/patternReducer";
 import { favouriteReducer } from "../reducers/favouriteReducer"
+
+import { Filter } from "components/Filter"
 
 import { Button } from "../styling/lib/Button"
 import { FavouriteButton } from "styling/lib/FavouriteButton"
@@ -62,13 +63,8 @@ export const HandlePattern = () => {
   };
 
   return (
-    <>
-    <FilterContainer>
-      <FilterLink><Link to="/">All patterns</Link></FilterLink>
-      <FilterLink>/</FilterLink>
-      <FilterLink><Link to="/favourite-patterns">Favourites</Link></FilterLink>
-  </FilterContainer>
-
+<>
+    <Filter />
     <PatternPage>
       {patterns.map((pattern) => (
         <PatternCard key={pattern._id}>
@@ -102,17 +98,6 @@ export const HandlePattern = () => {
   </>
   );
   };
-
-const FilterContainer = styled.section`
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-  border-bottom: 2px dashed #c3c9b7;
-`
-
-const FilterLink = styled.p`
-  font-size: 20px;
-`
 
 const PatternPage = styled.section`
   display: flex; 

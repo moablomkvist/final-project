@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 import { favouriteReducer } from 'reducers/favouriteReducer';
+
+import { Filter } from 'components/Filter'
 import { Button } from 'styling/lib/Button'
 
 export const FavouritesPage = () => {
@@ -11,6 +13,8 @@ export const FavouritesPage = () => {
 
   
   return (
+    <>
+    <Filter />
     <PatternPage>
       {patterns.map((pattern) => (
         <PatternCard key={pattern._id} >
@@ -32,6 +36,7 @@ export const FavouritesPage = () => {
         </PatternCard>
       ))}
     </PatternPage>
+  </>
   )
 };
 
@@ -42,7 +47,6 @@ const PatternPage = styled.section`
 
 const PatternCard = styled.article`
   margin: 10px 0;
-  border-bottom: 2px dashed #c3c9b7;
   padding-bottom: 20px;
   width: 100%;
 

@@ -61,6 +61,7 @@ export const ToolboxPage = () => {
 const Heading = styled.h1`
   font-size: 30px;
   width: 90%;
+  margin-top: 0;
 
   @media (min-width: 768px) {
     font-size: 40px;

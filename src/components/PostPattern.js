@@ -109,8 +109,8 @@ export const PostPattern = () => {
   `
 
   const CoverPhoto = styled.img`
-  width: 80%;
-  margin: 20px 0;
+  width: 60%;
+  margin: 20px 0 0 0;
   
   @media (min-width: 667px) and (max-width: 1024px) {
     width: 80%;

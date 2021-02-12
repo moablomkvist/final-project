@@ -32,7 +32,7 @@ const accessToken = useSelector((store) => store.userReducer.login.accessToken)
     </IntroWrapper>
 
       <ContentContainer>
-        <CoverPhoto src="../assets/knitting-circle-cover.jpg" alt="Model in knitted clothes"></CoverPhoto>
+        <CoverPhoto src="../assets/coverphoto2.jpg" alt="Model in knitted clothes"></CoverPhoto>
         <LoginSignup />
       </ContentContainer>
       <Footer />
@@ -68,7 +68,7 @@ const CoverPhoto = styled.img`
   padding: 10px;
 
     @media (min-width: 667px) and (max-width: 1024px) {
-      width: 70%;
+      width: 100%;
       padding: 0px;
       margin-top: 20px;
       margin-bottom: 20px;
@@ -118,8 +118,12 @@ const Ingress = styled.p`
   width: 90%;
   padding-bottom: 50px;
   border-bottom: dashed 2px #c3c9b7;
-  @media (min-width: 768px) {
+  @media (min-width: 667px) and (max-width: 1024px) {
     font-size: 20px;
+    width: 50%;
+  }
+    @media (min-width: 1025px) {
     width: 40%;
   }
+}
 `

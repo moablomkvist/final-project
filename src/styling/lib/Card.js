@@ -66,8 +66,5 @@ export const Container = styled.article`
     box-shadow: none;
     display: flex;
     flex-direction: column;
-
-    @media (min-width: 768px) {
-    }
   }
 `;

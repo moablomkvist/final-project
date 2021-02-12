@@ -99,7 +99,7 @@ export const PostPattern = () => {
   const PostpageContainer = styled.section`
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    justify-content: center;
   `
 
   const PostHeading = styled.h1`  
@@ -113,11 +113,10 @@ export const PostPattern = () => {
   margin-bottom: 10px;
   align-items: flex-start;
   
-
   @media (min-width: 667px) and (max-width: 1024px) {
-    widht: 80%;
+    width: 80%;
   }
   @media (min-width: 1025px) {
-    widht: 50%;
+    width: 50%;
   }
   `

@@ -28,7 +28,7 @@ export const RowCounter = () => {
         <CounterText>{clickCount} st</CounterText>
         <CounterButton onClick={() => setClickCount(clickCount - 1)}><span aria-label="minus" role="img">➖</span></CounterButton>
         {clickCount > 9 ?
-          <CounterText className='progression-text'>Yay! Just on more.</CounterText> 
+          <CounterText className='progression-text'>Yay! Just one more.</CounterText> 
         : <></>}
         </Container>
     </SectionContainer>

@@ -100,6 +100,7 @@ export const PostPattern = () => {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
   `
 
   const PostHeading = styled.h1`  

@@ -16,13 +16,19 @@ const FilterContainer = styled.section`
   display: flex;
   justify-content: center;
   margin: 20px;
-  padding: 15px;
+  padding: 40px 0;
   position: sticky;
-  background: #d1b8ab;
+  background: #a4a99b;
   top: 0;
   margin: 0;
 `
 
 const FilterLink = styled.p`
   font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  @media (min-width: 1025px) {
+    widht: 50%;
+  }
 `

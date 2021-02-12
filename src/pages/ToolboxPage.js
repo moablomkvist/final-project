@@ -10,8 +10,8 @@ export const ToolboxPage = () => {
     <ContainerWrapper className="first-part-wrapper">
     <ToolboxContainer>
       <Heading>"It's better to have knit and ripped than to never have knit at all"</Heading>
-      <Ingress>We have all been there, sitting in the handicraft in school. But now it's your choice. We like to keep it simple for you to get started. 
-        And you you know what? All knitters are in use of a row counter – so you're gonna love this. We just say "just another row ...".</Ingress>
+      <Ingress>We've all been there, sitting in the handicraft in school. But now it's on your choice. We like to keep it simple for you to get started.</Ingress>
+      <Ingress>And you you know what? All knitters are in use of a row counter – so in a while you'll say "just another row". Like all the others ...</Ingress>
     </ToolboxContainer> 
     <ToolboxContainer>
       <RowCounter />
@@ -64,17 +64,16 @@ const Heading = styled.h1`
 
   @media (min-width: 768px) {
     font-size: 40px;
-    width: 100%;
   }
 `
 
 const Ingress = styled.p`
   width: 90%;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 
   @media (min-width: 768px) {
     font-size: 20px;
-    width: 100%;
+    width: 90%;
   }
 `
 

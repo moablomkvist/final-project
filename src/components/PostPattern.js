@@ -109,7 +109,7 @@ export const PostPattern = () => {
   `
 
   const CoverPhoto = styled.img`
-  width: 40%;
+  width: 100%;
   margin-bottom: 10px;
   align-items: flex-start;
   

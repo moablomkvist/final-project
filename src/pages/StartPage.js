@@ -45,7 +45,6 @@ const accessToken = useSelector((store) => store.userReducer.login.accessToken)
 const StartPageContainer = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-family: 'Fraunces';
   border: solid 2px #f3eadf;
   background: #a4a99b;
@@ -54,6 +53,7 @@ const StartPageContainer = styled.section`
 
 const ContentContainer = styled.section`
   justify-content: center;
+  align-items: flex-start;
   padding: 30px;
 
     @media (min-width: 667px) and (max-width: 1024px) {
@@ -66,6 +66,7 @@ const ContentContainer = styled.section`
 const CoverPhoto = styled.img`
   width: 100%;
   padding: 10px;
+  
 
     @media (min-width: 667px) and (max-width: 1024px) {
       width: 100%;

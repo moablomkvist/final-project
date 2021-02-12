@@ -79,8 +79,6 @@ export const Button = styled.button`
 
     }
     @media (min-width: 1025px) {
-      
-
     }
   }
 

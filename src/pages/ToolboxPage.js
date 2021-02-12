@@ -33,7 +33,8 @@ export const ToolboxPage = () => {
     <ContainerWrapper className="middle-part-wrapper">
       <ToolboxContainer>
       <ToolboxHeading>Step 2 / Learn knit & purl stitch</ToolboxHeading>
-      <ToolboxTips>If you know how to do a knit stich and purl stitch you have come a far way. You combine those stitches in a lot of patterns. The amazing thing with internet is that (except that you have landed here) you can find tutorials on everything. Here is a list of useful resources:</ToolboxTips>
+      <ToolboxTips>If you know how to do a knit stich and purl stitch you have come a far way. You combine those stitches in a lot of patterns. The amazing thing with internet is that (except that you have landed here) you can find tutorials on everything.
+      </ToolboxTips>
         
       </ToolboxContainer>
 
@@ -50,7 +51,7 @@ export const ToolboxPage = () => {
 
       <ToolboxContainer>
         <ToolboxHeading>Step 3 / Share your knits</ToolboxHeading>
-        <ToolboxTips>You can find a lot of inspiration when you scan through different hashtags. We have collected a bunch of them so you can feel the desire to have the needles in your hand as soon as possible. And buy know you have everything you need to start.</ToolboxTips>
+        <ToolboxTips>You can find a lot of inspiration when you scan through different hashtags. We have collected a bunch of them so you can feel the desire to have the needles in your hand as soon as possible. And buy know you have everything you need to start.<ul><List>#knittingcircle</List></ul></ToolboxTips>
       </ToolboxContainer>
     </ContainerWrapper>
       
@@ -149,4 +150,11 @@ const Quote = styled.h1`
     font-size: 40px;
     margin-left: 20px;
   }
+`
+
+const List = styled.li`
+  list-decoration: none;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: 'Fraunces', serif;
 `

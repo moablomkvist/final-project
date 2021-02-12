@@ -26,12 +26,6 @@ export const Button = styled.button`
     font-size: 18px;
   }
 
-  &.delete-button {
-    width: 25%;
-    background: none;
-    margin: 20px 0px 0px 10px;
-  }
-
   &.members-button {
     background: #f3eadf;
     color: black;

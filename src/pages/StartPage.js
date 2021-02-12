@@ -18,7 +18,7 @@ const accessToken = useSelector((store) => store.userReducer.login.accessToken)
     <StartPageContainer>
       <Header>
         <p className="sub-title">Yes, I like to knit. No, I am not 'old'.</p>
-        <h1 className="head-title">Knitting Circle</h1>
+        <h1 className="head-title-start">Knitting Circle</h1>
       </Header>
 
     <IntroWrapper>
@@ -78,7 +78,6 @@ const CoverPhoto = styled.img`
     @media (min-width: 1025px) {
       width: 60%;
     }
-
 `
 
 const IntroWrapper = styled.section`

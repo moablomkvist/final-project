@@ -7,6 +7,18 @@ export const Header = styled.header `
   margin: 0px;
   background: #d1b8ab;
   text-align: center;
+
+  & .head-title-start {
+    margin: 5px;
+    padding: 20px 0 30px 0;
+    font-weight: 700;
+    font-size: 55px;
+    text-transform: uppercase;
+
+    &:hover {
+      color: none;
+    }
+  }
   
   & .head-title {
     margin: 5px;
@@ -15,12 +27,16 @@ export const Header = styled.header `
     font-size: 55px;
     text-transform: uppercase;
 
+    &:hover {
+      color: #a4a99b;
+    }
+
     @media (min-width: 667px) and (max-width: 1024px) {
     }
-      @media (min-width: 1025px) {
+    
+    @media (min-width: 1025px) {
       height: 200px;
       font-size: 75px;
-      
     }
   }
 

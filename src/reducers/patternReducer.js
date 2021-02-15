@@ -11,4 +11,3 @@ export const patternReducer = createSlice({
     }
   }
 });
-///Reducer that have a inital state with nothing in it. 

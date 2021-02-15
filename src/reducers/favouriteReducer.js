@@ -9,6 +9,7 @@ export const favouriteReducer = createSlice({
     addFavourite: (state, action) => {
         state.items.push({...action.payload, quantity: 1 })
       },
+      
     deleteFavourite: (state, action) => {
       const existingFavourite = state.items.find((item) => item._id === action.payload._id)
       

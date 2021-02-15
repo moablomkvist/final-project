@@ -59,9 +59,7 @@ export const HandlePattern = () => {
                   onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
                   <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>
                 </FavouriteDeleteButton>
-                
             </SavePatternContainer>
-
           </PatternTextWrapper>
         </PatternCard>
       ))}

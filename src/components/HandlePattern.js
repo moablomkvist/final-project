@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { patternReducer } from "../reducers/patternReducer";
 import { favouriteReducer } from "../reducers/favouriteReducer"
 
+
 import { DeletePattern } from "components/DeletePattern" 
 import { Filter } from "components/Filter"
 
@@ -14,6 +15,11 @@ import { SymbolButton } from "styling/lib/SymbolButton"
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
   const patterns = useSelector((store) => store.patternReducer.all);
+<<<<<<< HEAD
+=======
+  
+  // const accessToken = useSelector((store) => store.userReducer.login.accessToken)
+>>>>>>> d15d488983b737a69b2eb80b4fb6d8181e3d7c33
   
   const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
 
@@ -54,7 +60,6 @@ export const HandlePattern = () => {
               <PatternDetails>Needles / {pattern.needles}</PatternDetails>
               <TimeDetails>{moment(pattern.createdAt).fromNow()}</TimeDetails>
             </PatternDetailsContainer>
-            
             <SymbolContainer>
                 <DeletePattern pattern={pattern} />
                 <SymbolButton

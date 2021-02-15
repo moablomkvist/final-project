@@ -139,66 +139,56 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 80%;
-    @media (min-width: 667px) and (max-width: 1024px) {
-      width: 60%;
-    }
-      @media (min-width: 1025px) {
-        width: 60%;
-    }
+  
+  @media (min-width: 667px){
+    width: 60%;
+  }
 `;
 
 const SignupHeader = styled.h2 `
   margin-bottom: 40px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 667px) {
     font-size: 40px;
   }
 `
 
 const Input = styled.input`
+  margin: 5px 0 20px 0;
   padding: 8px;
   width: 100%;
-  margin: 5px 0 20px 0;
   border: 0;
   opacity: 0.3;
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.07);
   font-family: inherit;
 
-    &:hover {
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
-      opacity: 0.5;
-    }
-
-    @media (min-width: 667px) and (max-width: 1024px) {
-    
-    }
-    
-    @media (min-width: 1025px) {
-    
-    }
+  &:hover {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
+    opacity: 0.5;
+  }
 `;
 
 const SignupLoginWrapper = styled.section`
   display: flex;
   flex-direction: column;
-`
+`;
 
 const AuthContainer = styled.section`
-  box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2),
-  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  background-color: #767a6e;
-  border-radius: 6px;
   margin: 20px;
   padding: 20px;
+  box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2),
+  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  background: #767a6e;
+  border-radius: 6px;
 
   &.member-card {
-    background-color: #d1b8ab;
+    background: #d1b8ab;
   }
 `;
 
 const StatusMessage = styled.p`
-  color: white;
   margin: 5px 0 15px 0;
-  font-size: 14px;
   width: 70%;
-`
+  font-size: 14px;
+  color: white;
+`;

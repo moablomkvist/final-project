@@ -9,7 +9,7 @@ import { favouriteReducer } from "../reducers/favouriteReducer"
 import { DeletePattern } from "components/DeletePattern" 
 import { Filter } from "components/Filter"
 
-import { FavouriteDeleteButton } from "styling/lib/FavouriteDeleteButton"
+import { Button } from "styling/lib/Button"
 
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
@@ -36,9 +36,10 @@ export const HandlePattern = () => {
   }, [dispatch]); //for not continuously updating. Gets depending on this variable.
   
   return (
-<>
+  <>
     <Filter />
     <PatternPage>
+      
       {patterns.map((pattern) => (
         <PatternCard key={pattern._id}>
             <PatternImageWrapper>
@@ -47,20 +48,23 @@ export const HandlePattern = () => {
               <PatternImage src={pattern.imageSource} alt="pattern" />
             </a>
           </PatternImageWrapper>
+
           <PatternTextWrapper>
             <PatternDetailsContainer>
               <PatternDetails>Yarn / {pattern.yarn}</PatternDetails>
               <PatternDetails>Needles / {pattern.needles}</PatternDetails>
               <TimeDetails>{moment(pattern.createdAt).fromNow()}</TimeDetails>
             </PatternDetailsContainer>
-            <SavePatternContainer>
+            
+            <SymbolContainer>
                 <DeletePattern pattern={pattern} />
-                <FavouriteDeleteButton className="fav-button" 
+                <Button className="symbol-button" 
                   onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
                   <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>
-                </FavouriteDeleteButton>
-            </SavePatternContainer>
+                </Button>   
+            </SymbolContainer>
           </PatternTextWrapper>
+
         </PatternCard>
       ))}
     </PatternPage>
@@ -79,15 +83,28 @@ const PatternCard = styled.article`
   padding-bottom: 20px;
   width: 100%;
 
+  &:hover {
+    border-bottom: 2px solid #c3c9b7;
+  }
+
   @media (min-width: 667px) and (max-width: 1024px) {
     border: 2px dashed #c3c9b7;
     width: 45%;
     margin: 15px;
+
+    &:hover {
+      border: 2px solid #c3c9b7;
+    }
   }
+  
   @media (min-width: 1025px) {
     border: 2px dashed #c3c9b7;
     width: 30%;
     margin: 15px; 
+
+    &:hover {
+      border: 2px solid #c3c9b7;
+    }
   }
 `;
 
@@ -103,7 +120,7 @@ const PatternName = styled.h3`
   font-size: 26px;
   text-transform: uppercase;
 
-  @media (min-width: 768px) {
+  @media (min-width: 667px) {
     font-size: 28px;
   }
 `;
@@ -128,7 +145,6 @@ const PatternDetailsContainer = styled.section`
 
 const PatternDetails = styled.p`
   margin: 10px;
-  font-size: 18px;
   font-weight: 400;
   width: fit-content;
 
@@ -147,7 +163,7 @@ const TimeDetails = styled.p`
   }
 `;
 
-const SavePatternContainer = styled.section`
+const SymbolContainer = styled.section`
   display: flex;
   justify-content: right;
 `

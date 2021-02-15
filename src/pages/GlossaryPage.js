@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const GlossaryPage = () => {
-  return (
+  return ( //When we have time we're gonna transform this to a json.
   <>
     <Header>
       <NavigationContainer>

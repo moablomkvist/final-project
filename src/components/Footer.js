@@ -13,18 +13,15 @@ export const Footer = () => {
     </FooterContainer>
   )};
 
-  const FooterContainer = styled.footer `
+  const FooterContainer = styled.footer`
     padding: 20px;
     width: 100%;
     margin: 0px;
     background: #f3eadf;
-      @media (min-width: 667px) and (max-width: 1024px) {
 
-      }
     @media (min-width: 1025px) {
       height: 200px;
     }
-
 `; 
 
   const InfoContainer = styled.section`
@@ -34,39 +31,36 @@ export const Footer = () => {
     justify-content: center;
     align-items: center;
     text-align: center;
-
-      @media (min-width: 667px) and (max-width: 1024px) {
-      }
-      @media (min-width: 1025px) {
-        
-      }
   `;
 
   const Info = styled.p`
     @media (min-width: 667px) and (max-width: 1024px) {
       width: 50%;
     }
-      @media (min-width: 1025px) {
+
+    @media (min-width: 1025px) {
       width: 27%;
-      
     }
   `
   const Copyright = styled.p`
     font-size: 10px;
+
     @media (min-width: 667px) and (max-width: 1024px) {
       width: 50%;
     }
-      @media (min-width: 1025px) {
-      width: 27%;
-      
+    
+    @media (min-width: 1025px) {
+      width: 27%;  
     }
   `;
 
   const Icon = styled.img`
     width: 20%;
+
     @media (min-width: 667px) and (max-width: 1024px) {
       width: 15%;
     }
+    
     @media (min-width: 1025px) {
       width: 8%;
     }

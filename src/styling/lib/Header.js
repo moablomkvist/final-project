@@ -30,9 +30,6 @@ export const Header = styled.header `
     &:hover {
       color: #5e3d2c;
     }
-
-    @media (min-width: 667px) and (max-width: 1024px) {
-    }
     
     @media (min-width: 1025px) {
       height: 200px;
@@ -45,10 +42,9 @@ export const Header = styled.header `
     font-weight: normal;
     margin-top: 15px;
 
-    @media (min-width: 667px) and (max-width: 1024px) {
-    }
-      @media (min-width: 1025px) {
-        padding-top: 30px;
+    @media (min-width: 1025px) {
+      padding-top: 30px;
     }
   }
+  
 `; 

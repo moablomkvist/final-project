@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { FavouriteDeleteButton } from "styling/lib/FavouriteDeleteButton"
+import { Button } from "styling/lib/Button"
 
 export const DeletePattern = ({ pattern }) => {
 const accessToken = useSelector((store) => store.userReducer.login.accessToken);
@@ -31,8 +31,8 @@ const handleDeleteSuccess = () => {
   };
 
   return (
-    <FavouriteDeleteButton onClick={() => {handleDeletePattern(pattern._id);}}>
+    <Button className="symbol-button" onClick={() => {handleDeletePattern(pattern._id);}}>
       <img src="../assets/trash-2.svg" alt="trash-delete"/>
-    </FavouriteDeleteButton>
+    </Button>
   )
 }

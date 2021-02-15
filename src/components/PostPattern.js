@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 import { Button } from 'styling/lib/Button'
-import { Form, Input, Label, Container } from 'styling/lib/Card'
+import { Form, Input, Container } from 'styling/lib/Card'
 import { useHistory } from 'react-router-dom'
 
 export const PostPattern = () => {
@@ -46,7 +46,7 @@ export const PostPattern = () => {
       <Container className="post-container">
         <PostHeading>Share pattern with the circle</PostHeading>
 
-        <Label>Name of the pattern</Label>
+        <label>Name of the pattern</label>
         <Input 
           className="post-input"
           type="text"
@@ -54,7 +54,7 @@ export const PostPattern = () => {
           onChange={(event) => setPost(event.target.value)}
         />
 
-        <Label>Add pattern link</Label>
+        <label>Add pattern link</label>
         <Input
           className="post-input"
           type="text"
@@ -63,7 +63,7 @@ export const PostPattern = () => {
           placeholder="Link address (url)"
           required
         />
-        <Label>Add image link</Label>
+        <label>Add image link</label>
         <Input
           className="post-input"
           type="text"
@@ -73,7 +73,7 @@ export const PostPattern = () => {
           required
         />
 
-        <Label>Name of the used yarn</Label>
+        <label>Name of the used yarn</label>
         <Input
           className="post-input"
           type="text"
@@ -81,7 +81,7 @@ export const PostPattern = () => {
           onChange={(event) => setYarn(event.target.value)}
         />
 
-        <Label>Sizes of used needles</Label>
+        <label>Sizes of used needles</label>
         <Input
           className="post-input"
           type="text"

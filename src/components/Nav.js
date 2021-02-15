@@ -12,6 +12,7 @@ export const Nav = () => {
         <p className="sub-title">If im sitting, im knitting</p>
         <NavLink className="head-title" to="/">Knitting Circle</NavLink>
       </Header>
+
       <MenuLinkList>
         <MenuLink>
           <NavLink to="/post-pattern">Share pattern</NavLink>
@@ -29,6 +30,7 @@ export const Nav = () => {
           <Logout/>
         </MenuLink>
       </MenuLinkList>
+      
     </TopNavigation>
   );
 };

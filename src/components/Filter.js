@@ -28,8 +28,8 @@ const FilterLink = styled.p`
   font-weight: 400;
   text-transform: uppercase;
 
-    &:focus {
-      text-decoration: underline;
+  &:focus {
+    text-decoration: underline;
   }
 
   @media (min-width: 1025px) {

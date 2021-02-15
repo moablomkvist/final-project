@@ -26,6 +26,15 @@ export const Button = styled.button`
     font-size: 18px;
   }
 
+  &.login-button {
+    width: 40%;
+    margin-bottom: 5px;
+
+    &:hover {
+      background: #a88979;
+    }
+  }
+
   &.members-button {
     background: #f3eadf;
     color: black;
@@ -33,14 +42,22 @@ export const Button = styled.button`
   
     &:hover {
       background: #a88979;
-      box-shadow: 0px 2px 10px 5px #949899;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 667px) {
       font-size: 18px;
       width: 50%;
       padding: 15px;
       border-radius: 4px;
+    }
+  }
+
+  &.share-button {
+    margin-bottom: 5px;
+    width: 40%;
+    
+    &:hover {
+      background: #a88979;
     }
   }
 
@@ -53,51 +70,36 @@ export const Button = styled.button`
     box-shadow: none;
     border-radius: none;
     text-decoration: underline;
+      
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
-  }
-
-  &.login-button {
-    background-color: #767a6e;
-    border: none;
-    color: #fff;
-    padding: 10px;
-    width: 30%;
-    text-align: center;
-    transition-duration: 0.4s;
-    overflow: hidden;
-    box-shadow: 0 2px 10px #949899;
-    border-radius: 4px;
-    margin-bottom: 5px;
   
-    &:hover {
-      background: #a88979;
-      box-shadow: 0px 2px 10px 5px #949899;
-    }
     @media (min-width: 667px) and (max-width: 1024px) {
-
-    }
-    @media (min-width: 1025px) {
+      font-size: 14px;
     }
   }
 
-  &.share-button {
-    background: #a4a99b;
-    color: #fff;
-    padding: 10px;
-    width: 40%;
-    text-align: center;
-    transition-duration: 0.4s;
-    overflow: hidden;
-    box-shadow: 0 2px 10px #949899;
-    border-radius: 4px;
-    margin-bottom: 5px;
+  &.symbol-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 5px 0 0 0;
+    box-shadow: none;
     
+    &:focus {
+      outline: transparent;
+    }
+      
     &:hover {
-      background: #a88979;
-      box-shadow: 0px 2px 10px 5px #949899;
+      box-shadow: 0px 2px 10px 5px #a4a99b;
+      background: #a4a99b;
     }
   }
-}
+  
 `

@@ -28,6 +28,7 @@ h1 {
 
 h2 {
   margin: 15px;
+  font-family: 'Fraunces', serif;
   font-size: 24px;
 }
 
@@ -54,11 +55,7 @@ a {
 }
 
 
-.active-link:active {
-  text-decoration: underline;
-}
-  
-.active-link:focus {
+.active-link:active, .active-link:focus  {
   text-decoration: underline;
 }
 
@@ -66,5 +63,10 @@ a {
 ul {
   list-style: none;
   padding: 10px 0;
+}
+
+label {
+  font-family: 'Fraunces', serif;
+  margin-top: 15px;
 }
 

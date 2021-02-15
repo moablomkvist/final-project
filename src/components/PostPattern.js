@@ -117,6 +117,7 @@ export const PostPattern = () => {
   @media (min-width: 667px) and (max-width: 1024px) {
     width: 80%;
   }
+  
   @media (min-width: 1025px) {
     width: 50%;
   }

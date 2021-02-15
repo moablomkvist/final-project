@@ -54,11 +54,9 @@ a {
   color: black;
 }
 
-
 .active-link:active, .active-link:focus  {
   text-decoration: underline;
 }
-
 
 ul {
   list-style: none;

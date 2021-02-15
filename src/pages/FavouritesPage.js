@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
@@ -11,7 +11,6 @@ export const FavouritesPage = () => {
   const dispatch = useDispatch()
   const patterns = useSelector((store) => store.favouriteReducer.items)
 
-  
   return (
     <>
     <Filter />
@@ -30,7 +29,7 @@ export const FavouritesPage = () => {
             <PatternDetails>Needles / {pattern.needles}</PatternDetails>
           </PatternDetailsContainer>
           </PatternTextWrapper>
-        <Button className="delete-button" type="button" onClick={() => dispatch(favouriteReducer.actions.deleteFavourite(pattern))}>
+        <Button type="button" onClick={() => dispatch(favouriteReducer.actions.deleteFavourite(pattern))}>
           <img src="../assets/trash-2.svg" alt="trash-delete"/>
         </Button>
         </PatternCard>

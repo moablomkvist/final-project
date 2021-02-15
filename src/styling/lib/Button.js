@@ -91,6 +91,8 @@ export const Button = styled.button`
     border-radius: 50%;
     margin: 5px 0 0 0;
     box-shadow: none;
+    overflow: hidden;
+    position: auto;
     
     &:focus {
       outline: transparent;
@@ -101,9 +103,10 @@ export const Button = styled.button`
       background: #a4a99b;
     }
   }
+
   &.delete-button {
     margin: 10px;
     width: 20%;
   }
-  
+
 `

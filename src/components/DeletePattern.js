@@ -6,6 +6,7 @@ import { Button } from "styling/lib/Button"
 
 export const DeletePattern = ({ pattern }) => {
 const accessToken = useSelector((store) => store.userReducer.login.accessToken);
+const userId = useSelector((store) => store.userReducer.login.userId);
 
 let history = useHistory();
 const handleDeleteSuccess = () => {
@@ -29,10 +30,17 @@ const handleDeleteSuccess = () => {
       .then((json) => handleDeleteSuccess(json))
       .catch((err) => console.log("error:", err));
   };
-
+  
+  
+  if (pattern.userId === userId) {
   return (
     <Button className="symbol-button" onClick={() => {handleDeletePattern(pattern._id);}}>
       <img src="../assets/trash-2.svg" alt="trash-delete"/>
     </Button>
   )
+} else {
+  return (
+    <></>
+  )
+}
 }

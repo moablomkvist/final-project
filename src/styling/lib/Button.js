@@ -101,5 +101,9 @@ export const Button = styled.button`
       background: #a4a99b;
     }
   }
+  &.delete-button {
+    margin: 10px;
+    width: 20%;
+  }
   
 `

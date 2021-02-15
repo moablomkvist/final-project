@@ -61,7 +61,7 @@ export const HandlePattern = () => {
                 <Button className="symbol-button" 
                   onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
                   <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>
-                </Button>   
+                </Button>  
             </SymbolContainer>
           </PatternTextWrapper>
 
@@ -167,3 +167,4 @@ const SymbolContainer = styled.section`
   display: flex;
   justify-content: right;
 `
+

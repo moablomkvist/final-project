@@ -79,31 +79,7 @@ export const Button = styled.button`
       font-size: 14px;
     }
   }
-
-  &.symbol-button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 5px 0 0 0;
-    box-shadow: none;
-    overflow: hidden;
-    position: auto;
-    
-    &:focus {
-      outline: transparent;
-    }
-      
-    &:hover {
-      box-shadow: 0px 2px 10px 5px #a4a99b;
-      background: #a4a99b;
-    }
-  }
-
+  
   &.delete-button {
     margin: 10px;
     width: 20%;

@@ -59,7 +59,7 @@ export const HandlePattern = () => {
                 <DeletePattern pattern={pattern} />
                 <SymbolButton
                   onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
-                  <img src="/assets/star.svg" alt="favourite-star" className="symbol-button" aria-label="star"/>
+                  <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>
                 </SymbolButton>  
             </SymbolContainer>
           </PatternTextWrapper>

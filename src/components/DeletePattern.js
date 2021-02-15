@@ -6,11 +6,7 @@ import { SymbolButton } from "styling/lib/SymbolButton"
 
 export const DeletePattern = ({ pattern }) => {
 const accessToken = useSelector((store) => store.userReducer.login.accessToken);
-<<<<<<< HEAD
-const userId = useSelector((store) => store.userReducer.login.accessToken);
-=======
 const userId = useSelector((store) => store.userReducer.login.userId);
->>>>>>> d15d488983b737a69b2eb80b4fb6d8181e3d7c33
 
 let history = useHistory();
 const handleDeleteSuccess = () => {

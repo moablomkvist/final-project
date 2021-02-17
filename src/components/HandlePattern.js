@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import styled from "styled-components";
 
 import { patternReducer } from "../reducers/patternReducer";
 import { favouriteReducer } from "../reducers/favouriteReducer"
-
 
 import { DeletePattern } from "components/DeletePattern" 
 import { Filter } from "components/Filter"
@@ -16,11 +15,11 @@ export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
   const patterns = useSelector((store) => store.patternReducer.all);
 
-  const [checked, SetChecked] = useState(false);
+  // const [checked, SetChecked] = useState(false);
 
-  const handleOnChange = event => {
-    SetChecked(event.target.checked)
-  }
+  // const handleOnChange = event => {
+  //   SetChecked(event.target.checked)
+  // }
   
   const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
 
@@ -63,12 +62,12 @@ export const HandlePattern = () => {
             </PatternDetailsContainer>
             <SymbolContainer>
                 <DeletePattern pattern={pattern} />
-                <FavouriteButton
-                  checked={checked} 
-                  onChange={handleOnChange}
+                <SymbolButton
+                  // checked={checked} 
+                  // onChange={handleOnChange}
                   onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
                   <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>
-                </FavouriteButton>  
+                </SymbolButton>  
             </SymbolContainer>
           </PatternTextWrapper>
 
@@ -175,25 +174,25 @@ const SymbolContainer = styled.section`
   justify-content: right;
 `
 
-export const FavouriteButton = styled.button`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background: ${checked} ? 'salmon : 'papayawhip';
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 50%;
-  margin-top: 5px;
-  padding: 10px;
+// export const FavouriteButton = styled.button`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: center;
+//   // background: ${checked} ? 'salmon : 'papayawhip';
+//   width: 40px;
+//   height: 40px;
+//   border: none;
+//   border-radius: 50%;
+//   margin-top: 5px;
+//   padding: 10px;
 
-  &:focus {
-    outline: transparent;
-  }
+//   &:focus {
+//     outline: transparent;
+//   }
 
-  &:hover {
-    box-shadow: 0px 2px 10px 5px #a4a99b;
-    background: #a4a99b;
-  }
-`
+//   &:hover {
+//     box-shadow: 0px 2px 10px 5px #a4a99b;
+//     background: #a4a99b;
+//   }
+// `

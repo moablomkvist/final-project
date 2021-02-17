@@ -11,6 +11,16 @@ export const FavouritesPage = () => {
   const dispatch = useDispatch()
   const patterns = useSelector((store) => store.favouriteReducer.items)
 
+  const [checked, SetChecked] = useState(false);
+
+  const handleOnChange = event => {
+    SetChecked(event.target.checked)
+  }
+
+  //const CheckedFavourite = (props) => <input type="checkbox" { ...props}></input>
+
+
+
   return (
     <>
     <Filter />
@@ -29,9 +39,11 @@ export const FavouritesPage = () => {
             <PatternDetails>Needles / {pattern.needles}</PatternDetails>
           </PatternDetailsContainer>
           </PatternTextWrapper>
-        <Button type="button" onClick={() => dispatch(favouriteReducer.actions.deleteFavourite(pattern))}>
+          {/* <CheckedFavourite> */}
+        <Button type="button" checked={checked} onChange={handleOnChange} onClick={() => dispatch(favouriteReducer.actions.deleteFavourite(pattern))}>
           <img src="../assets/trash-2.svg" alt="trash-delete"/>
         </Button>
+        {/* </CheckedFavourite> */}
         </PatternCard>
       ))}
     </PatternPage>

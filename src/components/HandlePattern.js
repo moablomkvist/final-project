@@ -15,6 +15,12 @@ import { SymbolButton } from "styling/lib/SymbolButton"
 export const HandlePattern = () => {
   const dispatch = useDispatch(); //store all the patterns
   const patterns = useSelector((store) => store.patternReducer.all);
+
+  const [checked, SetChecked] = useState(false);
+
+  const handleOnChange = event => {
+    SetChecked(event.target.checked)
+  }
   
   const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
 
@@ -57,10 +63,12 @@ export const HandlePattern = () => {
             </PatternDetailsContainer>
             <SymbolContainer>
                 <DeletePattern pattern={pattern} />
-                <SymbolButton
+                <FavouriteButton
+                  checked={checked} 
+                  onChange={handleOnChange}
                   onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
                   <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>
-                </SymbolButton>  
+                </FavouriteButton>  
             </SymbolContainer>
           </PatternTextWrapper>
 
@@ -167,3 +175,25 @@ const SymbolContainer = styled.section`
   justify-content: right;
 `
 
+export const FavouriteButton = styled.button`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: ${checked} ? 'salmon : 'papayawhip';
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  margin-top: 5px;
+  padding: 10px;
+
+  &:focus {
+    outline: transparent;
+  }
+
+  &:hover {
+    box-shadow: 0px 2px 10px 5px #a4a99b;
+    background: #a4a99b;
+  }
+`

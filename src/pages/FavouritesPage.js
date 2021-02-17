@@ -1,60 +1,53 @@
-import React, {useState} from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import styled from 'styled-components'
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
 
-import { favouriteReducer } from 'reducers/favouriteReducer';
+import { favouriteReducer } from "reducers/favouriteReducer";
 
-import { Filter } from 'components/Filter'
-import { Button } from 'styling/lib/Button'
+import { Filter } from "components/Filter";
+import { Button } from "styling/lib/Button";
 
 export const FavouritesPage = () => {
-  const dispatch = useDispatch()
-  const patterns = useSelector((store) => store.favouriteReducer.items)
-
-  const [checked, SetChecked] = useState(false);
-
-  const handleOnChange = event => {
-    SetChecked(event.target.checked)
-  }
-
-  //const CheckedFavourite = (props) => <input type="checkbox" { ...props}></input>
-
-
+  const dispatch = useDispatch();
+  const patterns = useSelector((store) => store.favouriteReducer.items);
 
   return (
     <>
-    <Filter />
-    <PatternPage>
-      {patterns.map((pattern) => (
-        <PatternCard key={pattern._id} >
-          <PatternImageWrapper>
-          <PatternName>{pattern.post}</PatternName>
-            <a href={pattern.source} alt="pattern description">
-              <PatternImage src={pattern.imageSource} alt="patter" />
-            </a>
-          </PatternImageWrapper>
-          <PatternTextWrapper>
-          <PatternDetailsContainer>
-            <PatternDetails>Yarn / {pattern.yarn}</PatternDetails>
-            <PatternDetails>Needles / {pattern.needles}</PatternDetails>
-          </PatternDetailsContainer>
-          </PatternTextWrapper>
-          {/* <CheckedFavourite> */}
-        <Button type="button" checked={checked} onChange={handleOnChange} onClick={() => dispatch(favouriteReducer.actions.deleteFavourite(pattern))}>
-          <img src="../assets/trash-2.svg" alt="trash-delete"/>
-        </Button>
-        {/* </CheckedFavourite> */}
-        </PatternCard>
-      ))}
-    </PatternPage>
-  </>
-  )
+      <Filter />
+      <PatternPage>
+        {patterns.map((pattern) => (
+          <PatternCard key={pattern._id}>
+            <PatternImageWrapper>
+              <PatternName>{pattern.post}</PatternName>
+              <a href={pattern.source} alt="pattern description">
+                <PatternImage src={pattern.imageSource} alt="patter" />
+              </a>
+            </PatternImageWrapper>
+            <PatternTextWrapper>
+              <PatternDetailsContainer>
+                <PatternDetails>Yarn / {pattern.yarn}</PatternDetails>
+                <PatternDetails>Needles / {pattern.needles}</PatternDetails>
+              </PatternDetailsContainer>
+            </PatternTextWrapper>
+            <Button
+              type="button"
+              onClick={() =>
+                dispatch(favouriteReducer.actions.deleteFavourite(pattern))
+              }
+            >
+              <img src="../assets/trash-2.svg" alt="trash-delete" />
+            </Button>
+          </PatternCard>
+        ))}
+      </PatternPage>
+    </>
+  );
 };
 
 const PatternPage = styled.section`
-  display: flex; 
-  flex-wrap: wrap; 
-`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const PatternCard = styled.article`
   margin: 10px 0;
@@ -70,7 +63,7 @@ const PatternCard = styled.article`
   @media (min-width: 1025px) {
     border: 2px dashed #c3c9b7;
     width: 30%;
-    margin: 15px; 
+    margin: 15px;
   }
 `;
 
@@ -98,7 +91,7 @@ const PatternImage = styled.img`
 //Everything below the image
 const PatternTextWrapper = styled.section`
   display: flex;
-`
+`;
 
 const PatternDetailsContainer = styled.section`
   display: flex;
@@ -106,8 +99,8 @@ const PatternDetailsContainer = styled.section`
   justify-content: left;
   width: 75%;
   margin-left: 10px;
-  font-family: 'Fraunces', serif;
-`
+  font-family: "Fraunces", serif;
+`;
 
 const PatternDetails = styled.p`
   margin: 10px;

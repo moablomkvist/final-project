@@ -9,7 +9,9 @@ import { Button } from "styling/lib/Button";
 export const LoginSignup = () => {
   const dispatch = useDispatch();
   useSelector((store) => store.userReducer.login.accessToken);
-  const statusMessage = useSelector((store) => store.userReducer.login.statusMessage)
+  const statusMessage = useSelector(
+    (store) => store.userReducer.login.statusMessage
+  );
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [loginPage, setLoginPage] = useState(false);
@@ -18,14 +20,24 @@ export const LoginSignup = () => {
   const SIGNUP_URL = "https://knitting-circle.herokuapp.com/users";
 
   const handleLoginSuccess = (loginResponse) => {
-    dispatch(userReducer.actions.setAccessToken({ accessToken: loginResponse.accessToken }));
+    dispatch(
+      userReducer.actions.setAccessToken({
+        accessToken: loginResponse.accessToken,
+      })
+    );
     dispatch(userReducer.actions.setUserId({ userId: loginResponse.userId }));
-    dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Welcome!" }));
+    dispatch(
+      userReducer.actions.setStatusMessage({ statusMessage: "Welcome!" })
+    );
   };
 
   const handleLoginFailed = () => {
     dispatch(userReducer.actions.setAccessToken({ accessToken: null }));
-    dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Please try with another username or password." }));
+    dispatch(
+      userReducer.actions.setStatusMessage({
+        statusMessage: "Please try with another username or password.",
+      })
+    );
   };
 
   //Signup
@@ -74,11 +86,14 @@ export const LoginSignup = () => {
       {!loginPage && (
         <SignupLoginWrapper>
           <AuthContainer className="member-card">
-          <SignupHeader>Already a knitter?</SignupHeader>
-          <p>Do we know you from before? Just log in and start exploring.</p>
-          <Button className="members-button" onClick={() => setLoginPage(true)}>
-            Member Login
-          </Button>
+            <SignupHeader>Already a knitter?</SignupHeader>
+            <p>Do we know you from before? Just log in and start exploring.</p>
+            <Button
+              className="members-button"
+              onClick={() => setLoginPage(true)}
+            >
+              Member Login
+            </Button>
           </AuthContainer>
           <AuthContainer>
             <SignupHeader>Become a knitter</SignupHeader>
@@ -105,8 +120,7 @@ export const LoginSignup = () => {
               <StatusMessage>{statusMessage}</StatusMessage>
             </Form>
           </AuthContainer>
-          </SignupLoginWrapper>
-
+        </SignupLoginWrapper>
       )}
 
       {loginPage && (
@@ -127,7 +141,9 @@ export const LoginSignup = () => {
             required
             minLength="5"
           />
-          <Button className="login-button" type="submit">Log in</Button>
+          <Button className="login-button" type="submit">
+            Log in
+          </Button>
           <StatusMessage>{statusMessage}</StatusMessage>
         </Form>
       )}
@@ -139,19 +155,19 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 80%;
-  
-  @media (min-width: 667px){
+
+  @media (min-width: 667px) {
     width: 60%;
   }
 `;
 
-const SignupHeader = styled.h2 `
+const SignupHeader = styled.h2`
   margin-bottom: 40px;
 
   @media (min-width: 667px) {
     font-size: 40px;
   }
-`
+`;
 
 const Input = styled.input`
   margin: 5px 0 20px 0;
@@ -177,7 +193,7 @@ const AuthContainer = styled.section`
   margin: 20px;
   padding: 20px;
   box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2),
-  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   background: #767a6e;
   border-radius: 6px;
 

@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 
-import { Container } from 'styling/lib/Card'
+import { Container } from "styling/lib/Card";
 
 const useStickyState = (defaultValue, key) => {
   const [value, setValue] = useState(() => {
     const stickyValue = localStorage.getItem(key);
-    return stickyValue !== null
-      ? JSON.parse(stickyValue)
-      : defaultValue;
+    return stickyValue !== null ? JSON.parse(stickyValue) : defaultValue;
   });
 
   useEffect(() => {
@@ -18,22 +16,34 @@ const useStickyState = (defaultValue, key) => {
 };
 
 export const RowCounter = () => {
-  const [clickCount, setClickCount] = useStickyState(0, 'count');
+  const [clickCount, setClickCount] = useStickyState(0, "count");
 
   return (
     <SectionContainer>
-        <Container className="row-counter">
+      <Container className="row-counter">
         <CounterHeading>Row Counter </CounterHeading>
-        <CounterButton onClick={() => setClickCount(clickCount + 1)}><span aria-label="plus" role="img">➕</span></CounterButton>
+        <CounterButton onClick={() => setClickCount(clickCount + 1)}>
+          <span aria-label="plus" role="img">
+            ➕
+          </span>
+        </CounterButton>
         <CounterText>{clickCount} st</CounterText>
-        <CounterButton onClick={() => setClickCount(clickCount - 1)}><span aria-label="minus" role="img">➖</span></CounterButton>
-        {clickCount > 9 ?
-          <CounterText className='progression-text'>Yay! Just one more.</CounterText> 
-        : <></>}
-        </Container>
+        <CounterButton onClick={() => setClickCount(clickCount - 1)}>
+          <span aria-label="minus" role="img">
+            ➖
+          </span>
+        </CounterButton>
+        {clickCount > 9 ? (
+          <CounterText className="progression-text">
+            Yay! Just one more.
+          </CounterText>
+        ) : (
+          <></>
+        )}
+      </Container>
     </SectionContainer>
-  )
-}
+  );
+};
 
 const SectionContainer = styled.section`
   display: flex;
@@ -42,12 +52,12 @@ const SectionContainer = styled.section`
   align-items: center;
   background: #a4a99b;
   border-radius: 10%;
-`
+`;
 
 const CounterHeading = styled.h1`
   font-size: 16px;
   font-weight: 400;
-`
+`;
 
 const CounterButton = styled.button`
   width: 65px;
@@ -62,12 +72,12 @@ const CounterButton = styled.button`
   transition-duration: 0.4s;
   overflow: hidden;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background: #767a6e;
     box-shadow: 0px 2px 10px 5px #949899;
   }
-
-`
+`;
 
 const CounterText = styled.p`
   font-size: 36px;
@@ -79,4 +89,4 @@ const CounterText = styled.p`
     font-weight: 400;
     margin: 16px;
   }
-`
+`;

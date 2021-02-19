@@ -1,32 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import styled from "styled-components";
 
 import { patternReducer } from "../reducers/patternReducer";
-import { favouriteReducer } from "../reducers/favouriteReducer"
 
-import { DeletePattern } from "components/DeletePattern" 
-import { Filter } from "components/Filter"
+import { DeletePattern } from "components/DeletePattern";
+import { Filter } from "components/Filter";
 
-import { SymbolButton } from "styling/lib/SymbolButton"
+import { FavouritePattern } from "./FavouritePattern";
 
 export const HandlePattern = () => {
-  const dispatch = useDispatch(); //store all the patterns
+  const dispatch = useDispatch();
   const patterns = useSelector((store) => store.patternReducer.all);
 
-  // const [checked, SetChecked] = useState(false);
-
-  // const handleOnChange = event => {
-  //   SetChecked(event.target.checked)
-  // }
-  
   const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
 
   useEffect(() => {
     fetch(PATTERNS_URL, {
       method: "GET",
-      headers: { 
+      headers: {
         "Content-Type": "application/json",
       },
     })
@@ -39,50 +32,42 @@ export const HandlePattern = () => {
       })
       .then((json) => dispatch(patternReducer.actions.setPatterns(json)));
   }, [dispatch]); //for not continuously updating. Gets depending on this variable.
-  
+
   return (
-  <>
-    <Filter />
-    <PatternPage>
-      
-      {patterns.map((pattern) => (
-        <PatternCard key={pattern._id}>
+    <>
+      <Filter />
+      <PatternPage>
+        {patterns.map((pattern) => (
+          <PatternCard key={pattern._id}>
             <PatternImageWrapper>
-            <PatternName>{pattern.post}</PatternName>
-            <a href={pattern.source} alt="pattern description">
-              <PatternImage src={pattern.imageSource} alt="pattern" />
-            </a>
-          </PatternImageWrapper>
-
-          <PatternTextWrapper>
-            <PatternDetailsContainer>
-              <PatternDetails>Yarn / {pattern.yarn}</PatternDetails>
-              <PatternDetails>Needles / {pattern.needles}</PatternDetails>
-              <TimeDetails>{moment(pattern.createdAt).fromNow()}</TimeDetails>
-            </PatternDetailsContainer>
-            <SymbolContainer>
+              <PatternName>{pattern.post}</PatternName>
+              <a href={pattern.source} alt="pattern description">
+                <PatternImage src={pattern.imageSource} alt="pattern" />
+              </a>
+            </PatternImageWrapper>
+            <PatternTextWrapper>
+              <PatternDetailsContainer>
+                <PatternDetails>Yarn / {pattern.yarn}</PatternDetails>
+                <PatternDetails>Needles / {pattern.needles}</PatternDetails>
+                <TimeDetails>{moment(pattern.createdAt).fromNow()}</TimeDetails>
+              </PatternDetailsContainer>
+              <SymbolContainer>
                 <DeletePattern pattern={pattern} />
-                <SymbolButton
-                  // checked={checked} 
-                  // onChange={handleOnChange}
-                  onClick={() => dispatch(favouriteReducer.actions.addFavourite(pattern))}>
-                  <img src="/assets/star.svg" alt="favourite-star" aria-label="star"/>
-                </SymbolButton>  
-            </SymbolContainer>
-          </PatternTextWrapper>
-
-        </PatternCard>
-      ))}
-    </PatternPage>
-  </>
+                <FavouritePattern pattern={pattern} />
+              </SymbolContainer>
+            </PatternTextWrapper>
+          </PatternCard>
+        ))}
+      </PatternPage>
+    </>
   );
-  };
+};
 
 const PatternPage = styled.section`
-  display: flex; 
-  flex-wrap: wrap; 
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-`
+`;
 const PatternCard = styled.article`
   margin: 10px 0;
   border-bottom: 2px dashed #c3c9b7;
@@ -102,11 +87,11 @@ const PatternCard = styled.article`
       border: 2px solid #c3c9b7;
     }
   }
-  
+
   @media (min-width: 1025px) {
     border: 2px dashed #c3c9b7;
     width: 30%;
-    margin: 15px; 
+    margin: 15px;
 
     &:hover {
       border: 2px solid #c3c9b7;
@@ -119,7 +104,7 @@ const PatternImageWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-`
+`;
 
 const PatternName = styled.h3`
   margin: 15px;
@@ -138,7 +123,7 @@ const PatternImage = styled.img`
 //Everything below the image
 const PatternTextWrapper = styled.section`
   display: flex;
-`
+`;
 
 const PatternDetailsContainer = styled.section`
   display: flex;
@@ -146,8 +131,8 @@ const PatternDetailsContainer = styled.section`
   justify-content: left;
   width: 70%;
   margin-left: 10px;
-  font-family: 'Fraunces', serif;
-`
+  font-family: "Fraunces", serif;
+`;
 
 const PatternDetails = styled.p`
   margin: 10px;
@@ -172,7 +157,7 @@ const TimeDetails = styled.p`
 const SymbolContainer = styled.section`
   display: flex;
   justify-content: right;
-`
+`;
 
 // export const FavouriteButton = styled.button`
 //   display: flex;

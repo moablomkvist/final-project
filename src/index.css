@@ -1,7 +1,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -11,7 +13,7 @@ body {
   clear: both;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif, 'Fraunces', serif;
+    sans-serif, "Fraunces", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -23,19 +25,19 @@ code {
 
 h1 {
   font-size: 30px;
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
 }
 
 h2 {
   margin: 15px;
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   font-size: 24px;
 }
 
 h3 {
   margin: 10px;
   font-size: 24px;
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
 }
 
 h4 {
@@ -46,7 +48,7 @@ p {
   margin: 10px;
   font-size: 18px;
   line-height: 150%;
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
 }
 
 a {
@@ -54,7 +56,8 @@ a {
   color: black;
 }
 
-.active-link:active, .active-link:focus  {
+.active-link:active,
+.active-link:focus {
   text-decoration: underline;
 }
 
@@ -64,7 +67,6 @@ ul {
 }
 
 label {
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   margin-top: 15px;
 }
-

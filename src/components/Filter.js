@@ -1,16 +1,24 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Filter = () => {
   return (
-  <FilterContainer>
-    <FilterLink><Link className="active-link" to="/">All patterns</Link></FilterLink>
-    <FilterLink>/</FilterLink>
-    <FilterLink><Link className="active-link" to="/favourite-patterns">Favourites</Link></FilterLink>
-  </FilterContainer>
-  )
-}
+    <FilterContainer>
+      <FilterLink>
+        <Link className="active-link" to="/">
+          All patterns
+        </Link>
+      </FilterLink>
+      <FilterLink>/</FilterLink>
+      <FilterLink>
+        <Link className="active-link" to="/favourite-patterns">
+          Favourites
+        </Link>
+      </FilterLink>
+    </FilterContainer>
+  );
+};
 
 const FilterContainer = styled.section`
   display: flex;
@@ -21,7 +29,7 @@ const FilterContainer = styled.section`
   background: #a4a99b;
   top: 0;
   margin: 0;
-`
+`;
 
 const FilterLink = styled.p`
   font-size: 20px;
@@ -35,4 +43,4 @@ const FilterLink = styled.p`
   @media (min-width: 1025px) {
     font-size: 30px;
   }
-`
+`;

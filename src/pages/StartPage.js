@@ -1,46 +1,55 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useSelector } from 'react-redux'
+import React from "react";
+import styled from "styled-components";
+import { useSelector } from "react-redux";
 
-import { LandingPage } from './LandingPage'
-import { Footer } from 'components/Footer'
-import { LoginSignup } from 'components/LoginSignup'
+import { LandingPage } from "./LandingPage";
+import { Footer } from "components/Footer";
+import { LoginSignup } from "components/LoginSignup";
 
-import { Header } from 'styling/lib/Header'
-
+import { Header } from "styling/lib/Header";
 
 export const StartPage = () => {
-  
-const accessToken = useSelector((store) => store.userReducer.login.accessToken)
-  
-  if (!accessToken) { 
-  return (
-    <StartPageContainer>
-      <Header>
-        <p className="sub-title">Yes, I like to knit. No, I am not 'old'.</p>
-        <h1 className="head-title-start">Knitting Circle</h1>
-      </Header>
+  const accessToken = useSelector(
+    (store) => store.userReducer.login.accessToken
+  );
 
-      <IntroWrapper>
-        <img className="knit-logo" src="assets/knit-2923687_640.png" alt="logo"/>
-        <Heading>"If not knit now then when"</Heading>
-        <Ingress>
-          Some call it slow fashion. We call it a matter of thinking. 
-          Knitting is a way of keeping you warm, your head mindful and the clothes you wear meaningful. 
-          This is a virtual knitting circle for those who want more knitting in their lives. We make it easy to start.
-        </Ingress>
-      </IntroWrapper>
+  if (!accessToken) {
+    return (
+      <StartPageContainer>
+        <Header>
+          <p className="sub-title">Yes, I like to knit. No, I am not 'old'.</p>
+          <h1 className="head-title-start">Knitting Circle</h1>
+        </Header>
 
-      <ContentContainer>
-        <CoverPhoto src="../assets/coverphoto2.jpg" alt="Model in knitted clothes"></CoverPhoto>
-        <LoginSignup />
-      </ContentContainer>
-      <Footer />
-    </StartPageContainer>
-  )
-} else {  
-  return <LandingPage/>// If user is logged in, show profile
-}}
+        <IntroWrapper>
+          <img
+            className="knit-logo"
+            src="assets/knit-2923687_640.png"
+            alt="logo"
+          />
+          <Heading>"If not knit now then when"</Heading>
+          <Ingress>
+            Some call it slow fashion. We call it a matter of thinking. Knitting
+            is a way of keeping you warm, your head mindful and the clothes you
+            wear meaningful. This is a virtual knitting circle for those who
+            want more knitting in their lives. We make it easy to start.
+          </Ingress>
+        </IntroWrapper>
+
+        <ContentContainer>
+          <CoverPhoto
+            src="../assets/coverphoto2.jpg"
+            alt="Model in knitted clothes"
+          ></CoverPhoto>
+          <LoginSignup />
+        </ContentContainer>
+        <Footer />
+      </StartPageContainer>
+    );
+  } else {
+    return <LandingPage />; // If user is logged in, show profile
+  }
+};
 
 const StartPageContainer = styled.section`
   display: flex;
@@ -49,7 +58,6 @@ const StartPageContainer = styled.section`
   background: #a4a99b;
   margin: 20px;
 `;
-
 
 const IntroWrapper = styled.section`
   display: flex;
@@ -85,7 +93,7 @@ const Heading = styled.h1`
     width: 40%;
     font-size: 40px;
   }
-`
+`;
 
 const Ingress = styled.p`
   width: 90%;
@@ -99,7 +107,7 @@ const Ingress = styled.p`
   @media (min-width: 1025px) {
     width: 40%;
   }
-`
+`;
 
 const ContentContainer = styled.section`
   justify-content: center;
@@ -107,14 +115,14 @@ const ContentContainer = styled.section`
   padding: 30px;
 
   @media (min-width: 1025px) {
-    display: flex;  
+    display: flex;
   }
 `;
 
 const CoverPhoto = styled.img`
   width: 100%;
   padding: 10px;
-  
+
   @media (min-width: 667px) and (max-width: 1024px) {
     padding: 0;
     margin: 20px 0;
@@ -123,4 +131,4 @@ const CoverPhoto = styled.img`
   @media (min-width: 1025px) {
     width: 60%;
   }
-`
+`;

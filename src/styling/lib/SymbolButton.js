@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const SymbolButton = styled.button`
   display: flex;
@@ -15,10 +15,10 @@ export const SymbolButton = styled.button`
 
   &:focus {
     outline: transparent;
+    background: #a4a99b;
   }
 
   &:hover {
-    box-shadow: 0px 2px 10px 5px #a4a99b;
     background: #a4a99b;
   }
-`
+`;

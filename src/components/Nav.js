@@ -1,16 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Header } from 'styling/lib/Header'
+import { Header } from "styling/lib/Header";
 import styled from "styled-components";
 
-import { Logout } from "components/Logout"
+import { Logout } from "components/Logout";
 
 export const Nav = () => {
   return (
     <TopNavigation>
       <Header>
         <p className="sub-title">If im sitting, im knitting</p>
-        <NavLink className="head-title" to="/">Knitting Circle</NavLink>
+        <NavLink className="head-title" to="/">
+          Knitting Circle
+        </NavLink>
       </Header>
 
       <MenuLinkList>
@@ -25,12 +27,11 @@ export const Nav = () => {
         <MenuLink>
           <NavLink to="/glossary">Glossary</NavLink>
         </MenuLink>
-        
+
         <MenuLink>
-          <Logout/>
+          <Logout />
         </MenuLink>
       </MenuLinkList>
-
     </TopNavigation>
   );
 };
@@ -69,7 +70,7 @@ const MenuLink = styled.li`
   &:hover {
     text-decoration: underline;
   }
-  
+
   @media (min-width: 1025px) {
     font-size: 18px;
   }

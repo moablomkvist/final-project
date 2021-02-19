@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const Header = styled.header `
+export const Header = styled.header`
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,7 @@ export const Header = styled.header `
       color: none;
     }
   }
-  
+
   & .head-title {
     margin: 5px;
     padding-top: 20px;
@@ -30,7 +30,7 @@ export const Header = styled.header `
     &:hover {
       color: #5e3d2c;
     }
-    
+
     @media (min-width: 1025px) {
       height: 200px;
       font-size: 75px;
@@ -46,5 +46,4 @@ export const Header = styled.header `
       padding-top: 30px;
     }
   }
-  
-`; 
+`;

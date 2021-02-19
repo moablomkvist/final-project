@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 export const patternReducer = createSlice({
   name: "patternReducer",
@@ -11,9 +11,9 @@ export const patternReducer = createSlice({
       state.all = action.payload; // json.results from API
     },
     setPatternId: (state, action) => {
-      const { patternId } = action.payload
+      const { patternId } = action.payload;
       console.log(`Pattern Id: ${patternId}`);
-      state.login.userId = patternId
+      state.login.userId = patternId;
     },
-  }
+  },
 });

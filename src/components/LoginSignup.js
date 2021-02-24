@@ -156,6 +156,17 @@ const Form = styled.form`
   flex-direction: column;
   width: 80%;
 
+  &.login-page {
+    width: 60%;
+    
+    @media (min-width: 667px) {
+      width: 40%;
+    }
+    @media (min-width: 1025px) {
+      width: 20%;
+    }
+  }
+
   @media (min-width: 667px) {
     width: 60%;
   }

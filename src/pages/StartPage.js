@@ -38,7 +38,7 @@ export const StartPage = () => {
 
         <ContentContainer>
           <CoverPhoto
-            src="../assets/coverphoto2.jpg"
+            src="../assets/coverphoto3.jpg"
             alt="Model in knitted clothes"
           ></CoverPhoto>
           <LoginSignup />

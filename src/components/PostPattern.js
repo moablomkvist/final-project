@@ -77,7 +77,7 @@ export const PostPattern = () => {
             type="text"
             value={imageSource}
             onChange={(event) => setImageSource(event.target.value)}
-            placeholder="Image address (url)"
+            placeholder="Image address (url)" 
             required
           />
 

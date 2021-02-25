@@ -19,4 +19,9 @@ export const SymbolButton = styled.button`
     &:hover {
       background-color: #a4a99b;
     }
+    & .favMark {
+      border-radius: 50%;
+      padding: 10px;
+      background-color: #a4a99b;
+    }
 `;

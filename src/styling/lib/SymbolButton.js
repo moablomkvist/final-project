@@ -13,9 +13,6 @@ export const SymbolButton = styled.button`
   margin-top: 5px;
   padding: 10px;
   outline: transparent;
-    &:focus, &:active {
-      background-color: #a4a99b;
-    }
     &:hover {
       background-color: #a4a99b;
     }

@@ -25,7 +25,7 @@ export const FavouritePattern = ({ pattern }) => {
             src="/assets/star.svg"
             alt="favourite-star"
             aria-label="star"
-            className="fav-mark"
+            className="favMark"
           />
         </SymbolButton>
       ) : (

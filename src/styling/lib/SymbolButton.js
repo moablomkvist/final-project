@@ -12,13 +12,11 @@ export const SymbolButton = styled.button`
   border-radius: 50%;
   margin-top: 5px;
   padding: 10px;
-
-  &:focus {
-    outline: transparent;
-    background: #a4a99b;
-  }
-
-  &:hover {
-    background: #a4a99b;
-  }
+  outline: transparent;
+    &:focus, &:active {
+      background-color: #a4a99b;
+    }
+    &:hover {
+      background-color: #a4a99b;
+    }
 `;

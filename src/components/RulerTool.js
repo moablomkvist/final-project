@@ -22,6 +22,7 @@ export const RulerTool = () => {
 const Ruler = styled.ol`
   list-style-type: none;
 `;
+
 const Marker = styled.li`
   list-style-type: none;
   text-align: center;

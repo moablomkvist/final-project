@@ -11,38 +11,32 @@ export const FavouritePattern = ({ pattern }) => {
     store.favouriteReducer.items.find((item) => item._id === pattern._id)
   );
   const toggleFav = () => {
-    dispatch(favouriteReducer.actions.addFavourite(pattern))
-  }
+    dispatch(favouriteReducer.actions.addFavourite(pattern));
+  };
   const toggleDeleteFav = () => {
-    dispatch(favouriteReducer.actions.deleteFavourite(pattern))
-  }
+    dispatch(favouriteReducer.actions.deleteFavourite(pattern));
+  };
 
   return (
     <div>
-  {favouriteItem ? (
-    <SymbolButton
-  onClick={toggleDeleteFav}
-  >
-  <img
-    src="/assets/star.svg"
-    alt="favourite-star"
-    aria-label="star"
-    className="favMark"
-  />
-</SymbolButton>
-) : (
-  <SymbolButton
-  onClick={toggleFav}
-  >
-  <img
-    src="/assets/star.svg"
-    alt="favourite-star"
-    aria-label="star"
-  />
-</SymbolButton>
-
-)
-}
-</div>
-)
+      {favouriteItem ? (
+        <SymbolButton onClick={toggleDeleteFav}>
+          <img
+            src="/assets/star.svg"
+            alt="favourite-star"
+            aria-label="star"
+            className="fav-mark"
+          />
+        </SymbolButton>
+      ) : (
+        <SymbolButton onClick={toggleFav}>
+          <img 
+            src="/assets/star.svg" 
+            alt="favourite-star" 
+            aria-label="star" 
+          />
+        </SymbolButton>
+      )}
+    </div>
+  );
 };

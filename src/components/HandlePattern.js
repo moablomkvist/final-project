@@ -68,6 +68,7 @@ const PatternPage = styled.section`
   flex-wrap: wrap;
   justify-content: space-between;
 `;
+
 const PatternCard = styled.article`
   margin: 10px 0;
   border-bottom: 2px dashed #c3c9b7;
@@ -139,7 +140,7 @@ const PatternDetails = styled.p`
   font-weight: 400;
   width: fit-content;
 
-  @media (min-width: 768px) {
+  @media (min-width: 667px) {
     font-size: 20px;
   }
 `;
@@ -149,7 +150,7 @@ const TimeDetails = styled.p`
   font-size: 16px;
   font-weight: 300;
 
-  @media (min-width: 768px) {
+  @media (min-width: 667px) {
     font-size: 18px;
   }
 `;
@@ -158,26 +159,3 @@ const SymbolContainer = styled.section`
   display: flex;
   justify-content: right;
 `;
-
-// export const FavouriteButton = styled.button`
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: center;
-//   // background: ${checked} ? 'salmon : 'papayawhip';
-//   width: 40px;
-//   height: 40px;
-//   border: none;
-//   border-radius: 50%;
-//   margin-top: 5px;
-//   padding: 10px;
-
-//   &:focus {
-//     outline: transparent;
-//   }
-
-//   &:hover {
-//     box-shadow: 0px 2px 10px 5px #a4a99b;
-//     background: #a4a99b;
-//   }
-// `

@@ -46,7 +46,7 @@ const TopNavigation = styled.nav`
   font-family: "Fraunces", serif;
   margin: 0px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 667px) {
     justify-content: center;
     padding: 20px 5px 40px 0;
   }
@@ -58,7 +58,7 @@ const MenuLinkList = styled.ul`
   margin: 5px 0px;
   padding: 0;
 
-  @media (min-width: 768px) {
+  @media (min-width: 667px) {
     margin: 0;
   }
 `;

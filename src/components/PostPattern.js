@@ -114,7 +114,7 @@ const PostpageContainer = styled.section`
 `;
 
 const PostHeading = styled.h1`
-  @media (min-width: 768px) {
+  @media (min-width: 667px) {
     font-size: 40px;
   }
 `;

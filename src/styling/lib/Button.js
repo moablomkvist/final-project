@@ -22,7 +22,7 @@ export const Button = styled.button`
     box-shadow: 0px 2px 10px 5px #949899;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 667px) {
     font-size: 18px;
   }
 

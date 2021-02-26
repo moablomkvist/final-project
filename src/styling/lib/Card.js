@@ -7,7 +7,7 @@ export const Form = styled.form`
 
   &.post-form {
 
-    @media (min-width: 768px) {
+    @media (min-width: 667px) {
       width: 50%;
     }
 `;
@@ -30,7 +30,7 @@ export const Input = styled.input`
     border-radius: 5px;
     padding: 12px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 667px) {
       font-size: 14px;
       width: 100%;
     }

@@ -1,134 +1,122 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import styled from "styled-components";
-import { useSelector } from "react-redux";
 
-import { Button } from "styling/lib/Button";
-import { Form, Input, Container } from "styling/lib/Card";
-import { useHistory } from "react-router-dom";
+const PATTERNS_URL = "http://localhost:8081/patterns";
 
 export const PostPattern = () => {
+
   const [post, setPost] = useState("");
-  const [source, setSource] = useState("");
-  const [imageSource, setImageSource] = useState("");
-  const [needles, setNeedles] = useState("");
-  const [yarn, setYarn] = useState("");
-
-  const accessToken = useSelector(
-    (store) => store.userReducer.login.accessToken
-  );
-
-  const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
-
-  let history = useHistory();
-  const handlePostSuccess = () => {
-    history.push("/");
-  };
+  const [source, setSource] = useState("")
+  const [imageSource, setImageSource] = useState("")
+  const [needles, setNeedles] = useState("")
+  const [yarn, setYarn] = useState("")
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     fetch(PATTERNS_URL, {
       method: "POST",
       body: JSON.stringify({ post, source, imageSource, needles, yarn }),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: accessToken,
-      },
+      headers: { "Content-Type": "application/json" },
     })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Could not create a pattern");
-        }
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(
+          "Please try to post again"
+        );
+      } else {
         return res.json();
+      }
+    })
+      .then(() => {
+        setPost("");
+        setSource("")
+        setImageSource("")
+        setYarn("")
+        setNeedles("")
       })
-      .then((json) => handlePostSuccess(json))
       .catch((err) => console.log("error:", err));
   };
 
   return (
-    <PostpageContainer>
-      <CoverPhoto
-        src="assets/knitting-circle-cover.jpg"
-        alt="knitting-model"
-      ></CoverPhoto>
-      <Form className="post-form" onSubmit={handleSubmit}>
-        <Container className="post-container">
-          <PostHeading>Share pattern with the circle</PostHeading>
+    <PostingForm onSubmit={handleSubmit}>
 
-          <label>Name of the pattern</label>
-          <Input
-            className="post-input"
-            type="text"
-            value={post}
-            onChange={(event) => setPost(event.target.value)}
-          />
+      <TextfieldsContainer>
+        <h1>Share pattern with the circle</h1>
+        <label>Add pattern link</label>
+        <input 
+          type="text" 
+          value={source}
+          onChange={(event) => setSource(event.target.value)}
+          placeholder="URL" 
+          required 
+        />
+        
+        <label>Add image link</label>
+        <input 
+          type="text" 
+          value={imageSource}
+          onChange={(event) => setImageSource(event.target.value)}
+          placeholder="URL" 
+          required 
+        />
 
-          <label>Add pattern link</label>
-          <Input
-            className="post-input"
-            type="text"
-            value={source}
-            onChange={(event) => setSource(event.target.value)}
-            placeholder="Link address (url)"
-            required
-          />
-          <label>Add image link</label>
-          <Input
-            className="post-input"
-            type="text"
-            value={imageSource}
-            onChange={(event) => setImageSource(event.target.value)}
-            placeholder="Image address (url)" 
-            required
-          />
+        <label>Name of the pattern</label>
+        <input 
+          type="text" 
+          value={post} 
+          onChange={(event) => setPost(event.target.value)} 
+        />
 
-          <label>Name of the used yarn</label>
-          <Input
-            className="post-input"
-            type="text"
-            value={yarn}
-            onChange={(event) => setYarn(event.target.value)}
-          />
+        <label>Name of the used yarn</label>
+        <input 
+          type="text" 
+          value={yarn} 
+          onChange={(event) => setYarn(event.target.value)} 
+        />
 
-          <label>Sizes of used needles</label>
-          <Input
-            className="post-input"
-            type="text"
-            value={needles}
-            onChange={(event) => setNeedles(event.target.value)}
-            placeholder="Ex. Sock needles, 3,5 mm"
-          />
-        </Container>
-        <Button className="share-button" type="submit">
-          Share pattern
-        </Button>
-      </Form>
-    </PostpageContainer>
+        <label>Sizes of used needles</label>
+        <input 
+          type="text"  
+          value={needles} 
+          onChange={(event) => setNeedles(event.target.value)} 
+          placeholder="Ex. Sock needles, 3,5 mm" 
+        />
+
+      </TextfieldsContainer>
+
+      <RadioButtonContainer>
+        <label>How suitable for a beginner?</label>
+        <input type="radio" />
+        <input type="radio" />
+        <input type="radio" />
+        <input type="radio" />
+        <input type="radio" />
+      </RadioButtonContainer>
+
+      <button type="submit">Share pattern</button>
+
+    </PostingForm>
   );
 };
 
-const PostpageContainer = styled.section`
+const PostingForm = styled.form`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  background: #a4a99b;
+  font-family: "Fraunces";
 `;
 
-const PostHeading = styled.h1`
-  @media (min-width: 667px) {
-    font-size: 40px;
-  }
+const TextfieldsContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 `;
 
-const CoverPhoto = styled.img`
-  width: 100%;
-  margin-bottom: 10px;
-  align-items: flex-start;
-
-  @media (min-width: 667px) and (max-width: 1024px) {
-    width: 80%;
-  }
-
-  @media (min-width: 1025px) {
-    width: 50%;
-  }
+const RadioButtonContainer = styled.section`
+  display: flex;
+  flex-direction: row;
+  margin: 40px;
 `;

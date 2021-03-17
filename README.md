@@ -1,25 +1,19 @@
-# Knitting Circle 
+# Technigo React Starter App
 
-Final project for Technigo Bootcamp by Moa Blomkvist and Caroline Birgersson
+This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
 
-# MVP
-– A site where the users can post tips on free patterns. 
-With link sources to the pattern, what needles and yarn they used for the pattern etc. 
-– The posts is saved to a database. Other users can save (favourite-mark)  the patterns that is posted. 
-– The user will be able to login and see the patterns. 
-– We have a row counter, a simple click count-tool to count how many rows you have knitted. 
-The counted rows is saved by local storage. 
-– We have a glossary. 
+Add components in the `src` folder and use them in `src/app.js` to get started.
 
-# View site live
-https://knitting-circle.netlify.app/
-https://knitting-circle.herokuapp.com/ 
+## Usage
 
-# Technical requirements - Knitting Circle
-Back-end in Node.js
-Front-end in React / using Redux
-MongoDB database
-Navigation using React Router
-Working in Chrome, Firefox & Safari.
-Responsive and work well on mobile, tablet and phone.
+1. On GitHub, click the 'use this template' button to create a new repo on your account
+1. Clone the new repo to your computer
+1. Install required dependencies with npm: `npm install`
+1. Start the project: `npm start`
 
+Alternatively, if you don't want a new git repo on your account;
+
+1. Download & extract the [latest release](https://github.com/Technigo/react-starter/releases/latest) from GitHub
+1. Open the directory in the terminal: `cd /path/to/react-starter`
+1. Install required dependencies with npm: `npm install`
+1. Start the project: `npm start`

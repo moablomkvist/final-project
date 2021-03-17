@@ -1,43 +1,31 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components'
 
-import { userReducer } from "../reducers/userReducer";
+import { userReducer} from '../reducers/userReducer'
+import { LandingPage } from 'pages/LandingPage';
+import { Button } from 'styling/lib/Button';
 
-import { Button } from "styling/lib/Button";
+const LOGIN_URL = 'http://localhost:8081/sessions'
+const SIGNUP_URL = 'http://localhost:8081/users'
 
 export const LoginSignup = () => {
-  const dispatch = useDispatch();
-  useSelector((store) => store.userReducer.login.accessToken);
-  const statusMessage = useSelector(
-    (store) => store.userReducer.login.statusMessage
-  );
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [loginPage, setLoginPage] = useState(false);
-
-  const LOGIN_URL = "https://knitting-circle.herokuapp.com/sessions";
-  const SIGNUP_URL = "https://knitting-circle.herokuapp.com/users";
+  const dispatch = useDispatch()
+  const accessToken = useSelector((store) => store.userReducer.login.accessToken)
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+  const [loginPage, setLoginPage] = useState(false)
 
   const handleLoginSuccess = (loginResponse) => {
-    dispatch(
-      userReducer.actions.setAccessToken({
-        accessToken: loginResponse.accessToken,
-      })
-    );
+    dispatch(userReducer.actions.setAccessToken({ accessToken: loginResponse.accessToken })
+);
     dispatch(userReducer.actions.setUserId({ userId: loginResponse.userId }));
-    dispatch(
-      userReducer.actions.setStatusMessage({ statusMessage: "Welcome!" })
-    );
-  };
+    dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Logged in" }));
+  }
 
-  const handleLoginFailed = () => {
+  const handleLoginFailed = (loginError) => {
     dispatch(userReducer.actions.setAccessToken({ accessToken: null }));
-    dispatch(
-      userReducer.actions.setStatusMessage({
-        statusMessage: "Please try with another username or password.",
-      })
-    );
+    dispatch(userReducer.actions.setStatusMessage({ statusMessage: loginError }));
   };
 
   //Signup
@@ -45,18 +33,18 @@ export const LoginSignup = () => {
     event.preventDefault();
 
     fetch(SIGNUP_URL, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify({ name, password }),
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => {
         if (!res.ok) {
-          throw new Error("Could not create user");
+          throw new Error('Could not create user')
         }
-        return res.json();
+        return res.json()
       })
       .then((json) => handleLoginSuccess(json))
-      .catch((err) => handleLoginFailed(statusMessage));
+      .catch((err) => handleLoginFailed(err))
   };
 
   //Login
@@ -64,158 +52,141 @@ export const LoginSignup = () => {
     event.preventDefault();
 
     fetch(LOGIN_URL, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify({ name, password }),
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => {
         if (!res.ok) {
           throw new Error(
-            "Unable to log in. Please check that your username and password is correct."
-          );
+            'Unable to log in. Please check that your username and password is correct'
+          )
         }
-        return res.json();
+        return res.json()
       })
       .then((json) => handleLoginSuccess(json))
-      .catch((err) => handleLoginFailed(statusMessage));
+      .catch((err) => handleLoginFailed(err));
   };
 
-  // If user is logged out, show login form
+  if (!accessToken) { // If user is logged out, show login form
   return (
     <>
       {!loginPage && (
-        <SignupLoginWrapper>
-          <AuthContainer className="member-card">
-            <SignupHeader>Already a knitter?</SignupHeader>
-            <p>Do we know you from before? Just log in and start exploring.</p>
-            <Button
-              className="members-button"
-              onClick={() => setLoginPage(true)}
-            >
-              Member Login
-            </Button>
-          </AuthContainer>
-          <AuthContainer>
-            <SignupHeader>Become a knitter</SignupHeader>
-            <Form onSubmit={handleSignup}>
-              <label>Username</label>
-              <Input
-                required
-                minLength="3"
-                placeholder="Min 3 letters"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-              />
-              <label>Password</label>
-              <Input
-                type="password"
-                name="password"
-                required
-                minLength="5"
-                placeholder="Min 5 letters"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-              />
-              <Button type="submit">Join us!</Button>
-              <StatusMessage>{statusMessage}</StatusMessage>
-            </Form>
-          </AuthContainer>
-        </SignupLoginWrapper>
-      )}
-
-      {loginPage && (
-        <Form onSubmit={handleLogin} className="login-page">
-          <label>Name</label>
+        <>
+        <MembersButton onClick={() => setLoginPage(true)}>
+          Already a member?
+        </MembersButton>
+        <AuthContainer>
+        <h2>Become a member</h2>
+        <Form onSubmit={handleSignup}>
+          <label>Username</label>
           <Input
+            required
+            minLength='3'
+            placeholder='Min 3 letters'
             value={name}
             onChange={(event) => setName(event.target.value)}
-            required
-            minLength="3"
           />
           <label>Password</label>
           <Input
             type="password"
             name="password"
+            required
+            minLength='5'
+            placeholder='Min 5 letters'
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            required
-            minLength="5"
           />
-          <Button className="login-button" type="submit">
-            Log in
+          <Button 
+          type='submit'>
+          Join the circle
           </Button>
-          <StatusMessage>{statusMessage}</StatusMessage>
         </Form>
+        </AuthContainer>
+        </>
       )}
+    
+
+    {loginPage && 
+      (
+      <Form onSubmit={handleLogin}>
+        <label>
+          Name
+        </label>
+        <Input
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          required
+          minLength="3"
+        />
+        <label>
+          Password
+        </label>
+        <Input
+          type="password"
+          name="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          required
+          minLength="5"
+          />
+        <Button type='submit'>
+          Login
+        </Button>
+      </Form>
+    )}
     </>
   );
-};
+  } else {  // If user is logged in, show profile
+    return <LandingPage/>;
+  }
+}
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 80%;
-
-  &.login-page {
-    width: 60%;
-    
-    @media (min-width: 667px) {
-      width: 40%;
-    }
-    @media (min-width: 1025px) {
-      width: 20%;
-    }
-  }
-
-  @media (min-width: 667px) {
-    width: 60%;
-  }
-`;
-
-const SignupHeader = styled.h2`
-  margin-bottom: 40px;
-
-  @media (min-width: 667px) {
-    font-size: 40px;
-  }
 `;
 
 const Input = styled.input`
-  margin: 5px 0 20px 0;
   padding: 8px;
-  width: 100%;
+  width:100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border: 0;
   opacity: 0.3;
-  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 0 15px 5px rgba(0,0,0,0.07);
   font-family: inherit;
-
+  
   &:hover {
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
+    box-shadow:0 0 4px rgba(0,0,0,0.12);
     opacity: 0.5;
   }
 `;
 
-const SignupLoginWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-`;
-
 const AuthContainer = styled.section`
+  box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2),
+  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  background-color: #83979d;
+  border-radius: 6px;
   margin: 20px;
   padding: 20px;
-  box-shadow: 0px 5px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  background: #767a6e;
-  border-radius: 6px;
-
-  &.member-card {
-    background: #d1b8ab;
-  }
 `;
 
-const StatusMessage = styled.p`
-  margin: 5px 0 15px 0;
-  width: 70%;
-  font-size: 14px;
-  color: white;
-`;
+const MembersButton = styled.button`
+background-color: #5E6572;
+border: none;
+color: #fff;
+font-family: 'Josefin Slab', serif;
+padding: 10px;
+width: 40%;
+text-align: center;
+transition-duration: 0.4s;
+overflow: hidden;
+box-shadow: 0 2px 10px #949899;
+border-radius: 4px;
+
+&:hover {
+  background: #a88979;
+  box-shadow: 0px 2px 10px 5px #949899;
+}
+`

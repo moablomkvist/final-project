@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-
-import { Container } from "styling/lib/Card";
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
 
 const useStickyState = (defaultValue, key) => {
   const [value, setValue] = useState(() => {
     const stickyValue = localStorage.getItem(key);
-    return stickyValue !== null ? JSON.parse(stickyValue) : defaultValue;
+    return stickyValue !== null
+      ? JSON.parse(stickyValue)
+      : defaultValue;
   });
 
   useEffect(() => {
@@ -16,77 +16,64 @@ const useStickyState = (defaultValue, key) => {
 };
 
 export const RowCounter = () => {
-  const [clickCount, setClickCount] = useStickyState(0, "count");
+  const [clickCount, setClickCount] = useStickyState(0, 'count');
 
   return (
     <SectionContainer>
-      <Container className="row-counter">
-        <CounterHeading>Row Counter </CounterHeading>
-        <CounterButton onClick={() => setClickCount(clickCount + 1)}>
-          <span aria-label="plus" role="img">
-            ➕
-          </span>
-        </CounterButton>
+      <CounterContainer>
+        <CounterHeading>Row Counter:</CounterHeading>
+        <CounterButton onClick={() => setClickCount(clickCount + 1)}>+</CounterButton>
         <CounterText>{clickCount} st</CounterText>
-        <CounterButton onClick={() => setClickCount(clickCount - 1)}>
-          <span aria-label="minus" role="img">
-            ➖
-          </span>
-        </CounterButton>
-        {clickCount > 9 ? (
-          <CounterText className="progression-text">
-            Yay! Just one more.
-          </CounterText>
-        ) : (
-          <></>
-        )}
-      </Container>
+        <CounterButton onClick={() => setClickCount(clickCount - 1)}>-</CounterButton>
+        {clickCount > 9 ? <CounterText className='progressionText'>Yay! Knit or die.</CounterText> : <></>}
+      </CounterContainer>
     </SectionContainer>
-  );
-};
+  )
+}
 
 const SectionContainer = styled.section`
   display: flex;
-  width: 300px;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
   background: #a4a99b;
-  border-radius: 10%;
-`;
+`
+
+const CounterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+  background: #a4a99b;
+  font-family: 'Fraunces', serif;
+`
 
 const CounterHeading = styled.h1`
-  font-size: 16px;
+  font-size: 30px;
   font-weight: 400;
-`;
+`
 
 const CounterButton = styled.button`
   width: 65px;
   height: 65px;
   margin: 10px;
-  padding: 1%;
+  padding: 2%;
   border-radius: 50%;
   background: #cba892;
-  border: none;
-  font-size: 32px;
+  border: solid 1px;
+  font-size: 30px;
   cursor: pointer;
-  transition-duration: 0.4s;
-  overflow: hidden;
 
-  &:hover,
-  &:focus {
-    background: #767a6e;
-    box-shadow: 0px 2px 10px 5px #949899;
+  &:hover, &:focus {
+    border: dashed 2px;
   }
-`;
+`
 
 const CounterText = styled.p`
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
-  margin: 0;
 
-  &.progression-text {
-    font-size: 16px;
+  &.progressionText {
+    font-size: 18px;
     font-weight: 400;
-    margin: 16px;
   }
-`;
+`

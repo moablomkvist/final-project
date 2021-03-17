@@ -29,10 +29,10 @@ export const StartPage = () => {
           />
           <Heading>"If not knit now then when"</Heading>
           <Ingress>
-            Some call it slow fashion. We call it a matter of thinking. Knitting
-            is a way of keeping you warm, your head mindful and the clothes you
-            wear meaningful. This is a virtual knitting circle for those who
-            want more knitting in their lives. We make it easy to start.
+            Vissa kallar det slow fashion. Vi kallar det för ett medvetet förhållningssätt.
+            Stickningen håller dig varm, ditt huvud rensat och gör varje stickat plagg betydelsefullt. 
+            Det här är en virtuell syjunta för alla er som vill låta stickningen ta större plats i ert liv. 
+            Vi gör det enkelt att sätta igång.
           </Ingress>
         </IntroWrapper>
 

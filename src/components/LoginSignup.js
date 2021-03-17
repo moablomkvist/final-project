@@ -24,14 +24,16 @@ export const LoginSignup = () => {
       })
     );
     dispatch(userReducer.actions.setUserId({ userId: loginResponse.userId }));
-    dispatch(userReducer.actions.setStatusMessage({ statusMessage: "Welcome!" })
+    dispatch(
+      userReducer.actions.setStatusMessage({ statusMessage: "Välkommen!" })
     );
   };
 
   const handleLoginFailed = () => {
     dispatch(userReducer.actions.setAccessToken({ accessToken: null }));
-    dispatch(userReducer.actions.setStatusMessage({
-        statusMessage: "Please try with another username or password.",
+    dispatch(
+      userReducer.actions.setStatusMessage({
+        statusMessage: "Försök med ett annat användarnamn eller lösenord.",
       })
     );
   };
@@ -47,7 +49,7 @@ export const LoginSignup = () => {
     })
       .then((res) => {
         if (!res.ok) {
-          throw new Error("Could not create user");
+          throw new Error("Kunde inte skapa användare.");
         }
         return res.json();
       })
@@ -67,7 +69,7 @@ export const LoginSignup = () => {
       .then((res) => {
         if (!res.ok) {
           throw new Error(
-            "Unable to log in. Please check that your username and password is correct."
+            "Det gick inte att logga in. Se över ditt användarnamn och lösenord är du snäll."
           );
         }
         return res.json();
@@ -82,19 +84,19 @@ export const LoginSignup = () => {
       {!loginPage && (
         <SignupLoginWrapper>
           <AuthContainer className="member-card">
-            <SignupHeader>Already a knitter?</SignupHeader>
-            <p>Do we know you from before? Just log in and start exploring.</p>
+            <SignupHeader>Redan en del av juntan?</SignupHeader>
+            <p>Logga bara in och börja upptäck.</p>
             <Button
               className="members-button"
               onClick={() => setLoginPage(true)}
             >
-              Member Login
+              Logga in
             </Button>
           </AuthContainer>
           <AuthContainer>
-            <SignupHeader>Become a knitter</SignupHeader>
+            <SignupHeader>Bli en av alla oss stickare</SignupHeader>
             <Form onSubmit={handleSignup}>
-              <label>Username</label>
+              <label>Användarnamn</label>
               <Input
                 required
                 minLength="3"
@@ -102,7 +104,7 @@ export const LoginSignup = () => {
                 value={name}
                 onChange={(event) => setName(event.target.value)}
               />
-              <label>Password</label>
+              <label>Lösenord</label>
               <Input
                 type="password"
                 name="password"
@@ -112,7 +114,7 @@ export const LoginSignup = () => {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <Button type="submit">Join us!</Button>
+              <Button type="submit">Bli en av oss!</Button>
               <StatusMessage>{statusMessage}</StatusMessage>
             </Form>
           </AuthContainer>
@@ -121,14 +123,14 @@ export const LoginSignup = () => {
 
       {loginPage && (
         <Form onSubmit={handleLogin} className="login-page">
-          <label>Name</label>
+          <label>Användarnamn</label>
           <Input
             value={name}
             onChange={(event) => setName(event.target.value)}
             required
             minLength="3"
           />
-          <label>Password</label>
+          <label>Lösenord</label>
           <Input
             type="password"
             name="password"
@@ -138,7 +140,7 @@ export const LoginSignup = () => {
             minLength="5"
           />
           <Button className="login-button" type="submit">
-            Log in
+            Logga in
           </Button>
           <StatusMessage>{statusMessage}</StatusMessage>
         </Form>

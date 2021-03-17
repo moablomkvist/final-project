@@ -1,10 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import { PostPattern } from '../components/PostPattern'
+import { PostPattern } from "../components/PostPattern";
 
 export const PostPage = () => {
-
-  return (
-    <PostPattern />
-  )
-}
+  return <PostPattern />;
+};

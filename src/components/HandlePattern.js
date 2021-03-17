@@ -1,43 +1,161 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Moment from "moment";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
+import styled from "styled-components";
 
-import { patternReducer } from '../reducers/patternReducer'
-import { PatternCard } from 'styling/lib/PatternCard';
-import { PatternName } from 'styling/lib/PatternCard';
-import { PatternImage } from 'styling/lib/PatternCard';
-import { PatternDetails } from 'styling/lib/PatternCard';
+import { patternReducer } from "../reducers/patternReducer";
+
+import { DeletePattern } from "components/DeletePattern";
+import { Filter } from "components/Filter";
+
+import { FavouritePattern } from "./FavouritePattern";
 
 export const HandlePattern = () => {
-  const dispatch = useDispatch(); //store all the patterns
-  const patterns = useSelector((store) => store.patternReducer.all)
+  const dispatch = useDispatch();
+  const patterns = useSelector((store) => store.patternReducer.all);
 
-    const PATTERNS_URL = 'http://localhost:8081/patterns';
+  const PATTERNS_URL = "https://knitting-circle.herokuapp.com/patterns";
 
-    useEffect(() => { 
-      fetch(PATTERNS_URL, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json '},
+  useEffect(() => {
+    fetch(PATTERNS_URL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Could not find your account.");
+        } else {
+          return res.json();
+        }
       })
-        .then((res) => res.json())
-        .then((json) => dispatch(patternReducer.actions.setPatterns(json))); //how to store the patterns in Redux store. 
-      }, [dispatch]); //for not continuously updating. Gets depending on this variable.  
+      .then((json) => dispatch(patternReducer.actions.setPatterns(json)));
+  }, [dispatch]); //for not continuously updating. Gets depending on this variable.
 
-      return (
-        <section id='test'>
+  return (
+    <>
+      <Filter />
+      <PatternPage>
         {patterns.map((pattern) => (
-          <PatternCard key={pattern._id} createdAt={pattern.createdAt}>
-            <PatternName>{pattern.post}</PatternName>
-            <a href={pattern.source} alt="pattern description">
-              <PatternImage src={pattern.imageSource} alt="pattern image"/>
-            </a>
-
-            <PatternDetails>{pattern.yarn}</PatternDetails>
-            <PatternDetails>{pattern.needles}</PatternDetails>
-            <PatternDetails>{pattern.createdAt}</PatternDetails>
+          <PatternCard key={pattern._id}>
+            <PatternImageWrapper>
+              <PatternName>{pattern.post}</PatternName>
+              <a href={pattern.source} alt="pattern description">
+                <PatternImage src={pattern.imageSource} alt="pattern" />
+              </a>
+            </PatternImageWrapper>
+            <PatternTextWrapper>
+              <PatternDetailsContainer>
+                <PatternDetails>Yarn / {pattern.yarn}</PatternDetails>
+                <PatternDetails>Needles / {pattern.needles}</PatternDetails>
+                <TimeDetails>{moment(pattern.createdAt).fromNow()}</TimeDetails>
+              </PatternDetailsContainer>
+              <SymbolContainer>
+                <DeletePattern pattern={pattern} />
+                <FavouritePattern pattern={pattern} />
+              </SymbolContainer>
+            </PatternTextWrapper>
           </PatternCard>
         ))}
-        </section>
-      );
-    
-}
+      </PatternPage>
+    </>
+  );
+};
+
+const PatternPage = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+const PatternCard = styled.article`
+  margin: 10px 0;
+  border-bottom: 2px dashed #c3c9b7;
+  padding-bottom: 20px;
+  width: 100%;
+
+  &:hover {
+    border-bottom: 2px solid #c3c9b7;
+  }
+
+  @media (min-width: 667px) and (max-width: 1024px) {
+    border: 2px dashed #c3c9b7;
+    width: 45%;
+    margin: 15px;
+
+    &:hover {
+      border: 2px solid #c3c9b7;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    border: 2px dashed #c3c9b7;
+    width: 30%;
+    margin: 15px;
+
+    &:hover {
+      border: 2px solid #c3c9b7;
+    }
+  }
+`;
+
+const PatternImageWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
+const PatternName = styled.h3`
+  margin: 15px;
+  font-size: 26px;
+  text-transform: uppercase;
+
+  @media (min-width: 667px) {
+    font-size: 28px;
+  }
+`;
+
+const PatternImage = styled.img`
+  width: 100%;
+`;
+
+//Everything below the image
+const PatternTextWrapper = styled.section`
+  display: flex;
+`;
+
+const PatternDetailsContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 70%;
+  margin-left: 10px;
+  font-family: "Fraunces", serif;
+`;
+
+const PatternDetails = styled.p`
+  margin: 10px;
+  font-weight: 400;
+  width: fit-content;
+
+  @media (min-width: 667px) {
+    font-size: 20px;
+  }
+`;
+
+const TimeDetails = styled.p`
+  margin: 40px 10px 0;
+  font-size: 16px;
+  font-weight: 300;
+
+  @media (min-width: 667px) {
+    font-size: 18px;
+  }
+`;
+
+const SymbolContainer = styled.section`
+  display: flex;
+  justify-content: right;
+`;

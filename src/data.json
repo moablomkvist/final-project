@@ -1,9 +1,198 @@
 {
-  "alfabet": [
-    {
-      "letter": "A",
-      "word": "",
-      "description": ""
-    }
-  ]
+  "glossary": {
+    "A": [
+      {
+        "word": "Alpaca (fiber)",
+        "description": "Alpacaull är den naturliga fibern från alpacan och den har en liknande struktur som fibrer från fårull. Dess mjukhet beror på fiberns lilla diameter, i likhet med merino-ull. Det är en mjuk, hållbar, lyxig och silkeslen naturlig fiber. Alpacagarn tovas inte så lätt och blir inte så nopprig. Det kan vara lätt eller tungt beroende på hur det är spunnet."
+      },
+      {
+        "word": "Avig maska (am)",
+        "description": "En teknik där maskan formas som en liten pärla."
+      },
+      {
+        "word": "Avigsida",
+        "description": "Den sida av plagget som vänder inåt, alltså den sidan som är minst synlig."
+      }
+    ],
+    "B": [
+      {
+        "word": "Bakersta maskbåge",
+        "description": "När man stickar i den bakre maskbågen sticks nålen i den bågen på maskan som är längst bort från dig (avsett om det är den räta eller aviga sidan). Som stickteknik kallas det även att sticka vridet rät eller vridet avigt."
+      },
+      {
+        "word": "Bakstycke",
+        "description": "Den del av plagget som täcker baksidan av kroppen. På en tröja är det den del som täcker ryggen."
+      }
+    ],
+    "C": [
+      {
+        "word": "Chainette (garn)",
+        "description": "Chainette-garn har en väldigt unik konstruktion där tråden är konstruerad som en kedja med ihålig kärna. Plagg som stickas i dessa garn blir väldigt elastiska och får en känsla av plysch. Chainette-garn ger också fina definierade maskor vilket passar extra bra till t.ex. flätor."
+      }
+    ],
+    "D": [
+      {
+        "word": "Diagonalstickat",
+        "description": "En stickteknik där man minskar på ena sidan och ökar på den andra sidan för att skapa en diagonal effekt."
+      },
+      {
+        "word": "Diagram",
+        "description": "Ett diagram är en visuell presentation av mönstret du ska sticka/virka och hur det kommer att se ut. Det består av symboler eller ett rutnät med symboler och det upprepas vanligtvis."
+      }
+    ],
+    "E": [
+      {
+        "word": "Efterstygn",
+        "description": "Efterstygn kan sys på det stickade eller virkade plagget när det är färdigt."
+      }
+    ],
+    "F": [
+      {
+        "word": "Förkortade varv",
+        "description": "Förkortade varv formar plagget då man inte stickar över alla maskor på varvet varje gång. Plagget blir bredare på den sida där det stickas flest varv."
+      },
+      {
+        "word": "Främre maskbågen",
+        "description": "När man stickar i den främre maskbågen är detta den bågen som är närmast dig, oavsett om du stickar från rät- eller avigsidan."
+      }
+    ],
+    "G": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "H": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "I": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "J": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "K": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "L": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "M": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "N": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "O": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "P": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "Q": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "R": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "S": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "T": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "U": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "V": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "W": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "X": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "Y": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "Z": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "Å": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "Ä": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ],
+    "Ö": [
+      {
+        "word": "",
+        "description": ""
+      }
+    ]
+  }
 }

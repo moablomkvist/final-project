@@ -13,11 +13,6 @@ export const SymbolButton = styled.button`
   margin-top: 5px;
   padding: 10px;
   outline: transparent;
-
-    &:hover {
-      background-color: #a4a99b;
-    }
-
     & .favMark {
       border-radius: 50%;
       padding: 10px;
